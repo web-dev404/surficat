@@ -1,5 +1,5 @@
 const Header = () => {
-	return <header>header</header>
+	return <header>мои сертификаты</header>
 }
 
 export default Header
