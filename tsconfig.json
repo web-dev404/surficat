@@ -18,7 +18,8 @@
     "paths": {
       "@/common/*": ["components/common/*"],
       "@/layout/*": ["components/layout/*"],
-      "@/images/*": ["components/images/*"],
+      "@/screens/*": ["components/screens/*"],
+      "@/*": ["./*"],
       "@/data/*": ["data/*"]
     }
   },

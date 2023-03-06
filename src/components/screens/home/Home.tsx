@@ -1,9 +1,10 @@
+import Button from "@/common/Button/Button";
 import Layout from '@/layout/Layout'
 
 const Home = () => {
 	return (
 		<Layout title={'Главная'}>
-			<div className=''>hello world</div>
+			<Button>subscribe</Button>
 		</Layout>
 	)
 }
