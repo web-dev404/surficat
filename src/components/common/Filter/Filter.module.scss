@@ -1,0 +1,66 @@
+@import '@/styles/_variables.scss';
+.filter {
+	display: flex;
+	column-gap: 32px;
+	&__search {
+		width: 100%;
+	}
+	&__item {
+		width: 100%;
+		max-width: 365px;
+		display: flex;
+		align-items: center;
+		background: $white;
+		border: 1px solid $border;
+		border-radius: 8px;
+		padding: 15px 20px;
+	}
+	&__field {
+		width: 100%;
+		font-family: 'Gilroy';
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		color: $gray;
+		border: none;
+	}
+	&__icon {
+		cursor: pointer;
+		margin-right: 16px;
+	}
+	&__field::placeholder {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		color: $gray;
+	}
+	@media ($media_xs2) {
+		flex-wrap: wrap;
+		row-gap: 17px;
+	}
+}
+.swiper {
+	display: none;
+	width: 100%;
+	position: relative;
+	overflow: visible;
+	&__slide {
+		background: #ffffff;
+		border: 1px solid #eaecf1;
+		border-radius: 4px;
+		padding: 4px 10px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 24px;
+	}
+	@media ($media_xs2) {
+		display: flex;
+	}
+}
+.select {
+	@media ($media_xs2) {
+		&__hide {
+			display: none;
+		}
+	}
+}

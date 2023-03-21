@@ -1,0 +1,15 @@
+@import '@/styles/_variables.scss';
+.close {
+	cursor: pointer;
+	position: absolute;
+	top: 18px;
+	right: 18px;
+	@media ($media_xs2) {
+		top: 11px;
+		right: 11px;
+		&__icon {
+			width: 16px;
+			height: 16px;
+		}
+	}
+}

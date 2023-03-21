@@ -1,16 +1,14 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { FC, PropsWithChildren } from 'react'
-
 import { onlyText } from '../../../utils/clear-text'
-
 import { siteName, titleMerge } from './meta.config'
 import { ISeo } from './meta.interface'
 
 const Meta: FC<PropsWithChildren<ISeo>> = ({
 	title,
 	description,
-	image = '/gevion.ico',
+	image = '/fav.svg',
 	children,
 	type = 'website'
 }) => {
@@ -21,7 +19,7 @@ const Meta: FC<PropsWithChildren<ISeo>> = ({
 		<>
 			<Head>
 				<title itemProp='headline'>{titleMerge(title)}</title>
-				<link type='image/x-icon' href='/gevion.ico' rel='shortcut icon' />
+				<link type='image/x-icon' href='/fav.svg' rel='shortcut icon' />
 				{description ? (
 					<>
 						<meta

@@ -1,0 +1,29 @@
+@import '@/styles/_variables.scss';
+.sends__filter {
+	margin-bottom: 28px;
+	&__info {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 28px;
+		text-align: center;
+		color: #232124;
+	}
+	&__link {
+		font-weight: 500;
+		color: #6d54fe;
+	}
+	&__empty {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 28px;
+		text-align: center;
+		color: #787486;
+	}
+	@media ($media_xs2) {
+		margin-bottom: 22px;
+		&__info {
+			font-size: 14px;
+			line-height: 24px;
+		}
+	}
+}

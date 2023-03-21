@@ -1,0 +1,84 @@
+@import '@/styles/_variables.scss';
+.side {
+	flex-grow: 1;
+	&__wrapper {
+		padding: 39px 39px;
+		background: $white;
+		margin-bottom: 16px;
+		border: 1px solid #eaecf1;
+		border-radius: 12px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	&__title {
+		max-width: 250px;
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 34px;
+		margin-bottom: 16px;
+	}
+	&__subtitle {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		margin-bottom: 32px;
+	}
+	&__telegram {
+		margin-right: 12px;
+	}
+	&__button {
+		border-radius: 8px;
+		padding: 16px;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: $purple;
+		font-family: 'Gilroy';
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 24px;
+		color: $white;
+	}
+	&__mail {
+		margin-right: 12px;
+	}
+	&__support {
+		padding: 23px 23px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__link {
+		color: $purple;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 28px;
+	}
+	@media ($media_xs2) {
+		&__wrapper {
+			padding: 16px 15px;
+			margin-bottom: 11px;
+		}
+		&__title {
+			max-width: 195px;
+			font-size: 18px;
+			line-height: 28px;
+			margin-bottom: 8px;
+		}
+		&__subtitle {
+			font-size: 14px;
+			line-height: 24px;
+			margin-bottom: 15px;
+		}
+		&__button {
+			border-radius: 6px;
+			padding: 12px;
+		}
+		&__link {
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+}

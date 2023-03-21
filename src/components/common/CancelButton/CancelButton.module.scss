@@ -1,0 +1,21 @@
+@import '@/styles/_variables.scss';
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Gilroy';
+	width: 100%;
+	padding: 15px;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	color: $mainText;
+	border: 1.5px solid $border;
+	border-radius: 8px;
+	&__icon {
+		margin-right: 14px;
+	}
+	@media ($media_xs2) {
+		padding: 11px;
+	}
+}

@@ -1,0 +1,16 @@
+@import '@/styles/_variables.scss';
+.sends {
+	padding: 186px 0;
+	display: flex;
+	justify-content: center;
+	&__inner {
+		max-width: 528px;
+	}
+	&__dashed {
+		border: 1.5px dashed #d1d1dc;
+		border-radius: 12px;
+	}
+	@media ($media_xs2) {
+		padding: 156px 0;
+	}
+}

@@ -1,9 +1,6 @@
+@import 'src/styles/reset';
 @import 'src/styles/variables';
 @import 'src/styles/fonts';
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html,
 body {
@@ -14,34 +11,124 @@ body {
 body {
 	font-family: Gilroy, sans-serif;
 	overflow-x: hidden;
-	
+	background: $background;
+	color: $mainText;
+
 	&::-webkit-scrollbar {
 		width: 12px;
 	}
-	
+
 	&::-webkit-scrollbar-track {
 		background: #f6f6f6;
 		opacity: 0;
 	}
-	
+
 	&::-webkit-scrollbar-thumb {
-		background: #C9C9C9;
+		background: #c9c9c9;
 		border-radius: 20px;
 		border: 2px solid #f6f6f6;
 	}
-	
+
 	&::-webkit-scrollbar-thumb:hover {
-		background: #B4B4B4;
+		background: #b4b4b4;
 	}
-	
+
 	&.active {
 		overflow: hidden;
 	}
 }
-
+.loader-enter {
+	opacity: 0;
+}
+.loader-enter-active {
+	opacity: 1;
+	transition: opacity 300ms, transform 300ms;
+}
+.loader-exit {
+	opacity: 1;
+	transition: opacity 300ms, transform 300ms;
+}
+.loader-exit-active {
+	opacity: 0;
+	transition: opacity 300ms, transform 300ms;
+}
+.alert-enter {
+	opacity: 0;
+	transform: translate(-50%, 130%);
+}
+.alert-enter-active {
+	opacity: 1;
+	transform: translate(-50%, 100%);
+	transition: opacity 300ms, transform 300ms;
+}
+.alert-enter-done {
+	transform: translate(-50%, 100%);
+}
+.alert-exit {
+	opacity: 1;
+	transform: translate(-50%, 130%);
+	transition: opacity 300ms, transform 300ms;
+}
+.alert-exit-active {
+	opacity: 0;
+	transform: translate(-50%, 130%);
+	transition: opacity 300ms, transform 300ms;
+}
+.modal-enter {
+	opacity: 0;
+}
+.modal-enter-active {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+.modal-exit {
+	opacity: 1;
+}
+.modal-exit-active {
+	transition: opacity 300ms;
+	opacity: 0;
+}
+.info-enter {
+	opacity: 0;
+	transform: translate(-50%, 100%);
+}
+.info-enter-active {
+	opacity: 1;
+	transform: translate(-50%, 0%);
+	transition: opacity 300ms, transform 300ms;
+}
+.info-enter-done {
+	transform: translate(-50%, 0%);
+}
+.info-exit {
+	transition: opacity 300ms, transform 300ms;
+	transform: translate(-50%, 100%);
+	opacity: 1;
+}
+.info-exit-active {
+	opacity: 0;
+	transform: translate(-50%, 100%);
+	transition: opacity 300ms, transform 300ms;
+}
 .container {
-	max-width: 1200px;
+	overflow: hidden;
+	max-width: 1210px;
 	width: 100%;
-	padding: 0 15px;
+	padding: 0 20px;
 	margin: 0 auto;
+}
+.container-sm {
+	max-width: 1160px;
+	width: 100%;
+	margin: 0 auto;
+}
+.container-esm {
+	max-width: 961px;
+	width: 100%;
+	margin: 0 auto;
+}
+.container-profile {
+	width: 100%;
+	margin: 0 auto;
+	max-width: 565px;
 }

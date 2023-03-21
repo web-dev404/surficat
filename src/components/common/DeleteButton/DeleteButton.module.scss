@@ -1,0 +1,37 @@
+@import '@/styles/_variables.scss';
+.btn {
+	font-family: 'Gilroy';
+	color: $white;
+	padding: 16px;
+	background: #ff4d50;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	width: 100%;
+	transition: $transition_fast;
+	svg {
+		path {
+			transition: $transition_fast;
+		}
+	}
+	&:disabled {
+		cursor: auto;
+		background: #f5f5f6;
+		color: #787486;
+		svg {
+			path {
+				stroke: #787486;
+			}
+		}
+	}
+	&__icon {
+		margin-right: 12px;
+	}
+	@media ($media_xs2) {
+		padding: 12px;
+	}
+}

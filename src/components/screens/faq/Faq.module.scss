@@ -1,0 +1,13 @@
+@import '@/styles/_variables.scss';
+.faq {
+	&__row {
+		display: flex;
+		column-gap: 32px;
+	}
+	@media ($media_xs2) {
+		&__row {
+			row-gap: 32px;
+			flex-wrap: wrap;
+		}
+	}
+}

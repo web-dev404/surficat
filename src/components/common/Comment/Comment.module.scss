@@ -1,0 +1,86 @@
+@import '@/styles/_variables.scss';
+.comment {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	&__text {
+		display: block;
+		max-width: 134px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+	}
+	&__wrapper {
+		position: relative;
+		margin-right: 8px;
+	}
+	&__mob {
+		width: 100%;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		padding: 8px;
+		font-size: 14px;
+		line-height: 24px;
+		font-family: 'Gilroy';
+		border: 1.5px solid #eaecf1;
+		border-radius: 4px;
+		font-weight: 600;
+	}
+	&__icon {
+		cursor: pointer;
+	}
+	&__show {
+		display: none;
+	}
+	&__iconMob {
+		margin-right: 10px;
+	}
+	@media ($media_xs2) {
+		flex-wrap: wrap;
+		&__mob {
+			display: flex;
+			margin-bottom: 16px;
+			position: relative;
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				height: 1px;
+				background: #eaecf1;
+				width: 100%;
+				bottom: -17px;
+			}
+		}
+		&__icon {
+			display: none;
+		}
+		&__show {
+			width: 100%;
+			display: block;
+			font-weight: 600;
+			font-size: 14px;
+			line-height: 24px;
+			color: $purple;
+			margin-bottom: 12px;
+		}
+		&__text {
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			white-space: pre-wrap;
+			max-width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 56px;
+			&.comment__active {
+				height: auto;
+				-webkit-line-clamp: none;
+				display: block;
+			}
+		}
+	}
+}

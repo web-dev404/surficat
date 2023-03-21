@@ -1,0 +1,34 @@
+@import '@/styles/_variables.scss';
+.add {
+	&__add {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		color: $purple;
+	}
+	&__plus {
+		margin-right: 8px;
+	}
+	@media ($media_xs2) {
+		&__add {
+			font-weight: 600;
+			padding: 4px;
+			background: #ffffff;
+			border: 1.5px solid #eaecf1;
+			border-radius: 4px;
+			color: $mainText;
+			font-size: 14px;
+			line-height: 24px;
+			display: flex;
+			justify-content: center;
+		}
+		&__plus {
+			path {
+				stroke: $mainText;
+			}
+		}
+	}
+}

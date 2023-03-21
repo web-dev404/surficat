@@ -1,0 +1,169 @@
+@import '@/styles/_variables.scss';
+.registration {
+	max-width: 465px;
+	&__send {
+		margin-bottom: 24px;
+	}
+	&__fields {
+		margin-bottom: 31px;
+	}
+	&__title {
+		font-weight: 600;
+		font-size: 32px;
+		line-height: 42px;
+		margin-bottom: 16px;
+		letter-spacing: 0px;
+	}
+	&__subtitle {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 28px;
+		margin-bottom: 32px;
+		letter-spacing: 0px;
+	}
+	&__link {
+		font-weight: 500;
+		color: $purple;
+		text-decoration: none;
+	}
+	&__text {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		margin-bottom: 32px;
+		letter-spacing: 0px;
+	}
+	&__wrapper {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 32px;
+		&::after {
+			position: absolute;
+			content: '';
+			display: block;
+			top: 50%;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background: $border;
+			transform: translateY(-50%);
+		}
+	}
+	&__or {
+		padding: 0 16px;
+		background: #ffffff;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 28px;
+		color: $gray;
+		position: relative;
+		z-index: 3;
+		letter-spacing: -1px;
+	}
+	&__button {
+		border: 1.5px solid $border;
+		border-radius: 8px;
+		font-family: 'Gilroy';
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 16px;
+		width: 100%;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 24px;
+	}
+	&__icon {
+		margin-right: 12px;
+	}
+	&__check {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+	&__subfields {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 30px;
+		input {
+			opacity: 0;
+			visibility: hidden;
+			width: 1px;
+			height: 1px;
+		}
+		input:checked + .registration__checkBox {
+			background: $purple;
+			.registration__checkimg {
+				opacity: 1;
+			}
+		}
+	}
+	&__checkimg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: $transition_fast;
+		opacity: 0;
+	}
+	&__checkBox {
+		position: relative;
+		transition: $transition_fast;
+		border: 1px solid $purple;
+		border-radius: 4px;
+		width: 16px;
+		height: 16px;
+		border: 1px solid $purple;
+		margin-right: 12px;
+	}
+	&__checkText {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+	}
+	@media ($media_xs2) {
+		&__title {
+			font-size: 24px;
+			line-height: 34px;
+		}
+		&__subtitle {
+			font-size: 11px;
+			line-height: 24px;
+			margin-bottom: 23px;
+		}
+		&__checkText {
+			font-size: 14px;
+			line-height: 24px;
+		}
+		&__text {
+			font-size: 12px;
+			line-height: 16px;
+			margin-bottom: 15px;
+		}
+		&__fields {
+			margin-bottom: 17px;
+		}
+		&__subfields {
+			margin-bottom: 24px;
+		}
+		&__link {
+			font-size: 14px;
+			line-height: 24px;
+		}
+		&__send {
+			margin-bottom: 17px;
+		}
+		&__or {
+			font-size: 14px;
+			line-height: 24px;
+		}
+		&__wrapper {
+			margin-bottom: 20px;
+		}
+		&__button {
+			padding: 11px;
+		}
+	}
+}

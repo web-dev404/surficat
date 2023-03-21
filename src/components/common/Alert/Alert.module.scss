@@ -1,0 +1,28 @@
+@import '@/styles/_variables.scss';
+.alert {
+	color: $white;
+	padding: 11px 16px;
+	display: flex;
+	width: 366px;
+	align-items: center;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 26px;
+	background: #232124;
+	border-radius: 4px;
+	position: fixed;
+	z-index: 9999;
+	left: 50%;
+	bottom: 40px;
+	&__icon {
+		margin-right: 12px;
+	}
+	&__across {
+		cursor: pointer;
+		margin-left: auto;
+	}
+	@media ($media_xs2) {
+		bottom: 4px;
+		width: calc(100% - 8px);
+	}
+}

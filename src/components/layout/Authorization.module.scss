@@ -1,0 +1,54 @@
+@import '@/styles/_variables.scss';
+.authorization {
+	&__logo {
+		left: 95px;
+		top: 64px;
+		position: absolute;
+		z-index: 10;
+	}
+	&::after {
+		position: absolute;
+		content: '';
+		display: block;
+		width: 55vw;
+		height: 100vh;
+		background: $white;
+		right: 0;
+		top: 0;
+		z-index: -1;
+	}
+	&__row {
+		height: 100vh;
+		padding: 127px 0;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+	&__photo {
+		position: absolute;
+		top: 50%;
+		left: 7.5%;
+		transform: translateY(-50%);
+	}
+	@media ($media_xs2) {
+		&__logo {
+			top: 19px;
+			left: 20px;
+			width: 86px;
+			height: 26px;
+		}
+		&__photo {
+			display: none;
+		}
+		&__row {
+			min-height: 660px;
+			padding: 24px 0;
+			align-items: flex-end;
+		}
+		&::after {
+			position: fixed;
+			width: 100vw;
+			height: 100vh;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+@import '@/styles/_variables.scss';
+.profile {
+	padding: 40px;
+	background: $white;
+	border: 1px solid $border;
+	border-radius: 12px;
+	margin-bottom: 16px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	@media ($media_xs2) {
+		padding: 16px;
+		margin-bottom: 13px;
+	}
+}

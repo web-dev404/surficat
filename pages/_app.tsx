@@ -1,9 +1,39 @@
 import type { AppProps } from 'next/app'
+import { Router } from 'next/router'
+import React, { useEffect, useState } from 'react'
+import { CSSTransition } from 'react-transition-group'
+
+import Loader from '@/common/Loader/Loader'
 
 import '../src/styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
-	return <Component {...pageProps} />
+	const [loader, setLoader] = useState(false)
+	useEffect(() => {
+		return () => {
+			Router.events.on('routeChangeStart', url => {
+				setLoader(true)
+			})
+			Router.events.on('routeChangeComplete', url => {
+				setTimeout(() => {
+					setLoader(false)
+				}, 800)
+			})
+		}
+	}, [])
+	return (
+		<>
+			<CSSTransition
+				classNames='loader'
+				unmountOnExit
+				timeout={300}
+				in={loader}
+			>
+				<Loader />
+			</CSSTransition>
+			<Component {...pageProps} />
+		</>
+	)
 }
 
 export default MyApp

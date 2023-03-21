@@ -1,6 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
 
-import Footer from '@/layout/footer/Footer'
 import Header from '@/layout/header/Header'
 
 import Meta from './meta/Meta'
@@ -12,12 +11,10 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({ children, ...rest }) => {
 	return (
 		<>
 			<Meta {...rest} />
-
 			<main className={'main'}>
 				<div className={'container'}>
-					<Header />
+					<Header></Header>
 					<section>{children}</section>
-					<Footer />
 				</div>
 			</main>
 		</>

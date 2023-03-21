@@ -1,0 +1,113 @@
+@import '@/styles/_variables.scss';
+.item {
+	width: 100%;
+	border: 1px solid #eaecf1;
+	border-radius: 8px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 16px;
+	padding: 15px 20px 16px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	&__inner {
+		display: flex;
+		align-items: center;
+	}
+	&__photo {
+		background: #eaecf1;
+		width: 40px;
+		height: 40px;
+		overflow: hidden;
+		border-radius: 50%;
+		border: 1px solid $border;
+		margin-right: 16px;
+		img {
+			object-fit: cover;
+		}
+	}
+	&__name {
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 20px;
+	}
+	&__subName {
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 20px;
+	}
+	&__button {
+		position: relative;
+		padding: 10px 11px;
+		border: 1.5px solid #eaecf1;
+		border-radius: 4px;
+		margin-right: 12px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&__buttons {
+	}
+	&__disable {
+		cursor: auto;
+		svg {
+			path {
+				stroke: #787486;
+			}
+		}
+	}
+	&__icon {
+		flex-shrink: 0;
+		margin-right: 12px;
+	}
+	&__info {
+		padding-top: 12px;
+		color: #787486;
+		display: none;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 20px;
+	}
+	@media ($media_xs2) {
+		background: rgba(245, 245, 246, 0.5);
+		border: 1px solid #eaecf1;
+		border-radius: 8px;
+		flex-wrap: wrap;
+		padding: 12px 11px;
+		&__info {
+			display: flex;
+		}
+		&__inner {
+			text-align: center;
+			width: 100%;
+			flex-direction: column;
+			margin-bottom: 11px;
+		}
+		&__name {
+			font-size: 14px;
+			line-height: 24px;
+		}
+		&__subName {
+			font-size: 12px;
+			line-height: 20px;
+		}
+		&__buttons {
+			width: 100%;
+			display: flex;
+		}
+		&__photo {
+			width: 32px;
+			height: 32px;
+			margin-right: 0;
+			margin-bottom: 8px;
+		}
+		&__button {
+			padding: 7px 11px 3px;
+			width: 100%;
+			background: $white;
+		}
+		&__items {
+			margin-bottom: 16px;
+		}
+	}
+}

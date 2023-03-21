@@ -1,0 +1,10 @@
+@import '@/styles/_variables.scss';
+.subtitle {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 26px;
+	@media ($media_xs2) {
+		font-size: 14px;
+		line-height: 24px;
+	}
+}

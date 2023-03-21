@@ -1,0 +1,76 @@
+@import '@/styles/_variables.scss';
+.item {
+	background: #ffffff;
+	border: 1px solid #eaecf1;
+	border-radius: 8px;
+	padding: 15px 16px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 16px 20px;
+	margin-bottom: 12px;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	&__large {
+		grid-column: span 2;
+	}
+	&__name {
+		display: block;
+		color: #787486;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 20px;
+	}
+	&__num {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 24px;
+		color: #6d54fe;
+	}
+	&__date {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 24px;
+		color: $mainText;
+	}
+	&__text {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 24px;
+		color: $mainText;
+	}
+	&__buttons {
+		justify-content: space-between;
+		display: flex;
+		column-gap: 16px;
+	}
+	&__certificate {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 24px;
+		color: $mainText;
+	}
+	&__for {
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 24px;
+		color: $mainText;
+	}
+	&__wrapper {
+		flex-shrink: 0;
+	}
+	&__more {
+		width: 100%;
+		font-family: 'Gilroy';
+		font-style: normal;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 24px;
+		color: #232124;
+		text-align: center;
+		background: $white;
+		padding: 4px 10px;
+		border: 1.5px solid #eaecf1;
+		border-radius: 4px;
+	}
+}

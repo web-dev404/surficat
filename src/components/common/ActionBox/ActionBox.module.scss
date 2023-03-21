@@ -1,0 +1,23 @@
+@import '@/styles/_variables.scss';
+.button {
+	position: relative;
+	padding: 8px;
+	background: $white;
+	border: 1.5px solid $border;
+	border-radius: 4px;
+	transition: 0.6s;
+	margin-right: 10px;
+	&:last-child {
+		margin-right: 0;
+	}
+	&:hover {
+		background: #f8c52f;
+		img {
+			filter: brightness(0) invert(1);
+		}
+	}
+	img {
+		transition: 0.6s;
+		display: block;
+	}
+}

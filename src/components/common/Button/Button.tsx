@@ -1,8 +1,26 @@
-import {FC, PropsWithChildren} from 'react'
+import { FC, PropsWithChildren } from 'react'
 
 import s from './Button.module.scss'
 
-const ButtonComponent: FC<PropsWithChildren> = ({ children, ...rest }) => {
-	return <button className={s.btn} {...rest}>{children}</button>
+interface IButton {
+	onClick?: Function
+	disabled?: boolean
+}
+const ButtonComponent: FC<PropsWithChildren<IButton>> = ({
+	children,
+	onClick,
+	disabled = false
+}) => {
+	return (
+		<button
+			className={s.btn}
+			onClick={() => {
+				onClick ? onClick() : ''
+			}}
+			disabled={disabled}
+		>
+			{children}
+		</button>
+	)
 }
 export default ButtonComponent

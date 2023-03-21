@@ -1,0 +1,61 @@
+@import '@/styles/_variables.scss';
+.profile {
+	&__buttons {
+		margin-bottom: 30px;
+		&Wrap {
+			padding-top: 15px;
+		}
+	}
+	&__delete {
+		margin-bottom: 22px;
+	}
+	&__modalButtons {
+		display: flex;
+		column-gap: 24px;
+	}
+	&__add {
+		font-family: 'Gilroy';
+		width: 100%;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 24px;
+		padding: 12px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1.5px solid #eaecf1;
+		border-radius: 6px;
+		letter-spacing: 0;
+	}
+	&__plus {
+		margin-right: 12px;
+	}
+	&__items {
+		margin-bottom: 28px;
+	}
+	@media ($media_xs2) {
+		&__add {
+			padding: 7px;
+			font-size: 14px;
+			line-height: 24px;
+		}
+		&__items {
+			margin-bottom: 16px;
+		}
+		&__buttons {
+			margin-bottom: 15px;
+		}
+		&__plus {
+			margin-right: 10px;
+			width: 16px;
+			height: 16px;
+		}
+		&__delete {
+			margin-bottom: 18px;
+		}
+		&__modalButtons {
+			flex-direction: column-reverse;
+			row-gap: 17px;
+		}
+	}
+}

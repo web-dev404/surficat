@@ -1,0 +1,31 @@
+.registation{
+  &__logo{
+    left: 95px;
+    top: 64px;
+    position: absolute;
+  }
+  &::before{
+    position: absolute;
+    content: '';
+    display: block;
+    width: 45vw;
+    height: 100vh;
+    background: #F5F5F5;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+  &__row{
+    height: 100vh;
+    padding: 127px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__photo{
+    position: absolute;
+    top: 50%;
+    left: 7.5%;
+    transform: translateY(-50%);
+  }
+}
