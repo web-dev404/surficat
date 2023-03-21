@@ -1,0 +1,42 @@
+@import '@/styles/_variables.scss';
+
+.certificate {
+	&__done {
+		margin: 100px auto;
+		max-width: 380px;
+		border: 1px solid #eaecf1;
+		border-radius: 12px;
+		background-color: $white;
+		padding: 40px;
+	}
+
+	&__box__title {
+		font-weight: 600;
+		font-size: 24px;
+		font-weight: 600;
+		line-height: 34px;
+		letter-spacing: 0px;
+		margin-bottom: 16px;
+	}
+
+	&__box__subtitle {
+		font-weight: 500;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 26px;
+		letter-spacing: 0px;
+		margin-bottom: 32px;
+	}
+
+	&__button {
+		width: 300px;
+		height: 56px;
+		color: $white;
+		background-color: $purple;
+		border-radius: 8px;
+		font-weight: 600;
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 24px;
+	}
+}
