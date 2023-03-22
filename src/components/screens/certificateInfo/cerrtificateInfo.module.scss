@@ -10,17 +10,18 @@
 
 .info {
 	padding-top: 64px;
+	
 	&__top {
 		display: flex;
 		align-items: center;
 		margin-bottom: 48px;
 	}
-
+	
 	&__top a {
 		height: 35px;
 		margin-right: 24px;
 	}
-
+	
 	&__download,
 	&__company,
 	&__create {
@@ -30,12 +31,12 @@
 		padding: 40px;
 		margin-bottom: 16px;
 	}
-
+	
 	&__download__title,
 	&__company__title {
 		margin-bottom: 16px;
 	}
-
+	
 	&__download__input {
 		display: block;
 		position: absolute;
@@ -45,7 +46,7 @@
 		opacity: 0;
 		cursor: pointer;
 	}
-
+	
 	&__download__btn,
 	&__company__btn {
 		width: 484px;
@@ -59,23 +60,23 @@
 		justify-content: center;
 		align-items: center;
 	}
-
+	
 	&__download__btn img {
 		margin-right: 12px;
 	}
-
+	
 	&__company__title span {
 		color: $purple;
 	}
-
+	
 	&__company__btn {
 		margin-bottom: 32px;
 	}
-
+	
 	&__company__btn img {
 		margin-right: 12px;
 	}
-
+	
 	&__company__alert {
 		padding-right: 7px;
 		width: 100%;
@@ -85,11 +86,11 @@
 		font-size: 16px;
 		line-height: 26px;
 	}
-
+	
 	&__subtitle span {
 		color: $purple;
 	}
-
+	
 	&__create__btn {
 		width: 484px;
 		height: 56px;
@@ -108,11 +109,11 @@
 	border-radius: 12px;
 	padding: 40px;
 	margin-bottom: 16px;
-
+	
 	&__title {
 		margin-bottom: 16px;
 	}
-
+	
 	&__subtitle {
 		margin-bottom: 32px;
 		font-weight: 500;
@@ -120,14 +121,14 @@
 		line-height: 26px;
 		letter-spacing: -0.3px;
 	}
-
+	
 	&__input,
 	&__textarea {
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 26px;
 	}
-
+	
 	&__input {
 		width: 484px;
 		min-height: 56px;
@@ -136,6 +137,7 @@
 		padding: 15px 20px;
 		margin-bottom: 6px;
 	}
+	
 	&__input::placeholder,
 	&__textarea::placeholder,
 	&__box__input::placeholder {
@@ -144,7 +146,7 @@
 		line-height: 26px;
 		color: $gray;
 	}
-
+	
 	&__text {
 		width: 484px;
 		color: $gray;
@@ -153,7 +155,7 @@
 		line-height: 20px;
 		margin-bottom: 24px;
 	}
-
+	
 	&__textarea {
 		resize: none;
 		width: 484px;
@@ -162,12 +164,12 @@
 		border: 1px solid #eaecf1;
 		border-radius: 8px;
 	}
-
+	
 	&__box {
 		display: flex;
 		align-items: center;
 	}
-
+	
 	&__box__input {
 		border: 1px solid #eaecf1;
 		border-radius: 8px;
@@ -176,7 +178,7 @@
 		padding: 15px 20px;
 		margin-right: 24px;
 	}
-
+	
 	&__box__select {
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -194,23 +196,23 @@
 		cursor: pointer;
 		outline: none;
 	}
-
+	
 	&__box__wrapper {
 		position: relative;
 	}
-
+	
 	&__box__wrapper::after {
 		content: '';
 		position: absolute;
 		display: block;
-		background-image: url('../../../public/icons/select-check.svg');
+		background-image: url('../../../../public/icons/select-check.svg');
 		width: 12px;
 		height: 8px;
 		top: 50%;
 		transform: translateY(-50%);
 		right: 23px;
 	}
-
+	
 	&__box__select::-ms-expand {
 		display: none;
 	}
