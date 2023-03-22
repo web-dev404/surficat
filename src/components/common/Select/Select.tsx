@@ -1,11 +1,5 @@
 import Image from 'next/image'
-import React, {
-	FC,
-	PropsWithChildren,
-	useEffect,
-	useRef,
-	useState
-} from 'react'
+import React, { FC, PropsWithChildren, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import Button from '@/common/Button/Button'
@@ -53,7 +47,7 @@ const Select: FC<PropsWithChildren<ISelect>> = ({
 					className={s.select__icon + ' ' + (open && s.select__icon_active)}
 				/>
 			</div>
-			<Modal active={open} onClick={setOpen}>
+			<Modal active={open} onClick={setOpen} onMob={true}>
 				<div className={s.select__modal}>
 					<svg
 						onClick={() => {
@@ -69,16 +63,16 @@ const Select: FC<PropsWithChildren<ISelect>> = ({
 						<path
 							d='M19 12H6.16667'
 							stroke='#232124'
-							stroke-width='1.7'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='1.7'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 						<path
 							d='M11 17.8337L5.16667 12.0003L11 6.16699'
 							stroke='#232124'
-							stroke-width='1.7'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='1.7'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 					</svg>
 					Сертификаты

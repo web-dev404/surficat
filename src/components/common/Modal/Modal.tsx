@@ -1,4 +1,5 @@
 import cn from 'clsx'
+import clsx from 'clsx'
 import Image from 'next/image'
 import React, { FC, PropsWithChildren, useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
@@ -12,12 +13,14 @@ interface IModal {
 	active: boolean
 	onClick: Function
 	className?: string
+	onMob?: boolean
 }
 const Modal: FC<PropsWithChildren<IModal>> = ({
 	children,
 	onClick,
 	active,
-	className
+	className,
+	onMob = false
 }) => {
 	const nodeRef = React.useRef(null)
 	const [visible, setVisible] = useState(active)
@@ -36,7 +39,7 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
 			timeout={300}
 			unmountOnExit
 		>
-			<div className={s.modal} ref={nodeRef}>
+			<div className={clsx(s.modal, { [s.modal__hide]: onMob })} ref={nodeRef}>
 				<div className={cn(s.modal__wrapper, s[`modal__${className}`])}>
 					<div
 						className={s.close}
@@ -68,16 +71,16 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
 							<path
 								d='M19 12H6.16669'
 								stroke='#6D54FE'
-								stroke-width='1.7'
-								stroke-linecap='round'
-								stroke-linejoin='round'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
 							/>
 							<path
 								d='M11 17.8337L5.16667 12.0003L11 6.16699'
 								stroke='#6D54FE'
-								stroke-width='1.7'
-								stroke-linecap='round'
-								stroke-linejoin='round'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
 							/>
 						</svg>
 						Назад

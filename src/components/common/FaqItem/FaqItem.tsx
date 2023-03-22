@@ -9,6 +9,7 @@ interface IFaqItem {
 }
 const FaqItem: FC<PropsWithChildren<IFaqItem>> = ({ children, title }) => {
 	const [isVisible, setVisibility] = useState(false)
+	const nodeRef = React.useRef(null)
 	return (
 		<li className={s.item}>
 			<div
@@ -27,12 +28,15 @@ const FaqItem: FC<PropsWithChildren<IFaqItem>> = ({ children, title }) => {
 				/>
 			</div>
 			<CSSTransition
+				nodeRef={nodeRef}
 				in={isVisible}
 				timeout={300}
 				unmountOnExit
 				classNames='loader'
 			>
-				<p className={s.item__text}>{children}</p>
+				<p ref={nodeRef} className={s.item__text}>
+					{children}
+				</p>
 			</CSSTransition>
 		</li>
 	)
