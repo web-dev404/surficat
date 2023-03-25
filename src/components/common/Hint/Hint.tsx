@@ -23,7 +23,7 @@ const Hint: FC<PropsWithChildren<IHint>> = ({
 			classNames='alert'
 		>
 			<div ref={nodeRef} className={cn(s.hint, s[`hint__${className}`])}>
-				<p className={s.hint__text}>{children}</p>
+				<div className={s.hint__text}>{children}</div>
 			</div>
 		</CSSTransition>
 	)

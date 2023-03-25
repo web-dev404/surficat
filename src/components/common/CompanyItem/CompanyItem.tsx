@@ -1,13 +1,16 @@
+import clsx from 'clsx'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-import Alert from '@/common/Alert/Alert'
 import Hint from '@/common/Hint/Hint'
 
 import s from './CompanyItem.module.scss'
 
 interface ICompanyItem {
-	del: Function
+	onEdit?: Function
+	del?: Function
+	select?: boolean
+	className?: string
 	data: {
 		name: string
 		info: string
@@ -15,11 +18,30 @@ interface ICompanyItem {
 		link: boolean
 	}
 }
-const CompanyItem = ({ data, del }: ICompanyItem) => {
+const CompanyItem = ({
+	data,
+	del,
+	className,
+	select,
+	onEdit
+}: ICompanyItem) => {
 	const [isVisible, setVisible] = useState(false)
+	const [isSelect, setSelect] = useState(false)
 	return (
-		<div className={s.item}>
+		<div
+			className={clsx(s.item, { [s.itemSelect]: isSelect }, className)}
+			onClick={() => {
+				select && setSelect(!isSelect)
+			}}
+		>
 			<div className={s.item__inner}>
+				{select && (
+					<div
+						className={clsx(s.item__select, {
+							[s.item__selectActive]: isSelect
+						})}
+					></div>
+				)}
 				<div className={s.item__photo}>
 					<Image src={data.img} alt={data.name} width={40} height={40} />
 				</div>
@@ -29,7 +51,12 @@ const CompanyItem = ({ data, del }: ICompanyItem) => {
 				</div>
 			</div>
 			<div className={s.item__buttons}>
-				<button className={s.item__button}>
+				<button
+					className={s.item__button}
+					onClick={() => {
+						onEdit && onEdit()
+					}}
+				>
 					<svg
 						width='16'
 						height='16'
@@ -53,58 +80,62 @@ const CompanyItem = ({ data, del }: ICompanyItem) => {
 						</defs>
 					</svg>
 				</button>
-				<button
-					className={s.item__button + ' ' + (data.link && s.item__disable)}
-					onClick={e => {
-						!e.currentTarget.classList.contains(s.item__disable) && del(true)
-					}}
-					onMouseEnter={() => {
-						data.link && setVisible(true)
-					}}
-					onMouseLeave={() => {
-						data.link && setVisible(false)
-					}}
-				>
-					<svg
-						width='16'
-						height='16'
-						viewBox='0 0 16 16'
-						fill='none'
-						xmlns='http://www.w3.org/2000/svg'
+				{del && (
+					<button
+						className={s.item__button + ' ' + (data.link && s.item__disable)}
+						onClick={e => {
+							!e.currentTarget.classList.contains(s.item__disable) &&
+								del &&
+								del(true)
+						}}
+						onMouseEnter={() => {
+							data.link && setVisible(true)
+						}}
+						onMouseLeave={() => {
+							data.link && setVisible(false)
+						}}
 					>
-						<path
-							d='M2 4H3.33333H14'
-							stroke='#232124'
-							strokeWidth='1.3'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-						/>
-						<path
-							d='M5.3335 4.00016V2.66683C5.3335 2.31321 5.47397 1.97407 5.72402 1.72402C5.97407 1.47397 6.31321 1.3335 6.66683 1.3335H9.3335C9.68712 1.3335 10.0263 1.47397 10.2763 1.72402C10.5264 1.97407 10.6668 2.31321 10.6668 2.66683V4.00016M12.6668 4.00016V13.3335C12.6668 13.6871 12.5264 14.0263 12.2763 14.2763C12.0263 14.5264 11.6871 14.6668 11.3335 14.6668H4.66683C4.31321 14.6668 3.97407 14.5264 3.72402 14.2763C3.47397 14.0263 3.3335 13.6871 3.3335 13.3335V4.00016H12.6668Z'
-							stroke='#232124'
-							strokeWidth='1.3'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-						/>
-						<path
-							d='M9.3335 7.3335V11.3335'
-							stroke='#232124'
-							strokeWidth='1.3'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-						/>
-						<path
-							d='M6.6665 7.3335V11.3335'
-							stroke='#232124'
-							strokeWidth='1.3'
-							strokeLinecap='round'
-							strokeLinejoin='round'
-						/>
-					</svg>
-					<Hint className={'small'} visible={isVisible}>
-						Эту компанию нельзя удалить, пока она привязана к сертификату.
-					</Hint>
-				</button>
+						<svg
+							width='16'
+							height='16'
+							viewBox='0 0 16 16'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<path
+								d='M2 4H3.33333H14'
+								stroke='#232124'
+								strokeWidth='1.3'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M5.3335 4.00016V2.66683C5.3335 2.31321 5.47397 1.97407 5.72402 1.72402C5.97407 1.47397 6.31321 1.3335 6.66683 1.3335H9.3335C9.68712 1.3335 10.0263 1.47397 10.2763 1.72402C10.5264 1.97407 10.6668 2.31321 10.6668 2.66683V4.00016M12.6668 4.00016V13.3335C12.6668 13.6871 12.5264 14.0263 12.2763 14.2763C12.0263 14.5264 11.6871 14.6668 11.3335 14.6668H4.66683C4.31321 14.6668 3.97407 14.5264 3.72402 14.2763C3.47397 14.0263 3.3335 13.6871 3.3335 13.3335V4.00016H12.6668Z'
+								stroke='#232124'
+								strokeWidth='1.3'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M9.3335 7.3335V11.3335'
+								stroke='#232124'
+								strokeWidth='1.3'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M6.6665 7.3335V11.3335'
+								stroke='#232124'
+								strokeWidth='1.3'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+						</svg>
+						<Hint className={'small'} visible={isVisible}>
+							Эту компанию нельзя удалить, пока она привязана к сертификату.
+						</Hint>
+					</button>
+				)}
 			</div>
 			{data.link && (
 				<div className={s.item__info}>
@@ -120,23 +151,23 @@ const CompanyItem = ({ data, del }: ICompanyItem) => {
 							<path
 								d='M12.0001 20.3337C16.6025 20.3337 20.3334 16.6027 20.3334 12.0003C20.3334 7.39795 16.6025 3.66699 12.0001 3.66699C7.39771 3.66699 3.66675 7.39795 3.66675 12.0003C3.66675 16.6027 7.39771 20.3337 12.0001 20.3337Z'
 								stroke='#787486'
-								stroke-width='1.7'
-								stroke-linecap='round'
-								stroke-linejoin='round'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
 							/>
 							<path
 								d='M12 15.3333V12'
 								stroke='#787486'
-								stroke-width='1.7'
-								stroke-linecap='round'
-								stroke-linejoin='round'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
 							/>
 							<path
 								d='M12 8.66699H12.0079'
 								stroke='#787486'
-								stroke-width='1.7'
-								stroke-linecap='round'
-								stroke-linejoin='round'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
 							/>
 						</g>
 						<defs>

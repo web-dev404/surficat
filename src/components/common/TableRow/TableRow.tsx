@@ -33,7 +33,9 @@ const TableRow: FC<PropsWithChildren<ITableRow>> = ({
 		<>
 			<tr>
 				<td className={s.row__cell}>
-					<span className={s.row__number}>{element.num}</span>
+					<a href={'#'} className={s.row__number}>
+						{element.num}
+					</a>
 					<span className={s.row__date}>{element.date}</span>
 				</td>
 				<td className={s.row__cell + ' ' + s.row__sertificate}>

@@ -1,0 +1,21 @@
+@import '@/styles/_variables.scss';
+.alert {
+	padding-right: 7px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: 500;
+	img {
+		margin-right: 14px;
+	}
+	@media ($media_xs2) {
+		align-items: start;
+		font-size: 14px;
+		line-height: 24px;
+		& img {
+			margin-right: 10px;
+		}
+	}
+}

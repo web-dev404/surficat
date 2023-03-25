@@ -1,0 +1,55 @@
+@import '@/styles/_variables.scss';
+.notify {
+	background-color: #232124;
+	&__icon {
+		margin-right: 12px;
+	}
+	&__inner {
+		position: relative;
+		padding: 7px 0;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		align-items: center;
+	}
+	&__text {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		color: $white;
+	}
+	&__box {
+		display: flex;
+		align-items: center;
+	}
+	a {
+		font-weight: 500;
+	}
+	&__close {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: -11px;
+	}
+}
+.success {
+	a {
+		color: #68d258;
+	}
+}
+.attention {
+	svg {
+		path {
+			stroke: #f8c52f;
+		}
+	}
+	a {
+		color: #f8c52f;
+	}
+}
+.error {
+	a {
+		color: #ff4d50;
+	}
+}

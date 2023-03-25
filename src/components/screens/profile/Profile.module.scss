@@ -1,4 +1,11 @@
 @import '@/styles/_variables.scss';
+.header {
+	@media ($media_xs2) {
+		flex-wrap: wrap;
+		row-gap: 34px;
+		margin-bottom: 25px;
+	}
+}
 .profile {
 	&__buttons {
 		margin-bottom: 30px;
@@ -57,5 +64,62 @@
 			flex-direction: column-reverse;
 			row-gap: 17px;
 		}
+	}
+}
+.deleteFieldMob {
+	display: none;
+	input:not(:placeholder-shown) + span {
+		color: #787486;
+		font-size: 12px;
+		line-height: 20px;
+		top: 5px;
+	}
+	input {
+		&:focus {
+			outline: none;
+			& + span {
+				color: #787486;
+			}
+		}
+	}
+	span {
+		&::after {
+			content: '';
+		}
+	}
+	@media ($media_xs2) {
+		display: block;
+	}
+}
+.delete {
+	input:placeholder-shown + span,
+	input:not(:placeholder-shown) + span {
+		color: #787486;
+		font-size: 12px;
+		line-height: 20px;
+		top: 5px;
+	}
+	input {
+		&:focus {
+			outline: none;
+			& + span {
+				color: #787486;
+			}
+		}
+	}
+	span {
+		&::after {
+			content: '';
+		}
+	}
+}
+.center {
+	text-align: center;
+}
+.subTitleMob {
+	display: none;
+	@media ($media_xs2) {
+		display: block;
+		margin-bottom: 3px;
 	}
 }

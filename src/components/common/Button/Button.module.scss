@@ -4,6 +4,9 @@
 	background: $purple;
 	border-radius: 8px;
 	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	font-family: 'Gilroy';
 	font-style: normal;
 	font-weight: 600;
@@ -13,6 +16,7 @@
 	width: 100%;
 	cursor: pointer;
 	letter-spacing: 0px;
+	transition: $transition_fast;
 	&:disabled {
 		cursor: auto;
 		background: #f5f5f6;

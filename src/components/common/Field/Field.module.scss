@@ -21,15 +21,9 @@
 		line-height: 26px;
 		color: $mainText;
 		vertical-align: bottom;
-		&::placeholder {
-			font-weight: 500;
-			font-size: 16px;
-			line-height: 26px;
-			color: $mainText;
-		}
 		&:focus {
 			outline: 1px solid $purple;
-			& + .field__placeholder {
+			& + span {
 				color: $purple;
 				font-size: 12px;
 				line-height: 20px;
@@ -37,8 +31,14 @@
 			}
 		}
 	}
+	&__placeholder {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		color: $mainText;
+	}
 	&__fill {
-		.field__placeholder {
+		span {
 			color: $purple;
 			font-size: 12px;
 			line-height: 20px;
@@ -61,74 +61,7 @@
 			color: $purple;
 		}
 	}
-	&__delete {
-		input:placeholder-shown + .field__placeholder,
-		input:not(:placeholder-shown) + .field__placeholder {
-			color: #787486;
-			font-size: 12px;
-			line-height: 20px;
-			top: 5px;
-		}
-		input {
-			&:focus {
-				outline: none;
-				& + .field__placeholder {
-					color: #787486;
-				}
-			}
-		}
-		span {
-			&::after {
-				content: '';
-			}
-		}
-	}
-	&__profile {
-		display: none;
-		input:not(:placeholder-shown) + .field__placeholder {
-			color: #787486;
-			font-size: 12px;
-			line-height: 20px;
-			top: 5px;
-		}
-		input {
-			&:focus {
-				outline: none;
-				& + .field__placeholder {
-					color: #787486;
-				}
-			}
-		}
-		span {
-			&::after {
-				content: '';
-			}
-		}
-	}
-	&__edit,
-	&__search {
-		margin-bottom: 7px;
-		.field__input {
-			outline: none;
-			padding-left: 60px;
-			&:focus {
-				& + .field__placeholder {
-					color: #787486;
-				}
-			}
-		}
-		.field__placeholder {
-			color: #787486;
-			left: 60px;
-		}
-	}
-	&__search {
-		span {
-			&::after {
-				content: '';
-			}
-		}
-	}
+
 	&__eye {
 		cursor: pointer;
 		position: absolute;
@@ -165,8 +98,10 @@
 		&__edit {
 			margin-bottom: 9px;
 		}
-		&__edit,
-		&__search {
+		&__eye {
+			right: 15px;
+		}
+		&__edit {
 			.field__input {
 				padding-left: 52px;
 			}

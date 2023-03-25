@@ -5,10 +5,6 @@
 	line-height: 34px;
 	margin-bottom: 32px;
 	margin-bottom: 32px;
-	&__red {
-		color: #ff4d50;
-		margin-bottom: 16px;
-	}
 	&__edit {
 		margin-bottom: 16px;
 	}
@@ -16,14 +12,5 @@
 		font-size: 18px;
 		line-height: 28px;
 		margin-bottom: 20px;
-		&__big {
-			font-size: 24px;
-			line-height: 34px;
-		}
-		&__edit {
-			font-size: 24px;
-			line-height: 34px;
-			margin-bottom: 16px;
-		}
 	}
 }

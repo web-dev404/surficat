@@ -4,11 +4,13 @@ import React, { useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import Loader from '@/common/Loader/Loader'
+import Notify from '@/common/Notify/Notify'
 
 import '../src/styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const [loader, setLoader] = useState(false)
+	const nodeRef = React.useRef(null)
 	useEffect(() => {
 		return () => {
 			Router.events.on('routeChangeStart', url => {
@@ -28,9 +30,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 				unmountOnExit
 				timeout={300}
 				in={loader}
+				nodeRef={nodeRef}
 			>
-				<Loader />
+				<div className={'loaderWrapper'} ref={nodeRef}>
+					<Loader />
+				</div>
 			</CSSTransition>
+			{/*<Notify status={1} active={true} />*/}
 			<Component {...pageProps} />
 		</>
 	)

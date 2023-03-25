@@ -1,0 +1,30 @@
+@import '@/styles/_variables.scss';
+.header {
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 46px;
+	}
+	&__box {
+		display: flex;
+		align-items: center;
+	}
+
+	&__symbol {
+		margin-left: 21px;
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		background-color: $purple;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	@media ($media_xs2) {
+		&__inner {
+			flex-wrap: wrap;
+			margin-bottom: 32px;
+		}
+	}
+}

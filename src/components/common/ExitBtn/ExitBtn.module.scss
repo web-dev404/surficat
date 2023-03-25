@@ -1,0 +1,35 @@
+@import '@/styles/_variables.scss';
+.btn {
+	padding: 12px 33px;
+	background: $white;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	display: flex;
+	align-items: center;
+	font-family: 'Gilroy';
+	border: 1.5px solid $border;
+	border-radius: 6px;
+	transition: $transition_fast;
+	&__icon {
+		margin-right: 12px;
+		path {
+			transition: $transition_fast;
+		}
+	}
+	&:hover {
+		color: $white;
+		background: $red;
+		.btn__icon {
+			path {
+				stroke: $white;
+			}
+		}
+	}
+	@media ($media_xs2) {
+		padding: 10px 25px;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+	}
+}

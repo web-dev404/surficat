@@ -1,5 +1,8 @@
 @import '@/styles/_variables.scss';
 .faq {
+	&__back {
+		margin-bottom: 17px;
+	}
 	&__row {
 		display: flex;
 		column-gap: 32px;

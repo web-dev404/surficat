@@ -7,7 +7,12 @@ body {
 	scrollbar-color: $black $white;
 	scrollbar-width: thin;
 }
-
+.loaderWrapper {
+	z-index: 9999;
+	width: 100vw;
+	height: 100vh;
+	background: $white;
+}
 body {
 	font-family: Gilroy, sans-serif;
 	overflow-x: hidden;
@@ -39,6 +44,7 @@ body {
 }
 .loader-enter {
 	opacity: 0;
+	transition: opacity 300ms, transform 300ms;
 }
 .loader-enter-active {
 	opacity: 1;
@@ -112,7 +118,7 @@ body {
 }
 .container {
 	overflow: hidden;
-	max-width: 1210px;
+	max-width: 1200px;
 	width: 100%;
 	padding: 0 20px;
 	margin: 0 auto;
@@ -131,4 +137,53 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	max-width: 565px;
+}
+
+.swiper-control {
+	height: 100%;
+	.swiper-pagination {
+		padding: 8px 12px;
+		background: rgba($mainText, 0.4);
+		width: max-content !important;
+		left: 50% !important;
+		transform: translateX(-50%);
+		border-radius: 48px;
+		bottom: 22px !important;
+		display: flex;
+	}
+	.swiper-pagination-bullet {
+		width: 12px;
+		height: 4px;
+		background: $white;
+		border-radius: 48px;
+	}
+	.swiper-pagination-bullet-active {
+		opacity: 1;
+	}
+	&__arrow {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		transform: translateY(0%);
+		z-index: 10;
+		width: 44px;
+		height: 44px;
+		border-radius: 50%;
+		background: rgba($mainText, 0.4);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		opacity: 0;
+		transition: $transition_fast;
+		&:hover {
+			transform: translateY(-50%);
+			opacity: 1;
+		}
+	}
+	&__prev {
+		left: 24px;
+	}
+	&__next {
+		right: 24px;
+	}
 }

@@ -64,3 +64,31 @@
 		}
 	}
 }
+.search {
+	margin-bottom: 7px;
+	input {
+		outline: none;
+		padding-left: 60px;
+		&:focus {
+			outline: none;
+			& + span {
+				color: #787486;
+			}
+		}
+	}
+	span {
+		left: 60px;
+		color: #787486;
+		&::after {
+			content: '';
+		}
+	}
+	@media ($media_xs2) {
+		input {
+			padding-left: 52px;
+		}
+		span {
+			left: 52px;
+		}
+	}
+}

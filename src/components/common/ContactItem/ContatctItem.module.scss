@@ -1,0 +1,71 @@
+@import '@/styles/_variables.scss';
+.item {
+	width: 100%;
+	display: flex;
+	column-gap: 20px;
+	&__box {
+		position: relative;
+		padding: 14px 19px;
+		border: 1px solid #eaecf1;
+		border-radius: 8px;
+		&:nth-child(1) {
+			display: flex;
+			align-items: center;
+		}
+		&:nth-child(2) {
+			flex-grow: 1;
+		}
+	}
+	&__field {
+		width: 100%;
+		border: none;
+		font-family: 'Gilroy';
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+	}
+	&__delete {
+		cursor: pointer;
+		padding: 16px 14px;
+		svg {
+			display: block;
+		}
+	}
+	&__icon {
+		margin-right: 16px;
+		svg {
+			display: block;
+		}
+	}
+	&__arrow {
+		cursor: pointer;
+		transition: $transition_fast;
+	}
+	&__arrowActive {
+		transform: scale(-1);
+	}
+	&__list {
+		padding: 8px;
+		width: 100%;
+		left: 0;
+		bottom: -10px;
+		transform: translateY(100%);
+		position: absolute;
+		background: $white;
+		z-index: 10;
+		border: 1px solid $border;
+		border-radius: 8px;
+	}
+	&__listItem {
+		cursor: pointer;
+		padding: 9px;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		border-radius: 4px;
+		transition: $transition_fast;
+		&:hover {
+			background: #f5f5f6;
+		}
+	}
+}

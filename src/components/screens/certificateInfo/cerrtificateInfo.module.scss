@@ -10,18 +10,22 @@
 
 .info {
 	padding-top: 64px;
-	
+
 	&__top {
 		display: flex;
 		align-items: center;
 		margin-bottom: 48px;
 	}
-	
+
 	&__top a {
 		height: 35px;
 		margin-right: 24px;
 	}
-	
+	&__top__title {
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 52px;
+	}
 	&__download,
 	&__company,
 	&__create {
@@ -29,14 +33,16 @@
 		border: 1px solid #eaecf1;
 		border-radius: 12px;
 		padding: 40px;
-		margin-bottom: 16px;
+		margin-bottom: 13px;
 	}
-	
+
 	&__download__title,
 	&__company__title {
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 34px;
 		margin-bottom: 16px;
 	}
-	
 	&__download__input {
 		display: block;
 		position: absolute;
@@ -46,10 +52,11 @@
 		opacity: 0;
 		cursor: pointer;
 	}
-	
+
 	&__download__btn,
 	&__company__btn {
-		width: 484px;
+		font-family: 'Gilroy';
+		width: 100%;
 		height: 48px;
 		border: 1.5px solid #eaecf1;
 		border-radius: 6px;
@@ -60,38 +67,27 @@
 		justify-content: center;
 		align-items: center;
 	}
-	
+
 	&__download__btn img {
 		margin-right: 12px;
 	}
-	
 	&__company__title span {
 		color: $purple;
 	}
-	
+
 	&__company__btn {
 		margin-bottom: 32px;
 	}
-	
+
 	&__company__btn img {
 		margin-right: 12px;
 	}
-	
-	&__company__alert {
-		padding-right: 7px;
-		width: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 16px;
-		line-height: 26px;
-	}
-	
 	&__subtitle span {
 		color: $purple;
 	}
-	
+
 	&__create__btn {
+		font-family: 'Gilroy';
 		width: 484px;
 		height: 56px;
 		border-radius: 8px;
@@ -101,43 +97,87 @@
 		font-size: 16px;
 		line-height: 24px;
 	}
+	@media ($media_xs2) {
+		&__download,
+		&__company,
+		&__create {
+			padding: 15px;
+		}
+		&__download__title,
+		&__company__title {
+			font-size: 18px;
+			line-height: 28px;
+			margin-bottom: 8px;
+		}
+		&__company__btn {
+			font-size: 14px;
+			line-height: 24px;
+			height: 39px;
+			margin-bottom: 17px;
+		}
+		&__company__btn img {
+			width: 16px;
+			height: 16px;
+			margin-right: 9px;
+		}
+		&__company {
+			margin-bottom: 23px;
+		}
+		&__create {
+			padding: 0;
+			background: transparent;
+		}
+	}
 }
-
+.back {
+	margin-bottom: 17px;
+}
 .form {
 	background: $white;
 	border: 1px solid #eaecf1;
 	border-radius: 12px;
 	padding: 40px;
 	margin-bottom: 16px;
-	
+
 	&__title {
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 34px;
 		margin-bottom: 16px;
 	}
-	
+
 	&__subtitle {
 		margin-bottom: 32px;
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 26px;
-		letter-spacing: -0.3px;
+		letter-spacing: 0px;
 	}
-	
+	&__subtitle a {
+		font-weight: 500;
+		color: $purple;
+	}
+	&__subtitleEnd {
+		margin-bottom: 25px;
+	}
+
 	&__input,
 	&__textarea {
+		font-family: 'Gilroy';
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 26px;
 	}
-	
+
 	&__input {
-		width: 484px;
-		min-height: 56px;
-		border: 1px solid #eaecf1;
-		border-radius: 8px;
-		padding: 15px 20px;
+		//width: 100%;
+		//min-height: 56px;
+		//border: 1px solid #eaecf1;
+		//border-radius: 8px;
+		//padding: 15px 20px;
 		margin-bottom: 6px;
 	}
-	
+
 	&__input::placeholder,
 	&__textarea::placeholder,
 	&__box__input::placeholder {
@@ -146,30 +186,32 @@
 		line-height: 26px;
 		color: $gray;
 	}
-	
+	&__star {
+		color: $purple;
+	}
 	&__text {
-		width: 484px;
+		width: 100%;
 		color: $gray;
 		font-weight: 500;
 		font-size: 12px;
 		line-height: 20px;
 		margin-bottom: 24px;
 	}
-	
+
 	&__textarea {
 		resize: none;
-		width: 484px;
+		width: 100%;
 		min-height: 124px;
 		padding: 15px 20px;
 		border: 1px solid #eaecf1;
 		border-radius: 8px;
 	}
-	
+
 	&__box {
 		display: flex;
 		align-items: center;
 	}
-	
+
 	&__box__input {
 		border: 1px solid #eaecf1;
 		border-radius: 8px;
@@ -178,7 +220,7 @@
 		padding: 15px 20px;
 		margin-right: 24px;
 	}
-	
+
 	&__box__select {
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -196,24 +238,136 @@
 		cursor: pointer;
 		outline: none;
 	}
-	
-	&__box__wrapper {
-		position: relative;
+	@media ($media_xs2) {
+		padding: 15px;
+		margin-bottom: 12px;
+		&__box__wrapper {
+			width: 100%;
+		}
+		&__box__select {
+			padding: 15px;
+			height: 48px;
+			width: 100%;
+			font-size: 14px;
+			line-height: 24px;
+		}
+		&__box__input {
+			padding: 15px;
+			height: 48px;
+			width: 100%;
+			margin-right: 0;
+			&::placeholder {
+				font-size: 14px;
+				line-height: 24px;
+			}
+		}
+		&__input {
+			margin-bottom: 8px;
+		}
+		&__box {
+			row-gap: 12px;
+			flex-wrap: wrap;
+		}
+		&__textarea {
+			margin-bottom: 2px;
+		}
+		&__text {
+			margin-bottom: 16px;
+		}
+		&__title {
+			font-size: 18px;
+			line-height: 28px;
+			margin-bottom: 9px;
+		}
+		&__subtitle {
+			font-size: 14px;
+			line-height: 24px;
+			margin-bottom: 16px;
+		}
 	}
-	
-	&__box__wrapper::after {
-		content: '';
-		position: absolute;
-		display: block;
-		background-image: url('../../../../public/icons/select-check.svg');
-		width: 12px;
-		height: 8px;
-		top: 50%;
-		transform: translateY(-50%);
-		right: 23px;
+}
+.textArea {
+	height: 124px;
+	margin-bottom: 6px;
+	textarea {
+		padding: 35px 20px;
 	}
-	
-	&__box__select::-ms-expand {
-		display: none;
+	span {
+		top: 11px;
+		left: 15px;
+	}
+}
+.modal {
+	max-width: 380px;
+	&__title {
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 34px;
+		margin-bottom: 16px;
+	}
+	&__subtitle {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+	}
+	@media ($media_xs2) {
+		padding: 23px 19px 23px;
+		&__title {
+			font-size: 18px;
+			line-height: 28px;
+			margin-bottom: 12px;
+		}
+		&__subtitle {
+			font-size: 14px;
+			line-height: 24px;
+			margin-bottom: 20px;
+		}
+	}
+}
+.new {
+	&__title {
+		font-weight: 600;
+		font-size: 24px;
+		line-height: 34px;
+		margin-bottom: 33px;
+	}
+	&__help {
+		color: $gray;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 20px;
+	}
+	&__fields {
+		display: flex;
+		flex-direction: column;
+		row-gap: 26px;
+		margin-bottom: 32px;
+	}
+	&__field {
+		margin-bottom: 4px;
+	}
+	&__smallTitle {
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 28px;
+		margin-bottom: 24px;
+	}
+	&__titleLogo {
+		margin-bottom: 16px;
+	}
+	&__text {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		margin-bottom: 24px;
+	}
+	&__load {
+		margin-bottom: 32px;
+	}
+}
+.area {
+	&__img {
+		width: 100%;
+		margin-bottom: 28px;
 	}
 }

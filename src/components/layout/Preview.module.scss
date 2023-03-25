@@ -1,0 +1,24 @@
+.main {
+	position: relative;
+}
+.section {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.container {
+	overflow: visible;
+}
+.footer {
+	position: absolute;
+	bottom: 7.7%;
+	left: 50%;
+	transform: translateX(-50%);
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 18px;
+	svg {
+		margin-left: 7px;
+	}
+}

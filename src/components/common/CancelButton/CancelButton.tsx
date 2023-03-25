@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import Image from 'next/image'
 import React, { FC, PropsWithChildren } from 'react'
 
@@ -5,16 +6,18 @@ import s from './CancelButton.module.scss'
 
 interface ICancelButton {
 	icon?: boolean
+	className?: string
 	onClick: Function
 }
 const CancelButton: FC<PropsWithChildren<ICancelButton>> = ({
 	children,
 	icon,
-	onClick
+	onClick,
+	className
 }) => {
 	return (
 		<button
-			className={s.button}
+			className={clsx(s.button, className)}
 			onClick={() => {
 				onClick()
 			}}

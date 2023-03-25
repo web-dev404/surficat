@@ -1,148 +1,90 @@
+import Link from 'next/link'
+import React from 'react'
+import 'swiper/css'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import Button from '@/common/Button/Button'
+import CertificateItem from '@/common/CertificateItem/CertificateItem'
+import PageButtons from '@/common/PageButtons/PageButtons'
+import PageHeader from '@/common/PageHeader/PageHeader'
+import PageTitle from '@/common/PageTitle/PageTitle'
+
+import Layout from '@/layout/Layout'
+
 import styles from './Certificate.module.scss'
+import data from './data'
 
 const Certificate = () => {
+	const items = data
 	return (
-		<section className={styles.certificate}>
-			<div className='container'>
-				<div className={styles.certificate__inner}>
-					<div className={styles.certificate__box}>
-						<h1 className={`${styles.certificate__title} ${styles.title}`}>
-							Мои сертификаты
-						</h1>
-						<div className={styles.certificate__symbol}>
-							<img src='/icons/plus-icon.svg' alt='symbol plus' />
-						</div>
-					</div>
-					<div className={styles.certificate__tabs}>
-						<button
-							className={`${styles.certificate__btn} ${styles.certificate__btn__active}`}
-						>
-							Сертификаты
-						</button>
-						<button className={styles.certificate__btn}>Отправки</button>
+		<Layout title={'Сертификаты'}>
+			<PageHeader title={'Мои сертификаты'} plus={true} buttons={true}>
+				<div className={styles.certificate__box}>
+					<PageTitle>
+						<span className={styles.word}>Мои</span>{' '}
+						<span className={styles.up}>с</span>ертификаты
+					</PageTitle>
+					<div className={styles.certificate__symbol}>
+						<img src='/icons/plus-icon.svg' alt='symbol plus' />
 					</div>
 				</div>
-				<div className={styles.certificate__cards}>
-					<div className={styles.certificate__item}>
-						<div className={styles.certificate__img}>
-							<span>2 000 ₽</span>
-							<img src='/img/cards/1.jpeg' alt={'card-one'} />
-						</div>
-						<div className={styles.certificate__item__box}>
-							<h5 className={styles.certificate__text}>
-								id sodales enim lacus bibendum lacus
-							</h5>
-							<div className={styles.certificate__buttons}>
-								<button className={styles.certificate__send}>Отправить</button>
-								<button className={styles.certificate__settings}>
-									<img src='/icons/settings.svg' alt={'settings icon'} />
-								</button>
-							</div>
-						</div>
-					</div>
-					<div className={styles.certificate__item}>
-						<div className={styles.certificate__img}>
-							<span>10 000 ₽</span>
-							<img src='/img/cards/2.jpeg' alt={'card-two'} />
-						</div>
-						<div className={styles.certificate__item__box}>
-							<h5 className={styles.certificate__text}>
-								Nam ullamcorper leo finibus ligula auctor volutpat. Donec
-								sagittis aliquet nisi vel susci…
-							</h5>
-							<div className={styles.certificate__buttons}>
-								<button className={styles.certificate__send}>Отправить</button>
-								<button className={styles.certificate__settings}>
-									<img src='/icons/settings.svg' alt={'settings icon'} />
-								</button>
-							</div>
-						</div>
-					</div>
-					<div className={styles.certificate__item}>
-						<div className={styles.certificate__img}>
-							<img src='/img/cards/3.jpeg' alt={'card-three'} />
-						</div>
-						<div className={styles.certificate__item__box}>
-							<h5 className={styles.certificate__text}>
-								Pellentesque at libero tempus felis porta commodo
-							</h5>
-							<div className={styles.certificate__buttons}>
-								<button className={styles.certificate__send}>Отправить</button>
-								<button className={styles.certificate__settings}>
-									<img src='/icons/settings.svg' alt={'settings icon'} />
-								</button>
-							</div>
-						</div>
-					</div>
-					<div className={styles.certificate__item}>
-						<div className={styles.certificate__img}>
-							<img src='/img/cards/4.jpeg' alt={'card-for'} />
-						</div>
-						<div className={styles.certificate__item__box}>
-							<h5 className={styles.certificate__text}>
-								Donec blandit velit pellen tesque neque elementum semper
-							</h5>
-							<div className={styles.certificate__buttons}>
-								<button className={styles.certificate__send}>Отправить</button>
-								<button className={styles.certificate__settings}>
-									<img src='/icons/settings.svg' alt={'settings icon'} />
-								</button>
-							</div>
-						</div>
-					</div>
-					<div className={styles.certificate__item}>
-						<div className={styles.certificate__img}>
-							<img src='/img/cards/5.jpeg' alt={'card-five'} />
-						</div>
-						<div className={styles.certificate__item__box}>
-							<h5 className={styles.certificate__text}>
-								Suspendisse porta velit odio, vel malesuada arcu congue sed.
-								Integer elementum
-							</h5>
-							<div className={styles.certificate__buttons}>
-								<button className={styles.certificate__send}>Отправить</button>
-								<button className={styles.certificate__settings}>
-									<img src='/icons/settings.svg' alt={'settings icon'} />
-								</button>
-							</div>
-						</div>
-					</div>
-					<div className={styles.certificate__item}>
+				<PageButtons />
+			</PageHeader>
+			<div className={styles.certificate__cards}>
+				{items.length > 0 && (
+					<>
+						{items.map((item, index) => (
+							<CertificateItem
+								key={item.id}
+								title={item.text}
+								image={item.photo}
+								id={item.id}
+								price={item.price}
+							/>
+						))}
 						<div
-							className={`${styles.certificate__img} ${styles.certificate__img__none}`}
+							className={`${styles.certificate__item} ${styles.certificate__item__create}`}
 						>
-							<img src='/icons/surficat.svg' alt={'card-surficat'} />
-						</div>
-						<div className={styles.certificate__item__box}>
-							<h5 className={styles.certificate__text}>
-								Suspendisse porta velit odio, vel malesuada arcu congue sed.
-								Integer elementum
-							</h5>
-							<div className={styles.certificate__buttons}>
-								<button className={styles.certificate__send}>Отправить</button>
-								<button className={styles.certificate__settings}>
-									<img src='/icons/settings.svg' alt={'settings icon'} />
-								</button>
+							<div className={styles.certificate__create__box}>
+								<div className={styles.certificate__create__new}>
+									Создать новый сертификат
+								</div>
+								<Link
+									className={`${styles.certificate__symbol} ${styles.certificate__symbol__add}`}
+									href={'/certificate-info'}
+								>
+									<img src='/icons/plus-icon.svg' alt='symbol plus' />
+								</Link>
 							</div>
 						</div>
-					</div>
-					<div
-						className={`${styles.certificate__item} ${styles.certificate__item__create}`}
-					>
-						<div className={styles.certificate__create__box}>
-							<div className={styles.certificate__create__new}>
-								Создать новый сертификат
-							</div>
-							<div
-								className={`${styles.certificate__symbol} ${styles.certificate__symbol__add}`}
-							>
-								<img src='/icons/plus-icon.svg' alt='symbol plus' />
-							</div>
-						</div>
-					</div>
-				</div>
+					</>
+				)}
 			</div>
-		</section>
+			<Swiper spaceBetween={12} slidesPerView={1.05} className={styles.swiper}>
+				{items.length > 0 &&
+					items.map((item, index) => (
+						<SwiperSlide key={item.id} className={styles.swiper__slide}>
+							<CertificateItem
+								key={item.id}
+								title={item.text}
+								image={item.photo}
+								id={item.id}
+								price={item.price}
+							/>
+						</SwiperSlide>
+					))}
+			</Swiper>
+			{!items.length > 0 && (
+				<div className={styles.empty}>
+					<div className={styles.empty__create__title}>
+						Здесь будут отображаться ваши созданные сертификаты
+					</div>
+					<Button className={styles.empty__create__btn}>
+						Создать <span className={styles.empty__word}>сертификат</span>
+					</Button>
+				</div>
+			)}
+		</Layout>
 	)
 }
 

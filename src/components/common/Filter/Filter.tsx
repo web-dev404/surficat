@@ -54,7 +54,12 @@ function Filter() {
 	return (
 		<div className={s.filter}>
 			<div className={s.filter__search}>
-				<Field hide={false} className={'search'} icon={'/icons/search.svg'}>
+				<Field
+					hide={false}
+					className={s.search}
+					placeholder={' '}
+					icon={'/icons/search.svg'}
+				>
 					Поиск по номеру сертификата
 				</Field>
 			</div>

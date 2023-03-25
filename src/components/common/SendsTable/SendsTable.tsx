@@ -2,18 +2,20 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 
 import Alert from '@/common/Alert/Alert'
+import Back from '@/common/Back/Back'
 import Button from '@/common/Button/Button'
 import CancelButton from '@/common/CancelButton/CancelButton'
 import DeleteButton from '@/common/DeleteButton/DeleteButton'
 import Field from '@/common/Field/Field'
 import Modal from '@/common/Modal/Modal'
-import ModalArea from '@/common/ModalArea/ModalArea'
 import ModalSubTitle from '@/common/ModalSubtitle/ModalSubTitle'
 import ModalText from '@/common/ModalText/ModalText'
 import ModalTitle from '@/common/ModalTitle/ModalTitle'
 import PageNum from '@/common/PageNum/PageNum'
 import SendItem from '@/common/SendItem/SendItem'
+import SendsInformation from '@/common/SendsInformation/SendsInformation'
 import TableRow from '@/common/TableRow/TableRow'
+import TextArea from '@/common/TextArea/TextArea'
 
 import s from './SendsTable.module.scss'
 import data from './data'
@@ -74,7 +76,7 @@ function SendsTable() {
 					</tr>
 				</thead>
 				<tbody>
-					{elements &&
+					{elements.length > 0 &&
 						elements.map(element => {
 							return (
 								<TableRow
@@ -86,6 +88,11 @@ function SendsTable() {
 						})}
 				</tbody>
 			</table>
+			{/*<SendsInformation dashed={true}>*/}
+			{/*	<h3 className={s.empty}>*/}
+			{/*		К сожалению, подходящих сертификатов не найдено*/}
+			{/*	</h3>*/}
+			{/*</SendsInformation>*/}
 			<div className={s.table__pagination}>
 				<div className={s.table__buttons}>
 					<button
@@ -115,7 +122,7 @@ function SendsTable() {
 						/>
 					</button>
 				</div>
-				{pages &&
+				{pages.length > 0 &&
 					pages.map((element, index) => {
 						if (index < 4)
 							return (
@@ -192,9 +199,13 @@ function SendsTable() {
 			>
 				{isShow ? 'Скрыть' : 'Показать еще'}
 			</button>
-			<Modal onClick={setAddComment} active={isAddComment} className={'full'}>
-				<ModalTitle className={'big'}>Добавление комментария</ModalTitle>
-				<ModalArea placeholder={'Введите комментарий'} />
+			<Modal
+				onClick={setAddComment}
+				active={isAddComment}
+				className={s.table__full}
+			>
+				<ModalTitle className={s.big}>Добавление комментария</ModalTitle>
+				<TextArea>Введите комментарий</TextArea>
 				<Button
 					onClick={() => {
 						setAddComment(false)
@@ -205,9 +216,9 @@ function SendsTable() {
 				</Button>
 			</Modal>
 
-			<Modal onClick={setComment} active={isComment} className={'full'}>
-				<ModalTitle className={'big'}>Редактирование комментария</ModalTitle>
-				<ModalArea placeholder={'Введите комментарий'} />
+			<Modal onClick={setComment} active={isComment} className={s.full}>
+				<ModalTitle className={s.big}>Редактирование комментария</ModalTitle>
+				<TextArea>Введите комментарий</TextArea>
 				<div className={s.table__modalButtons}>
 					<CancelButton
 						icon={true}
@@ -228,7 +239,7 @@ function SendsTable() {
 					</Button>
 				</div>
 			</Modal>
-			<Modal onClick={setDelComment} active={delComment} className={'center'}>
+			<Modal onClick={setDelComment} active={delComment} className={s.center}>
 				<ModalTitle>Удалить комментарий?</ModalTitle>
 				<div className={s.table__modalButtons}>
 					<CancelButton
@@ -249,16 +260,21 @@ function SendsTable() {
 			<Modal
 				onClick={setEditCertificateM}
 				active={editCertificateM}
-				className={'full'}
+				className={s.full}
 			>
-				<ModalTitle className={'edit'}>
+				<Back
+					onClick={() => {
+						setEditCertificateM(false)
+					}}
+				/>
+				<ModalTitle className={s.edit__title}>
 					Редактирование отправленного сертификата
 				</ModalTitle>
-				<ModalSubTitle>
+				<ModalSubTitle className={s.edit__subtitle}>
 					Семейные выходные в уютном доме «Taiga» на Байкале • 10 000 ₽
 				</ModalSubTitle>
 				<div className={s.edit__item}>
-					<Field hide={false} icon={'/icons/user.svg'} className={'edit'}>
+					<Field hide={false} icon={'/icons/user.svg'} className={s.editField}>
 						Получатель
 					</Field>
 					<p className={s.edit__text}>
@@ -267,14 +283,20 @@ function SendsTable() {
 					</p>
 				</div>
 				<div className={s.edit__item}>
-					<Field hide={false} className={'edit'} icon={'/icons/calendar.svg'}>
+					<Field
+						hide={false}
+						className={s.editField}
+						icon={'/icons/calendar.svg'}
+					>
 						Срок действия сертификата
 					</Field>
 					<p className={s.edit__text}>
 						До какого числа клиент может воспользоваться сертификатом
 					</p>
 				</div>
-				<ModalArea placeholder={'Введите комментарий'} />
+				<TextArea className={s.edit__area}>
+					Укажите от кого сертификат или пожелание
+				</TextArea>
 				<Button
 					onClick={() => {
 						setEditCertificateM(false)
@@ -287,9 +309,9 @@ function SendsTable() {
 			<Modal
 				onClick={setDeleteCertificateM}
 				active={deleteCertificateM}
-				className={'small'}
+				className={s.small}
 			>
-				<ModalTitle className={'red'}>Внимание!</ModalTitle>
+				<ModalTitle className={s.red}>Внимание!</ModalTitle>
 				<ModalText className={s.table__delText}>
 					Если вы удалите отправленный сертификат, то он перестанет быть
 					доступен всем, кому был отправлен.
@@ -300,7 +322,7 @@ function SendsTable() {
 				<Field
 					hide={false}
 					hidden={true}
-					className={'delete'}
+					className={s.delete}
 					placeholder={'Удалить сертификат'}
 					onChange={checkField}
 				>

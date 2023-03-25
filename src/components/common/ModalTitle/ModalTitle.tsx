@@ -10,7 +10,7 @@ const ModalTitle: FC<PropsWithChildren<IModalTitle>> = ({
 	children,
 	className
 }) => {
-	return <h5 className={cn(s.title, s[`title__${className}`])}>{children}</h5>
+	return <h5 className={cn(s.title, className)}>{children}</h5>
 }
 
 export default ModalTitle

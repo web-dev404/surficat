@@ -3,51 +3,88 @@
 .header {
 	width: 100%;
 	display: block;
-	padding: 19px 0 7px 0;
+	padding: 16px 0 10px 0;
 	background: $white;
-	background-size: 100%;
+	border-bottom: 1px solid #eaecf1;
 	&__inner {
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
 	}
+	@media ($media_xs2) {
+		position: fixed;
+		z-index: 999;
+		&__logo {
+			object-fit: cover;
+			width: 85px;
+			height: 25px;
+		}
+		padding: 11px 0 7px;
+	}
 }
 
 .list {
+	column-gap: 33px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	max-width: 486px;
-	width: 100%;
-
-	&__active {
-		color: $purple;
-		font-size: 16px;
-		font-weight: 500;
-	}
-
-	&__link:hover {
-		color: $purple;
-	}
-
+	padding-top: 3px;
 	&__link {
 		display: flex;
 		align-items: center;
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 26px;
-		letter-spacing: 1px;
+		letter-spacing: 0px;
 		color: $black;
+		transition: $transition_fast;
+	}
+
+	&__link:hover {
+		color: $purple;
 	}
 
 	&__link svg {
 		margin-right: 10px;
+		circle,
+		path {
+			transition: $transition_fast;
+		}
 	}
-
+	&__active {
+		circle,
+		path {
+			stroke: $purple;
+		}
+	}
 	&__link:hover svg {
 		circle,
 		path {
 			stroke: $purple;
 		}
+	}
+	&__active {
+		color: $purple;
+		font-size: 16px;
+		font-weight: 500;
+	}
+	@media ($media_xs2) {
+		padding-top: 0;
+		column-gap: 16px;
+		&__link {
+			font-size: 14px;
+			line-height: 24px;
+		}
+		&__link svg {
+			margin-right: 0;
+		}
+		&__name {
+			display: none;
+		}
+	}
+}
+.hideMobile {
+	@media ($media_xs2) {
+		display: none;
 	}
 }

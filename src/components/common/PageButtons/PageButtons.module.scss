@@ -1,0 +1,58 @@
+@import '@/styles/_variables.scss';
+.buttons {
+	display: none;
+	border: 1px solid #eaecf1;
+	border-radius: 8px;
+	background-color: $white;
+	padding: 6px;
+	display: flex;
+	align-items: center;
+	max-width: 366px;
+	width: 100%;
+	gap: 1px;
+
+	&__btn {
+		display: flex;
+		justify-content: center;
+		font-family: 'Gilroy';
+		font-weight: 600;
+		font-size: 16px;
+		line-height: 24px;
+		width: 175px;
+		padding: 10px 0;
+		color: $gray;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		background: $white;
+		transition: $transition_fast;
+		&:hover {
+			color: rgba($white, 0.8);
+			background: rgba($purple, 0.8);
+		}
+	}
+
+	&__btn__active {
+		background-color: $purple;
+		color: $white;
+		&:hover {
+			color: $white;
+			background-color: $purple;
+		}
+	}
+	&__mob {
+		display: none;
+	}
+	@media ($media_xs2) {
+		display: none;
+		padding: 5px;
+		&__mob {
+			display: flex;
+		}
+		&__btn {
+			padding: 6px;
+			font-size: 14px;
+			line-height: 24px;
+		}
+	}
+}

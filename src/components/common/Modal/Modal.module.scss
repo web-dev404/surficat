@@ -7,8 +7,7 @@
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-	&__wrapper,
-	&__full {
+	&__wrapper {
 		position: absolute;
 		transform: translate(-50%, -50%);
 		border: 1px solid $border;
@@ -19,19 +18,8 @@
 		left: 50%;
 		width: 520px;
 	}
-	&__center {
-		text-align: center;
-	}
-	&__small {
-		max-width: 380px;
-		width: 100%;
-	}
 	&__back {
 		display: none;
-		font-weight: 600;
-		font-size: 16px;
-		line-height: 24px;
-		color: $purple;
 	}
 	&__hide {
 		display: none;
@@ -51,22 +39,6 @@
 			transform: translate(0, 0);
 			width: 100%;
 			border-radius: 12px 12px 0 0;
-		}
-		&__full {
-			padding-top: 80px;
-			border-radius: 0;
-			min-height: 100vh;
-			overflow: scroll;
-			max-height: 100vh;
-			.modal__back {
-				display: flex;
-				align-items: center;
-				column-gap: 8px;
-				margin-bottom: 15px;
-			}
-			.close {
-				display: none;
-			}
 		}
 	}
 }

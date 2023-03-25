@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 
 import Alert from '@/common/Alert/Alert'
+import Back from '@/common/Back/Back'
 import Button from '@/common/Button/Button'
 import CancelButton from '@/common/CancelButton/CancelButton'
 import CompanyItem from '@/common/CompanyItem/CompanyItem'
 import DeleteButton from '@/common/DeleteButton/DeleteButton'
+import ExitBtn from '@/common/ExitBtn/ExitBtn'
 import Field from '@/common/Field/Field'
 import Modal from '@/common/Modal/Modal'
 import ModalTitle from '@/common/ModalTitle/ModalTitle'
+import PageHeader from '@/common/PageHeader/PageHeader'
+import PageTitle from '@/common/PageTitle/PageTitle'
 import ProfileItem from '@/common/ProfileItem/ProfileItem'
 import SmallSubtitle from '@/common/SmallSubtitle/SmallSubtitle'
 import SmallTitle from '@/common/SmallTitle/SmallTitle'
@@ -41,7 +45,6 @@ const Profile = () => {
 	const [isDelete, setDelete] = useState(false)
 	const [isShow, setShow] = useState(false)
 	const [isValid, setValid] = useState(false)
-	const [value, setValue] = useState('')
 	const word = 'Удалить аккаунт'
 	function checkField(value: string) {
 		value == word ? setValid(true) : setValid(false)
@@ -49,6 +52,11 @@ const Profile = () => {
 	return (
 		<Layout title={'Профиль'}>
 			<div className={'container-profile'}>
+				<Back />
+				<PageHeader className={s.header}>
+					<PageTitle>Мой профиль</PageTitle>
+					<ExitBtn />
+				</PageHeader>
 				<ProfileItem>
 					<SmallTitle>Основная информация</SmallTitle>
 					<SmallSubtitle>Эти данные не будут доступны публично.</SmallSubtitle>
@@ -69,6 +77,9 @@ const Profile = () => {
 				</ProfileItem>
 				<ProfileItem>
 					<SmallTitle>Изменение пароля</SmallTitle>
+					<SmallSubtitle className={s.subTitleMob}>
+						Эти данные не будут доступны публично.
+					</SmallSubtitle>
 					<form action='#'>
 						<div className={s.profile__buttons + ' ' + s.profile__buttonsWrap}>
 							<Field hide={true}>Текущий пароль</Field>
@@ -126,7 +137,7 @@ const Profile = () => {
 						<Field
 							hide={false}
 							onChange={checkField}
-							className={'delete'}
+							className={s.delete}
 							placeholder={'Удалить аккаунт'}
 							hidden={true}
 						>
@@ -135,7 +146,7 @@ const Profile = () => {
 						<Field
 							hide={false}
 							onChange={checkField}
-							className={'profile'}
+							className={s.deleteFieldMob}
 							placeholder={' '}
 						>
 							Введите текст
@@ -144,7 +155,7 @@ const Profile = () => {
 					<DeleteButton disabled={!isValid}>Подтвердить удаление</DeleteButton>
 				</ProfileItem>
 			</div>
-			<Modal onClick={setShow} active={isShow} className={'center'}>
+			<Modal onClick={setShow} active={isShow} className={s.center}>
 				<ModalTitle>Удалить компанию и ее контакты?</ModalTitle>
 				<div className={s.profile__modalButtons}>
 					<CancelButton

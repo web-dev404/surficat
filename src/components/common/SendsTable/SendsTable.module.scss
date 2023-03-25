@@ -153,6 +153,16 @@
 	}
 }
 .edit {
+	&__title {
+		margin-bottom: 16px;
+	}
+	&__subtitle {
+		font-size: 18px;
+		line-height: 28px;
+	}
+	&__area {
+		margin-bottom: 32px;
+	}
 	&__item {
 		margin-bottom: 24px;
 	}
@@ -170,5 +180,93 @@
 				display: none;
 			}
 		}
+		&__title {
+			font-size: 24px;
+			line-height: 34px;
+			margin-bottom: 16px;
+		}
 	}
+}
+.red {
+	color: #ff4d50;
+	margin-bottom: 16px;
+}
+.big {
+	@media ($media_xs2) {
+		font-size: 24px;
+		line-height: 34px;
+	}
+}
+.edit {
+	@media ($media_xs2) {
+		font-size: 24px;
+		line-height: 34px;
+		margin-bottom: 16px;
+	}
+}
+.editField {
+	margin-bottom: 7px;
+	input {
+		padding-left: 60px;
+		&:focus {
+			outline: none;
+			& + span {
+				color: #787486;
+			}
+		}
+	}
+	span {
+		color: #787486;
+		left: 60px;
+	}
+}
+.small {
+	max-width: 380px;
+	width: 100%;
+}
+.center {
+	text-align: center;
+}
+.delete {
+	input:placeholder-shown + span,
+	input:not(:placeholder-shown) + span {
+		color: #787486;
+		font-size: 12px;
+		line-height: 20px;
+		top: 5px;
+	}
+	input {
+		&:focus {
+			outline: none;
+			& + span {
+				color: #787486;
+			}
+		}
+	}
+	span {
+		&::after {
+			content: '';
+		}
+	}
+}
+.full {
+	@media ($media_xs2) {
+		padding-top: 80px;
+		border-radius: 0;
+		min-height: 100vh;
+		overflow: scroll;
+		max-height: 100vh;
+		.modal__back {
+		}
+		.close {
+			display: none;
+		}
+	}
+}
+.empty {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 28px;
+	text-align: center;
+	color: #787486;
 }

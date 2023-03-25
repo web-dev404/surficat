@@ -27,16 +27,8 @@ const FaqItem: FC<PropsWithChildren<IFaqItem>> = ({ children, title }) => {
 					className={s.item__icon + ' ' + (isVisible && s.item__icon_active)}
 				/>
 			</div>
-			<CSSTransition
-				nodeRef={nodeRef}
-				in={isVisible}
-				timeout={300}
-				unmountOnExit
-				classNames='loader'
-			>
-				<p ref={nodeRef} className={s.item__text}>
-					{children}
-				</p>
+			<CSSTransition in={isVisible} timeout={0} unmountOnExit>
+				<p className={s.item__text}>{children}</p>
 			</CSSTransition>
 		</li>
 	)

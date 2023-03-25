@@ -1,35 +1,52 @@
+import clsx from 'clsx'
+import Image from 'next/image'
+import React, { useState } from 'react'
+
+import Back from '@/common/Back/Back'
+import Button from '@/common/Button/Button'
+import CertificateUpload from '@/common/CertificateUpload/CertificateUpload'
+import Currency from '@/common/Currency/Currency'
+import Field from '@/common/Field/Field'
+import Modal from '@/common/Modal/Modal'
+import ModalSubTitle from '@/common/ModalSubtitle/ModalSubTitle'
+import ModalTitle from '@/common/ModalTitle/ModalTitle'
+import PageHeader from '@/common/PageHeader/PageHeader'
+import PageTitle from '@/common/PageTitle/PageTitle'
+import TextArea from '@/common/TextArea/TextArea'
+import WarnBlock from '@/common/WarnBlock/WarnBlock'
+
+import Layout from '@/layout/Layout'
+
 import styles from './cerrtificateInfo.module.scss'
 
 const CertificateInfo = () => {
+	const [area, setArea] = useState(false)
+	const [showModal, setShowModal] = useState(false)
+	const [isCreate, setCreate] = useState(false)
 	return (
-		<section className={styles.info}>
+		<Layout title={'Новый сертификат'}>
 			<div className={styles.container__info}>
 				<div className={styles.info__inner}>
-					<div className={styles.info__top}>
-						<a href='#' className={styles.info__top__link}>
-							<img src='/icons/arrow-left.svg' alt='arrow back' />
-						</a>
-						<h1 className={styles.info__top__title}>Новый сертификат</h1>
-					</div>
+					<Back className={styles.back}></Back>
+					<PageHeader>
+						<PageTitle back={true}>Новый сертификат</PageTitle>
+					</PageHeader>
 					<form className={styles.form}>
 						<h3 className={styles.form__title}>Основная информация</h3>
 						<p className={styles.form__subtitle}>
 							Вся указанная информация будет отображаться в сертификате и
 							публично доступна тем, у кого есть ссылка.
 						</p>
-						<input
-							type='text'
-							className={styles.form__input}
-							placeholder='Название сертификата *'
-						/>
+						<Field hide={false} className={styles.form__input}>
+							Название сертификата
+						</Field>
 						<p className={styles.form__text}>
 							Можно не писать «Подарочный сертификат» — это будет указано
 							автоматически. Пример названия: «Семейная фотосессия в студии»
 						</p>
-						<textarea
-							className={styles.form__textarea}
-							placeholder='Описание *'
-						></textarea>
+						<TextArea className={styles.textArea}>
+							Описание <span className={styles.form__star}>*</span>
+						</TextArea>
 						<p className={styles.form__text}>
 							Тут вы можете указать условия использования сертификата или
 							подробно рассказать о компании, сделав сертификат более ценным для
@@ -41,23 +58,7 @@ const CertificateInfo = () => {
 								className={styles.form__box__input}
 								placeholder='Укажите номинал (если нужно)'
 							/>
-							<div className={styles.form__box__wrapper}>
-								<select
-									name='select-category'
-									id='format'
-									className={styles.form__box__select}
-								>
-									<option
-										selected
-										value='1'
-										className={styles.form__box__option}
-									>
-										Рубли, ₽
-									</option>
-									<option value='2'>USD</option>
-									<option value='3'>EUR</option>
-								</select>
-							</div>
+							<Currency />
 						</div>
 					</form>
 					<div className={styles.info__download}>
@@ -70,11 +71,9 @@ const CertificateInfo = () => {
 							2 мб.
 						</p>
 
-						<input className={styles.info__download__input} type='file' />
-						<button className={styles.info__download__btn}>
-							<img src='/icons/download.svg' alt='download icon' />
+						<CertificateUpload icon={'/icons/download.svg'}>
 							Загрузить
-						</button>
+						</CertificateUpload>
 					</div>
 
 					<div className={styles.info__company}>
@@ -85,29 +84,107 @@ const CertificateInfo = () => {
 							Выберите компанию и ее контакты, которые нужно показывать клиенту
 							в сертификате (блок «Связаться»).
 						</p>
-						<button className={styles.info__company__btn}>
+						<button
+							className={styles.info__company__btn}
+							onClick={() => {
+								setShowModal(true)
+							}}
+						>
 							<img src='/icons/plus-black.svg' alt='plus icon' />
 							Создать компанию
 						</button>
-						<div className={styles.info__company__alert}>
-							<img src='/icons/company-alert.svg' alt='alert icon' />
+						<WarnBlock>
 							Необходимо указать информацию о компании и контакты
-						</div>
+						</WarnBlock>
 					</div>
-
 					<div className={styles.info__create}>
-						<p className={styles.form__subtitle}>
+						<p
+							className={clsx(styles.form__subtitle, styles.form__subtitleEnd)}
+						>
 							Создавая сертификат, вы подтверждаете, что ознакомились с
-							<span>пользовательским соглашением</span> и принимаете его
+							<a href='#'> пользовательским соглашением</a> и принимаете его
 							условия.
 						</p>
-						<button className={styles.info__create__btn}>
-							Создать сертификат
-						</button>
+						<Button>Создать сертификат</Button>
 					</div>
 				</div>
 			</div>
-		</section>
+			<Modal active={isCreate} onClick={setCreate} className={styles.modal}>
+				<ModalTitle className={styles.modal__title}>
+					Сертификат успешно создан!
+				</ModalTitle>
+				<ModalSubTitle className={styles.modal__subtitle}>
+					Теперь он доступен в вашем каталоге сертификатов и вы можете отправить
+					его клиенту.
+				</ModalSubTitle>
+				<Button>Отправить сертификат</Button>
+			</Modal>
+			<Modal active={showModal} onClick={setShowModal}>
+				<ModalTitle className={styles.new__title}>Новая компания</ModalTitle>
+				<div className={styles.new__fields}>
+					<div>
+						<Field hide={false} className={styles.new__field}>
+							Название компании
+						</Field>
+						<p className={styles.new__help}>
+							Если вы работаете от своего лица, то можно указать имя и фамилию
+						</p>
+					</div>
+					<div>
+						<Field hide={false} className={styles.new__field}>
+							Чем занимается компания (кратко)
+						</Field>
+						<p className={styles.new__help}>
+							Например, «Семейный фотограф / Москва»
+						</p>
+					</div>
+				</div>
+				<h5 className={styles.new__smallTitle}>Контактные данные</h5>
+				<button
+					className={styles.info__company__btn}
+					onClick={() => {
+						setShowModal(true)
+					}}
+				>
+					<img src='/icons/plus-black.svg' alt='plus icon' />
+					Добавить
+				</button>
+				<h5 className={styles.new__smallTitle + ' ' + styles.new__titleLogo}>
+					Логотип или фотография
+				</h5>
+				<p className={styles.new__text}>
+					Вы можете загрузить изображение, в формате .jpeg или .png. Вес файла
+					не более 500 кб.
+				</p>
+				<CertificateUpload
+					icon={'/icons/download.svg'}
+					className={styles.new__load}
+				>
+					Загрузить
+				</CertificateUpload>
+				<Button
+					onClick={() => {
+						setShowModal(false)
+						// setArea(true)
+						setCreate(true)
+					}}
+				>
+					Создать компанию
+				</Button>
+			</Modal>
+			<Modal active={area} onClick={setArea}>
+				<ModalTitle>Выделите видимую область изображения</ModalTitle>
+				{/*Картинка вставленна для пример, чтобы подогнать под pixel perfect*/}
+				<Image
+					src={'/img/area.png'}
+					alt={'area'}
+					width={440}
+					height={272}
+					className={styles.area__img}
+				/>
+				<Button>Сохранить</Button>
+			</Modal>
+		</Layout>
 	)
 }
 

@@ -1,15 +1,18 @@
 import clsx from 'clsx'
-import React, { useState } from 'react'
+import React, { FC, PropsWithChildren, useState } from 'react'
 
 import s from './ModalArea.module.scss'
 
 interface IModalArea {
-	placeholder?: string
+	className?: string
 }
-const ModalArea = ({ placeholder }: IModalArea) => {
+const TextArea: FC<PropsWithChildren<IModalArea>> = ({
+	className,
+	children
+}) => {
 	const [focus, setFocus] = useState(false)
 	return (
-		<div className={s.area}>
+		<div className={clsx(s.area, className)}>
 			<textarea
 				name='comment'
 				className={s.area__inner}
@@ -25,10 +28,10 @@ const ModalArea = ({ placeholder }: IModalArea) => {
 					[s.area__placeholderActive]: focus
 				})}
 			>
-				{placeholder}
+				{children}
 			</span>
 		</div>
 	)
 }
 
-export default ModalArea
+export default TextArea

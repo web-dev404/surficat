@@ -1,0 +1,29 @@
+@import '@/styles/_variables.scss';
+.preload {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 12px;
+	&__item {
+		border-radius: 6px;
+		overflow: hidden;
+		position: relative;
+		img {
+			width: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
+	&__close {
+		cursor: pointer;
+		width: 20px;
+		height: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		border-radius: 50%;
+		background: rgba($mainText, 0.4);
+		top: 8px;
+		right: 8px;
+	}
+}

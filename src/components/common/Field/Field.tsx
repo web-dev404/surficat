@@ -1,6 +1,6 @@
 import cn from 'clsx'
 import Image from 'next/image'
-import React, { FC, PropsWithChildren, useEffect, useState } from 'react'
+import React, { FC, PropsWithChildren, useState } from 'react'
 
 import s from './Field.module.scss'
 
@@ -28,7 +28,7 @@ const Field: FC<PropsWithChildren<IField>> = ({
 			className={cn(
 				s.field,
 				{ [s.field__fill]: !isEmpty, [s.field__hide]: hidden },
-				s[`field__${className}`]
+				className
 			)}
 		>
 			<div className={s.field__inner}>

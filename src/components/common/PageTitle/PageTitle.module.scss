@@ -1,0 +1,23 @@
+@import '@/styles/_variables.scss';
+.title {
+	font-weight: 600;
+	font-size: 40px;
+	line-height: 52px;
+	&__icon {
+		margin-right: 24px;
+		img {
+			position: relative;
+			transition: $transition_fast;
+		}
+		&:hover img {
+			transform: translateX(-10px);
+		}
+	}
+	@media ($media_xs2) {
+		font-size: 32px;
+		line-height: 42px;
+		&__icon {
+			display: none;
+		}
+	}
+}

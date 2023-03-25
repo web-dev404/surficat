@@ -40,7 +40,7 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
 			unmountOnExit
 		>
 			<div className={clsx(s.modal, { [s.modal__hide]: onMob })} ref={nodeRef}>
-				<div className={cn(s.modal__wrapper, s[`modal__${className}`])}>
+				<div className={clsx(s.modal__wrapper, className)}>
 					<div
 						className={s.close}
 						onClick={() => {
