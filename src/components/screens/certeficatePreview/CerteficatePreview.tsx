@@ -13,7 +13,7 @@ const CerteficatePreview = () => {
 	}
 	return (
 		<Preview title={'Предпросмотр'}>
-			<Certeficate data={data} />
+			<Certeficate data={data} isPreview={true} />
 		</Preview>
 	)
 }

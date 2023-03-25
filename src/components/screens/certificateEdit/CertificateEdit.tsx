@@ -131,13 +131,17 @@ const CertificateEdit = () => {
 									/>
 								))}
 						</div>
-						<WarnBlock className={styles.subItem}>
-							Необходимо указать информацию о компании и контакты
-						</WarnBlock>
-						<button className={clsx(styles.info__company__btn, styles.create)}>
-							<img src='/icons/plus-black.svg' alt='plus icon' />
-							Создать компанию
-						</button>
+						<div className={styles.reverse}>
+							<WarnBlock className={styles.subItem}>
+								Необходимо указать информацию о компании и контакты
+							</WarnBlock>
+							<button
+								className={clsx(styles.info__company__btn, styles.create)}
+							>
+								<img src='/icons/plus-black.svg' alt='plus icon' />
+								Создать компанию
+							</button>
+						</div>
 					</div>
 
 					<div className={styles.info__create}>

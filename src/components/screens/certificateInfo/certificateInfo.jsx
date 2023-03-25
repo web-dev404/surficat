@@ -172,8 +172,10 @@ const CertificateInfo = () => {
 					Создать компанию
 				</Button>
 			</Modal>
-			<Modal active={area} onClick={setArea}>
-				<ModalTitle>Выделите видимую область изображения</ModalTitle>
+			<Modal active={area} onClick={setArea} className={styles.modalArea}>
+				<ModalTitle className={styles.modalArea__title}>
+					Выделите видимую область изображения
+				</ModalTitle>
 				{/*Картинка вставленна для пример, чтобы подогнать под pixel perfect*/}
 				<Image
 					src={'/img/area.png'}
@@ -182,7 +184,7 @@ const CertificateInfo = () => {
 					height={272}
 					className={styles.area__img}
 				/>
-				<Button>Сохранить</Button>
+				<Button className={styles.modalArea__btn}>Сохранить</Button>
 			</Modal>
 		</Layout>
 	)

@@ -371,3 +371,19 @@
 		margin-bottom: 28px;
 	}
 }
+.modalArea {
+	@media ($media_xs2) {
+		&__title {
+			color: $white;
+			font-size: 18px;
+			line-height: 28px;
+		}
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background: $mainText;
+		border-radius: 0;
+		border: none;
+	}
+}

@@ -17,6 +17,7 @@ import s from './Certeficate.module.scss'
 
 interface ICerteficate {
 	subSlider?: boolean
+	isPreview?: boolean
 	data?: {
 		number: number
 		date: string
@@ -26,6 +27,7 @@ interface ICerteficate {
 }
 const Certeficate = ({
 	subSlider = true,
+	isPreview = false,
 	data = {
 		number: 0,
 		date: '',
@@ -45,7 +47,7 @@ const Certeficate = ({
 	return (
 		<>
 			<div className={s.certificate__body}>
-				<div className={s.certificate__item}>
+				<div className={clsx(s.certificate__item)}>
 					{data.use && (
 						<div className={s.certificate__info}>
 							<svg
@@ -110,7 +112,9 @@ const Certeficate = ({
 					<Swiper
 						modules={[Pagination, EffectFade, Navigation]}
 						slidesPerView={1}
-						className={clsx('swiper-control', s.certificate__slider)}
+						className={clsx('swiper-control', s.certificate__slider, {
+							[s.certificate__sliderPreview]: isPreview
+						})}
 						pagination={{ clickable: true }}
 						loop={true}
 						effect='fade'
@@ -191,7 +195,7 @@ const Certeficate = ({
 						</svg>
 					</div>
 				</div>
-				<div className={clsx(s.certificate__item)}>
+				<div className={clsx(s.certificate__item, s.certificate__itemPreview)}>
 					<div className={s.certificate__inner}>
 						<p className={s.certificate__price}>
 							Подарочный сертификат{' '}
@@ -238,23 +242,36 @@ const Certeficate = ({
 					</div>
 				</div>
 				<div
-					className={clsx(s.certificate__subSlider, {
-						[s.certificate__subSliderMob]: !subSlider
-					})}
+					className={clsx(
+						s.certificate__subSlider,
+						{
+							[s.certificate__subSliderMob]: !subSlider
+						},
+						s.certificate__itemPreview
+					)}
 				>
 					<span
 						className={clsx(s.certificate__disable, {
 							[s.certificate__has]: data.number
 						})}
 					>
-						<span>№</span> {data.number > 0 ? data.number : '0000000000'}
+						<span className={s.purple}>№</span>{' '}
+						{data.number > 0 ? data.number : '0000000000'}
 					</span>
 					<span
-						className={clsx(s.certificate__disable, {
-							[s.certificate__has]: data.date
-						})}
+						className={clsx(
+							s.certificate__disable,
+							{
+								[s.certificate__has]: data.date
+							},
+							s.certificate__date
+						)}
 					>
-						<span>До</span> {data.date ? data.date : '00.00.0000'}
+						<span className={clsx(s.purple, s.certificate__dateDisable)}>
+							До
+						</span>{' '}
+						<span className={s.certificate__dateMob}>Срок действия до</span>
+						{data.date ? <span>{data.date}</span> : '00.00.0000'}
 					</span>
 					<button
 						onClick={() => {
@@ -286,7 +303,9 @@ const Certeficate = ({
 						</Hint>
 					</button>
 				</div>
-				<div className={s.certificate__bottom}>
+				<div
+					className={clsx(s.certificate__bottom, s.certificate__itemPreview)}
+				>
 					<div className={s.certificate__user}>
 						<div className={s.certificate__userAvatar}>
 							<Image

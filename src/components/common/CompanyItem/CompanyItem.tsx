@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
+import button from '@/common/Button/Button'
 import Hint from '@/common/Hint/Hint'
 
 import s from './CompanyItem.module.scss'
@@ -51,8 +52,34 @@ const CompanyItem = ({
 				</div>
 			</div>
 			<div className={s.item__buttons}>
+				{select && (
+					<button
+						className={clsx(s.item__selectBtn, {
+							[s.item__selectBtnActive]: isSelect
+						})}
+					>
+						{isSelect && (
+							<svg
+								width='17'
+								height='16'
+								viewBox='0 0 17 16'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+							>
+								<path
+									d='M14.5 4L6.33333 12.1667L2.5 8.33333'
+									stroke='white'
+									strokeWidth='1.3'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								/>
+							</svg>
+						)}
+						{isSelect ? 'Выбрано' : 'Выбрать'}
+					</button>
+				)}
 				<button
-					className={s.item__button}
+					className={clsx(s.item__button, { [s.item__buttonEdit]: select })}
 					onClick={() => {
 						onEdit && onEdit()
 					}}
@@ -137,7 +164,7 @@ const CompanyItem = ({
 					</button>
 				)}
 			</div>
-			{data.link && (
+			{data.link && !select && (
 				<div className={s.item__info}>
 					<svg
 						width='24'
@@ -147,7 +174,7 @@ const CompanyItem = ({
 						xmlns='http://www.w3.org/2000/svg'
 						className={s.item__icon}
 					>
-						<g clip-path='url(#clip0_1898_8153)'>
+						<g clipPath='url(#clip0_1898_8153)'>
 							<path
 								d='M12.0001 20.3337C16.6025 20.3337 20.3334 16.6027 20.3334 12.0003C20.3334 7.39795 16.6025 3.66699 12.0001 3.66699C7.39771 3.66699 3.66675 7.39795 3.66675 12.0003C3.66675 16.6027 7.39771 20.3337 12.0001 20.3337Z'
 								stroke='#787486'

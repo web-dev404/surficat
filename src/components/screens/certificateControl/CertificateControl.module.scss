@@ -170,3 +170,17 @@
 		}
 	}
 }
+.full {
+	@media ($media_xs2) {
+		padding-top: 80px;
+		border-radius: 0;
+		min-height: 100vh;
+		overflow: scroll;
+		max-height: 100vh;
+		.modal__back {
+		}
+		.close {
+			display: none;
+		}
+	}
+}
