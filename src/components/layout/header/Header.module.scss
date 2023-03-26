@@ -1,11 +1,15 @@
 @import '@/styles/_variables.scss';
 
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
 	display: block;
 	padding: 16px 0 10px 0;
 	background: $white;
 	border-bottom: 1px solid #eaecf1;
+	z-index: 999;
 	&__inner {
 		display: flex;
 		justify-content: space-between;
@@ -13,7 +17,7 @@
 	}
 	@media ($media_xs2) {
 		position: fixed;
-		z-index: 999;
+		z-index: 9999;
 		&__logo {
 			object-fit: cover;
 			width: 85px;

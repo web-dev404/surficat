@@ -1,4 +1,5 @@
 @import '@/styles/_variables.scss';
+
 .buttons {
 	display: none;
 	border: 1px solid #eaecf1;
@@ -26,23 +27,35 @@
 		cursor: pointer;
 		background: $white;
 		transition: $transition_fast;
+
 		&:hover {
 			color: rgba($white, 0.8);
 			background: rgba($purple, 0.8);
 		}
 	}
 
+	@media (max-width: 500px) {
+		max-width: 100%;
+
+		&__btn {
+			width: 50%;
+		}
+	}
+
 	&__btn__active {
 		background-color: $purple;
 		color: $white;
+
 		&:hover {
 			color: $white;
 			background-color: $purple;
 		}
 	}
+
 	&__mob {
 		display: none;
 	}
+
 	@media ($media_xs2) {
 		display: none;
 		padding: 5px;

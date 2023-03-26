@@ -1,5 +1,12 @@
+import clsx from 'clsx'
 import Image from 'next/image'
-import React, { FC, PropsWithChildren, useState } from 'react'
+import React, {
+	FC,
+	PropsWithChildren,
+	useEffect,
+	useRef,
+	useState
+} from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import Button from '@/common/Button/Button'
@@ -23,7 +30,23 @@ const Select: FC<PropsWithChildren<ISelect>> = ({
 }) => {
 	const [open, setOpen] = useState(false)
 	const [option, setOption] = useState(options[0].value)
+	const [activeIndex, setActiveIndex] = useState(0)
 	const nodeRef = React.useRef(null)
+	const ref = useRef<HTMLUListElement>(null)
+	function changeIndex(index: number) {
+		setActiveIndex(index)
+	}
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (ref.current && !ref.current.contains(event.target as Node)) {
+				setOpen(false)
+			}
+		}
+		document.addEventListener('mousedown', handleClickOutside)
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [ref])
 	function changeOption(value: string) {
 		setOption(value)
 		setOpen(false)
@@ -77,16 +100,39 @@ const Select: FC<PropsWithChildren<ISelect>> = ({
 					</svg>
 					Сертификаты
 				</div>
-				<ul className={s.select__listMob}>
-					{options.map(option => (
-						<li key={option.value} className={s.select__itemMob}>
+				<ul className={s.select__listMob} ref={ref}>
+					{options.map((option, index) => (
+						<li
+							key={index}
+							className={clsx(s.select__itemMob, {
+								[s.select__itemMobActive]: index == activeIndex
+							})}
+							onClick={() => {
+								changeIndex(index)
+							}}
+						>
 							{option.value}
+							<svg
+								width='24'
+								height='24'
+								viewBox='0 0 24 24'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+							>
+								<path
+									d='M18.6667 7L9.50001 16.1667L5.33334 12'
+									stroke='#6D54FE'
+									strokeWidth='1.7'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								/>
+							</svg>
 						</li>
 					))}
 				</ul>
 				<Button
 					onClick={() => {
-						setOpen(false)
+						changeOption(options[activeIndex].value)
 					}}
 				>
 					Выбрать

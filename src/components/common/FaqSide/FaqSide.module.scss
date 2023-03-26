@@ -40,6 +40,10 @@
 		font-size: 16px;
 		line-height: 24px;
 		color: $white;
+		transition: $transition_fast;
+		&:hover {
+			background: $mainText;
+		}
 	}
 	&__mail {
 		margin-right: 12px;

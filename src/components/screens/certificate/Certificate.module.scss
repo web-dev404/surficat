@@ -29,6 +29,11 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		cursor: pointer;
+		transition: $transition_fast;
+		&:hover {
+			background: $mainText;
+		}
 	}
 
 	&__tabs {
@@ -231,18 +236,22 @@
 		}
 	}
 }
+
 .word {
 	@media ($media_xs2) {
 		display: none;
 	}
 }
+
 .up {
 	@media ($media_xs2) {
 		text-transform: uppercase;
 	}
 }
+
 .swiper {
 	display: none;
+
 	&__slide {
 		height: auto;
 	}
@@ -251,6 +260,7 @@
 		display: block;
 	}
 }
+
 .empty {
 	padding: 64px 0 120px;
 	min-height: 428px;

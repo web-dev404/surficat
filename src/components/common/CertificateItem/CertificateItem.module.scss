@@ -82,15 +82,28 @@
 		font-weight: 600;
 	}
 	&__settings {
-		border: none;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 40px;
 		height: 40px;
 		cursor: pointer;
-		border: 1.5px solid #eaecf1;
+		border: 1.5px solid $border;
 		border-radius: 4px;
 		background-color: $white;
+		transition: $transition_fast;
+		svg {
+			path {
+				transition: $transition_fast;
+			}
+		}
+		&:hover {
+			background: $purple;
+			svg {
+				path {
+					stroke: $white;
+				}
+			}
+		}
 	}
 }

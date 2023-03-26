@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
@@ -36,12 +37,13 @@ const CertificateControl = () => {
 	return (
 		<CertificateLayout title={'Управление сертификатом'}>
 			<PageHeader className={s.control__pageHeader}>
+				<Back />
 				<PageTitle back={true} className={s.control__pageTitle}>
 					Управление сертификатом
 				</PageTitle>
 				<div className={s.control__buttons}>
 					<button
-						className={s.control__button}
+						className={clsx(s.control__button, s.control__delete)}
 						onClick={() => {
 							setDeleteCertificate(true)
 						}}
@@ -135,22 +137,16 @@ const CertificateControl = () => {
 			>
 				<ModalTitle className={s.red}>Внимание!</ModalTitle>
 				<ModalText className={s.control__delText}>
-					Если вы удалите отправленный сертификат, то он перестанет быть
-					доступен всем, кому был отправлен.
+					Если вы удалите этот сертификат, он перестанет быть доступен всем,
+					кому был отправлен.
 				</ModalText>
 				<ModalSubTitle className={s.control__subText}>
 					Для подтверждения удаления введите «Удалить сертификат»
 				</ModalSubTitle>
-				<Field
-					hide={false}
-					hidden={true}
-					className={s.delete}
-					placeholder={'Удалить сертификат'}
-					onChange={checkField}
-				>
+				<Field hide={false} className={s.delete} onChange={checkField}>
 					Введите текст
 				</Field>
-				<div className={s.control__modalButtons + ' ' + s.control__hide}>
+				<div className={s.control__modalButtons}>
 					<DeleteButton
 						disabled={!isConfirm}
 						onClick={() => {
@@ -158,20 +154,6 @@ const CertificateControl = () => {
 							setDelete(true)
 						}}
 					/>
-				</div>
-				<div className={s.control__mobButtons}>
-					<DeleteButton
-						onClick={() => {
-							setDeleteCertificate(false)
-						}}
-					/>
-					<CancelButton
-						onClick={() => {
-							setDeleteCertificate(false)
-						}}
-					>
-						Отмена
-					</CancelButton>
 				</div>
 			</Modal>
 			<Modal onClick={setSend} active={isSend} className={s.full}>
@@ -240,7 +222,7 @@ const CertificateControl = () => {
 					Открыть предпросмотр
 				</Button>
 			</Modal>
-			<Alert state={setDelete} active={isDelete} icon={'/icons/success.svg'}>
+			<Alert state={setDelete} active={isDelete} icon={'/icons/delete.svg'}>
 				Сертификат удален!
 			</Alert>
 		</CertificateLayout>

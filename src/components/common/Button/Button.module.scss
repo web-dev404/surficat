@@ -17,6 +17,9 @@
 	cursor: pointer;
 	letter-spacing: 0px;
 	transition: $transition_fast;
+	&:hover {
+		background: $mainText;
+	}
 	&:disabled {
 		cursor: auto;
 		background: #f5f5f6;

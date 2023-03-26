@@ -23,8 +23,10 @@ interface ICerteficate {
 		date: string
 		link: string
 		use: boolean
+		out: boolean
 	}
 }
+
 const Certeficate = ({
 	subSlider = true,
 	isPreview = false,
@@ -32,23 +34,26 @@ const Certeficate = ({
 		number: 0,
 		date: '',
 		link: '',
+		out: false,
 		use: false
 	}
 }: ICerteficate) => {
 	const [isCopied, setCopied] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [isHide, setHide] = useState(true)
+
 	function Copy() {
 		setCopied(true)
 		setTimeout(() => {
 			setCopied(false)
 		}, 1000)
 	}
+
 	return (
 		<>
 			<div className={s.certificate__body}>
 				<div className={clsx(s.certificate__item)}>
-					{data.use && (
+					{data.out && (
 						<div className={s.certificate__info}>
 							<svg
 								width='16'
@@ -113,6 +118,8 @@ const Certeficate = ({
 						modules={[Pagination, EffectFade, Navigation]}
 						slidesPerView={1}
 						className={clsx('swiper-control', s.certificate__slider, {
+							[s.certificate__sliderInfo]: data.use,
+							[s.certificate__sliderInfo]: data.out,
 							[s.certificate__sliderPreview]: isPreview
 						})}
 						pagination={{ clickable: true }}
@@ -125,7 +132,7 @@ const Certeficate = ({
 					>
 						<SwiperSlide>
 							<Image
-								src={'/img/control/3.png'}
+								src={'/img/control/1.png'}
 								alt={'photo'}
 								width={580}
 								height={580}
@@ -152,50 +159,54 @@ const Certeficate = ({
 						</SwiperSlide>
 						<SwiperSlide>
 							<Image
-								src={'/img/control/2.png'}
+								src={'/img/control/3.png'}
 								alt={'photo'}
 								width={580}
 								height={580}
 								className={s.certificate__sliderPhoto}
 							/>
 						</SwiperSlide>
+						<div className={'swiper-control__arrow swiper-control__prev'}>
+							<svg
+								width='20'
+								height='20'
+								viewBox='0 0 20 20'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+							>
+								<path
+									d='M11.5 15L6.5 10L11.5 5'
+									stroke='white'
+									strokeWidth='1.7'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								/>
+							</svg>
+						</div>
+						<div className={'swiper-control__arrow swiper-control__next'}>
+							<svg
+								width='20'
+								height='20'
+								viewBox='0 0 20 20'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+							>
+								<path
+									d='M8.5 15L13.5 10L8.5 5'
+									stroke='white'
+									strokeWidth='1.7'
+									strokeLinecap='round'
+									strokeLinejoin='round'
+								/>
+							</svg>
+						</div>
 					</Swiper>
-					<div className={'swiper-control__arrow swiper-control__prev'}>
-						<svg
-							width='20'
-							height='20'
-							viewBox='0 0 20 20'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								d='M11.5 15L6.5 10L11.5 5'
-								stroke='white'
-								strokeWidth='1.7'
-								strokeLinecap='round'
-								strokeLinejoin='round'
-							/>
-						</svg>
-					</div>
-					<div className={'swiper-control__arrow swiper-control__next'}>
-						<svg
-							width='20'
-							height='20'
-							viewBox='0 0 20 20'
-							fill='none'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								d='M8.5 15L13.5 10L8.5 5'
-								stroke='white'
-								strokeWidth='1.7'
-								strokeLinecap='round'
-								strokeLinejoin='round'
-							/>
-						</svg>
-					</div>
 				</div>
-				<div className={clsx(s.certificate__item, s.certificate__itemPreview)}>
+				<div
+					className={clsx(s.certificate__item, {
+						[s.certificate__itemPreview]: isPreview
+					})}
+				>
 					<div className={s.certificate__inner}>
 						<p className={s.certificate__price}>
 							Подарочный сертификат{' '}
@@ -242,32 +253,35 @@ const Certeficate = ({
 					</div>
 				</div>
 				<div
-					className={clsx(
-						s.certificate__subSlider,
-						{
-							[s.certificate__subSliderMob]: !subSlider
-						},
-						s.certificate__itemPreview
-					)}
+					className={clsx(s.certificate__subSlider, {
+						[s.certificate__subSliderMob]: !subSlider,
+						[s.certificate__itemPreview]: isPreview
+					})}
 				>
 					<span
 						className={clsx(s.certificate__disable, {
 							[s.certificate__has]: data.number
 						})}
 					>
-						<span className={s.purple}>№</span>{' '}
+						<span className={clsx({ [s.purple]: isPreview })}>№</span>{' '}
 						{data.number > 0 ? data.number : '0000000000'}
 					</span>
 					<span
 						className={clsx(
 							s.certificate__disable,
 							{
-								[s.certificate__has]: data.date
+								[s.certificate__has]: data.date,
+								[s.certificate__red]: data.out
 							},
 							s.certificate__date
 						)}
 					>
-						<span className={clsx(s.purple, s.certificate__dateDisable)}>
+						<span
+							className={clsx(
+								{ [s.purple]: isPreview, [s.certificate__red]: data.out },
+								s.certificate__dateDisable
+							)}
+						>
 							До
 						</span>{' '}
 						<span className={s.certificate__dateMob}>Срок действия до</span>
@@ -304,7 +318,9 @@ const Certeficate = ({
 					</button>
 				</div>
 				<div
-					className={clsx(s.certificate__bottom, s.certificate__itemPreview)}
+					className={clsx(s.certificate__bottom, {
+						[s.certificate__itemPreview]: isPreview
+					})}
 				>
 					<div className={s.certificate__user}>
 						<div className={s.certificate__userAvatar}>

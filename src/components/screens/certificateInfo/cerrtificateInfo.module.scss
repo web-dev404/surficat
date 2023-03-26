@@ -127,6 +127,9 @@
 			padding: 0;
 			background: transparent;
 		}
+		&__company__btn {
+			margin-bottom: 0;
+		}
 	}
 }
 .back {
@@ -364,6 +367,43 @@
 	&__load {
 		margin-bottom: 32px;
 	}
+	@media ($media_xs2) {
+		&__title {
+			font-size: 32px;
+			line-height: 42px;
+			margin-bottom: 35px;
+		}
+		&__upload,
+		&__contacts,
+		&__fields {
+			padding: 15px;
+			background: $white;
+			border: 1px solid #eaecf1;
+			border-radius: 8px;
+			row-gap: 16px;
+			margin-bottom: 12px;
+		}
+		&__smallTitle {
+			margin-bottom: 17px;
+		}
+		&__field {
+			margin-bottom: 8px;
+		}
+		&__text {
+			font-size: 14px;
+			line-height: 24px;
+			margin-bottom: 16px;
+		}
+		&__titleLogo {
+			margin-bottom: 8px;
+		}
+		&__load {
+			margin-bottom: 0;
+		}
+		&__upload {
+			margin-bottom: 24px;
+		}
+	}
 }
 .area {
 	&__img {
@@ -385,5 +425,21 @@
 		background: $mainText;
 		border-radius: 0;
 		border: none;
+	}
+}
+.full {
+	@media ($media_xs2) {
+		padding-top: 80px;
+		border-radius: 0;
+		min-height: 100vh;
+		overflow: scroll;
+		max-height: 100vh;
+		border: none;
+		background: #f5f5f6;
+	}
+}
+.hideOnMob {
+	@media ($media_xs2) {
+		display: none;
 	}
 }

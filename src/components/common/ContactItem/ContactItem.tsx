@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import ContactOption from '@/common/ContactOption/ContactOption'
@@ -23,6 +23,18 @@ const ContactItem = ({ className, placeholder }: IContactItem) => {
 	]
 	const [isOpened, setOpened] = useState(false)
 	const [value, setValue] = useState<IOption>(options[0])
+	const ref = useRef<HTMLUListElement>(null)
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (ref.current && !ref.current.contains(event.target as Node)) {
+				setOpened(false)
+			}
+		}
+		document.addEventListener('mousedown', handleClickOutside)
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [ref])
 	function Select(value: IOption) {
 		setValue(value)
 		setOpened(false)
@@ -62,7 +74,7 @@ const ContactItem = ({ className, placeholder }: IContactItem) => {
 				>
 					<>
 						{isOpened && (
-							<ul className={s.item__list}>
+							<ul className={s.item__list} ref={ref}>
 								{options.map(option => (
 									<ContactOption value={option} onClick={Select} />
 								))}

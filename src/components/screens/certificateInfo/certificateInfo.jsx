@@ -119,7 +119,8 @@ const CertificateInfo = () => {
 				</ModalSubTitle>
 				<Button>Отправить сертификат</Button>
 			</Modal>
-			<Modal active={showModal} onClick={setShowModal}>
+			<Modal active={showModal} onClick={setShowModal} className={styles.full}>
+				<Back />
 				<ModalTitle className={styles.new__title}>Новая компания</ModalTitle>
 				<div className={styles.new__fields}>
 					<div>
@@ -132,36 +133,41 @@ const CertificateInfo = () => {
 					</div>
 					<div>
 						<Field hide={false} className={styles.new__field}>
-							Чем занимается компания (кратко)
+							Чем занимается компания{' '}
+							<span className={styles.hideOnMob}>(кратко)</span>
 						</Field>
 						<p className={styles.new__help}>
 							Например, «Семейный фотограф / Москва»
 						</p>
 					</div>
 				</div>
-				<h5 className={styles.new__smallTitle}>Контактные данные</h5>
-				<button
-					className={styles.info__company__btn}
-					onClick={() => {
-						setShowModal(true)
-					}}
-				>
-					<img src='/icons/plus-black.svg' alt='plus icon' />
-					Добавить
-				</button>
-				<h5 className={styles.new__smallTitle + ' ' + styles.new__titleLogo}>
-					Логотип или фотография
-				</h5>
-				<p className={styles.new__text}>
-					Вы можете загрузить изображение, в формате .jpeg или .png. Вес файла
-					не более 500 кб.
-				</p>
-				<CertificateUpload
-					icon={'/icons/download.svg'}
-					className={styles.new__load}
-				>
-					Загрузить
-				</CertificateUpload>
+				<div className={styles.new__contacts}>
+					<h5 className={styles.new__smallTitle}>Контактные данные</h5>
+					<button
+						className={styles.info__company__btn}
+						onClick={() => {
+							setShowModal(true)
+						}}
+					>
+						<img src='/icons/plus-black.svg' alt='plus icon' />
+						Добавить
+					</button>
+				</div>
+				<div className={styles.new__upload}>
+					<h5 className={styles.new__smallTitle + ' ' + styles.new__titleLogo}>
+						Логотип или фотография
+					</h5>
+					<p className={styles.new__text}>
+						Вы можете загрузить изображение, в формате .jpeg или .png. Вес файла
+						не более 500 кб.
+					</p>
+					<CertificateUpload
+						icon={'/icons/download.svg'}
+						className={styles.new__load}
+					>
+						Загрузить
+					</CertificateUpload>
+				</div>
 				<Button
 					onClick={() => {
 						setShowModal(false)

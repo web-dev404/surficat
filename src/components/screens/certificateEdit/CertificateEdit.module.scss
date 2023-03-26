@@ -201,6 +201,7 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 12px;
+	row-gap: 8px;
 	margin-bottom: 24px;
 	@media ($media_xs2) {
 		grid-gap: 4px;
@@ -369,6 +370,16 @@
 	margin-bottom: 17px;
 }
 .edit {
+	max-height: 100%;
+	overflow-y: auto;
+	&::-webkit-scrollbar {
+		width: 8px;
+		background: transparent;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: #eaecf1;
+		border-radius: 24px;
+	}
 	&__title {
 		margin-bottom: 32px;
 	}
@@ -432,6 +443,74 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 	}
+	@media ($media_xs2) {
+		padding-top: 80px;
+		border-radius: 0;
+		min-height: 100vh;
+		overflow: scroll;
+		max-height: 100vh;
+		border: none;
+		background: #f5f5f6;
+		&__title {
+			font-size: 32px;
+			line-height: 42px;
+		}
+		&__logoBox,
+		&__contacts,
+		&__fields {
+			padding: 15px;
+			border: 1px solid #eaecf1;
+			border-radius: 8px;
+			background: $white;
+			margin-bottom: 7px;
+		}
+		&__smallTitle {
+			margin-bottom: 16px;
+		}
+		&__fieldItem {
+			margin-bottom: 16px;
+		}
+		&__fieldItemField {
+			margin-bottom: 8px;
+		}
+		&__contactItem {
+			margin-bottom: 11px;
+			&:last-of-type {
+				margin-bottom: 16px;
+			}
+		}
+		&__add {
+			margin-bottom: 0;
+		}
+		&__text {
+			font-size: 14px;
+			line-height: 24px;
+			margin-bottom: 16px;
+		}
+		&__titleLogo {
+			margin-bottom: 8px;
+		}
+		&__wrapper {
+			height: 136px;
+			margin-bottom: 16px;
+		}
+		&__buttons {
+			grid-template-columns: 1fr;
+			row-gap: 13px;
+		}
+		&__delete {
+			padding: 7px;
+			font-size: 14px;
+			line-height: 24px;
+			img {
+				width: 16px;
+				height: 16px;
+			}
+		}
+		&__logoBox {
+			margin-bottom: 24px;
+		}
+	}
 }
 .reverse {
 	@media ($media_xs2) {
@@ -453,5 +532,10 @@
 		background: $mainText;
 		border-radius: 0;
 		border: none;
+	}
+}
+.hideOnMob {
+	@media ($media_xs2) {
+		display: none;
 	}
 }

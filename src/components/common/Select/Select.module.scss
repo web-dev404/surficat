@@ -47,6 +47,18 @@
 		font-size: 14px;
 		line-height: 24px;
 		border-bottom: 1px solid #eaecf1;
+		display: flex;
+		justify-content: space-between;
+		svg {
+			display: none;
+			flex-shrink: 0;
+		}
+		&Active {
+			color: $purple;
+			svg {
+				display: block;
+			}
+		}
 		&:last-child {
 			border-bottom: none;
 			padding-bottom: 0;

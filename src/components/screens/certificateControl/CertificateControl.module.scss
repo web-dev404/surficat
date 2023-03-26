@@ -13,13 +13,29 @@
 			display: block;
 		}
 	}
+	&__delete {
+		transition: $transition_fast;
+		svg {
+			path {
+				transition: $transition_fast;
+			}
+		}
+		&:hover {
+			background-color: $red;
+			svg {
+				path {
+					stroke: $white;
+				}
+			}
+		}
+	}
 	&__submit {
 		min-width: 200px;
 	}
 	&__delText {
-		font-weight: 500;
-		font-size: 14px;
-		line-height: 24px;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 28px;
 	}
 	&__dot {
 		margin: 0 3px 0 0;
@@ -68,15 +84,17 @@
 }
 .red {
 	color: #ff4d50;
-	margin-bottom: 16px;
+	margin-bottom: 19px;
 }
 .delete {
-	input:placeholder-shown + span,
-	input:not(:placeholder-shown) + span {
+	input:placeholder-shown + span {
 		color: #787486;
 		font-size: 12px;
 		line-height: 20px;
 		top: 5px;
+	}
+	input:not(:placeholder-shown) + span {
+		color: #787486;
 	}
 	input {
 		&:focus {
@@ -90,6 +108,9 @@
 		&::after {
 			content: '';
 		}
+	}
+	@media ($media_xs2) {
+		margin-bottom: 16px;
 	}
 }
 .edit {

@@ -9,6 +9,7 @@ const CerteficatePreview = () => {
 		number: 5761431364,
 		date: '14.06.2024',
 		link: 'https://www.google.com',
+		out: true,
 		use: false
 	}
 	return (

@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React from 'react'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -51,6 +52,10 @@ function Filter() {
 			code: 3
 		}
 	]
+	const [activeIndex, setActiveIndex] = React.useState(0)
+	function changeIndex(index: number) {
+		setActiveIndex(index)
+	}
 	return (
 		<div className={s.filter}>
 			<div className={s.filter__search}>
@@ -67,10 +72,33 @@ function Filter() {
 			<Select options={status} className={s.select__hide}></Select>
 			<Swiper spaceBetween={8} slidesPerView={2} className={s.swiper}>
 				{status &&
-					status.map(status => {
+					status.map((status, index) => {
 						return (
-							<SwiperSlide key={status.value} className={s.swiper__slide}>
-								<Status state={status.code} />
+							<SwiperSlide
+								key={status.value}
+								className={clsx(s.swiper__slide, {
+									[s.swiper__slideActive]: index === activeIndex
+								})}
+								onClick={() => {
+									changeIndex(index)
+								}}
+							>
+								<Status key={index} state={status.code} />
+								<svg
+									width='16'
+									height='16'
+									viewBox='0 0 16 16'
+									fill='none'
+									xmlns='http://www.w3.org/2000/svg'
+								>
+									<path
+										d='M14 4L5.83333 12.1667L2 8.33333'
+										stroke='#6D54FE'
+										stroke-width='1.3'
+										stroke-linecap='round'
+										stroke-linejoin='round'
+									/>
+								</svg>
 							</SwiperSlide>
 						)
 					})}

@@ -1,4 +1,5 @@
 import cn from 'clsx'
+import clsx from 'clsx'
 import Image from 'next/image'
 import React, { FC, PropsWithChildren, useState } from 'react'
 
@@ -6,6 +7,8 @@ import s from './Field.module.scss'
 
 interface IField {
 	hide: boolean
+	error?: boolean
+	errorText?: string
 	icon?: string
 	className?: string
 	onChange?: Function
@@ -19,7 +22,9 @@ const Field: FC<PropsWithChildren<IField>> = ({
 	icon,
 	onChange = () => {},
 	placeholder = '',
-	hidden = false
+	hidden = false,
+	error = false,
+	errorText = 'Аккаунтов с этим email не найдено.'
 }) => {
 	const [visibility, setVisibility] = useState(hide)
 	const [isEmpty, setEmpty] = useState(true)
@@ -38,7 +43,7 @@ const Field: FC<PropsWithChildren<IField>> = ({
 					</div>
 				)}
 				<input
-					className={cn(s.field__input)}
+					className={cn(s.field__input, { [s.field__errorInput]: error })}
 					type={visibility ? 'password' : 'text'}
 					placeholder={placeholder}
 					onChange={event => {
@@ -46,7 +51,11 @@ const Field: FC<PropsWithChildren<IField>> = ({
 						onChange(event.target.value)
 					}}
 				></input>
-				<span className={s.field__placeholder}>{children}</span>
+				<span
+					className={clsx(s.field__placeholder, { [s.field__error]: error })}
+				>
+					{children}
+				</span>
 				{hide &&
 					(visibility ? (
 						<svg
@@ -128,6 +137,11 @@ const Field: FC<PropsWithChildren<IField>> = ({
 						</svg>
 					))}
 			</div>
+			{error && (
+				<div className={s.field__errorBox}>
+					Аккаунтов с этим email не найдено.
+				</div>
+			)}
 		</label>
 	)
 }

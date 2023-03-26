@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 
-import Home from '@/screens/home/Home'
+import Certificate from '@/screens/certificate/Certificate'
 
 const HomePage: NextPage = () => {
-	return <Home />
+	return <Certificate />
 }
 
 export default HomePage

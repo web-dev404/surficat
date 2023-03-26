@@ -30,7 +30,7 @@ function Sends() {
 					</>
 				)}
 				{!(items.length > 0) && (
-					<SendsInformation dashed={false}>
+					<SendsInformation dashed={true}>
 						<h2 className={s.sends__filter__info}>
 							Здесь будут отображаться ваши отправленные сертификаты. Их можно
 							отправить на странице{' '}

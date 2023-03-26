@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import CurrencyOption from '@/common/CurrencyOption/CurrencyOption'
@@ -12,6 +12,18 @@ const Currency = () => {
 	const options = ['Рубли, ₽', 'Dollars', 'Euro']
 	const [value, setValue] = useState(options[0])
 	const [show, setShow] = useState(false)
+	const ref = useRef<HTMLUListElement>(null)
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (ref.current && !ref.current.contains(event.target as Node)) {
+				setShow(false)
+			}
+		}
+		document.addEventListener('mousedown', handleClickOutside)
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [ref])
 	function changeValue(value: string) {
 		setShow(false)
 		setValue(value)
@@ -47,7 +59,7 @@ const Currency = () => {
 			<CSSTransition in={show} classNames={'modal'} unmountOnExit timeout={300}>
 				<>
 					{show && (
-						<ul className={s.valute__list}>
+						<ul className={s.valute__list} ref={ref}>
 							{options.map((option, index) => (
 								<CurrencyOption
 									key={index}

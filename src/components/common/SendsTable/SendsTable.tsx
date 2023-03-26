@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
@@ -21,8 +22,8 @@ import s from './SendsTable.module.scss'
 import data from './data'
 
 function SendsTable() {
-	let limit = 10
-	let limitMob = 5
+	const [limit, setLimit] = useState(10)
+	const [limitMob, setLimitMob] = useState(5)
 	const word = 'Удалить сертификат'
 	const [isShow, setShow] = useState(false)
 	const [currentPage, setCurrentPage] = useState(0)
@@ -88,7 +89,7 @@ function SendsTable() {
 						})}
 				</tbody>
 			</table>
-			{/*<SendsInformation dashed={true}>*/}
+			{/*<SendsInformation dashed={false}>*/}
 			{/*	<h3 className={s.empty}>*/}
 			{/*		К сожалению, подходящих сертификатов не найдено*/}
 			{/*	</h3>*/}
@@ -199,11 +200,8 @@ function SendsTable() {
 			>
 				{isShow ? 'Скрыть' : 'Показать еще'}
 			</button>
-			<Modal
-				onClick={setAddComment}
-				active={isAddComment}
-				className={s.table__full}
-			>
+			<Modal onClick={setAddComment} active={isAddComment} className={s.full}>
+				<Back />
 				<ModalTitle className={s.big}>Добавление комментария</ModalTitle>
 				<TextArea>Введите комментарий</TextArea>
 				<Button
@@ -217,6 +215,7 @@ function SendsTable() {
 			</Modal>
 
 			<Modal onClick={setComment} active={isComment} className={s.full}>
+				<Back />
 				<ModalTitle className={s.big}>Редактирование комментария</ModalTitle>
 				<TextArea>Введите комментарий</TextArea>
 				<div className={s.table__modalButtons}>
@@ -271,13 +270,14 @@ function SendsTable() {
 					Редактирование отправленного сертификата
 				</ModalTitle>
 				<ModalSubTitle className={s.edit__subtitle}>
-					Семейные выходные в уютном доме «Taiga» на Байкале • 10 000 ₽
+					Семейные выходные в уютном доме «Taiga» на Байкале{' '}
+					<span className={s.edit__dot}>•</span> 10 000 ₽
 				</ModalSubTitle>
 				<div className={s.edit__item}>
 					<Field hide={false} icon={'/icons/user.svg'} className={s.editField}>
 						Получатель
 					</Field>
-					<p className={s.edit__text}>
+					<p className={clsx(s.edit__text)}>
 						Имя лучше указывать в дательном падеже. Например: «Любимой
 						Александре».
 					</p>
@@ -290,7 +290,7 @@ function SendsTable() {
 					>
 						Срок действия сертификата
 					</Field>
-					<p className={s.edit__text}>
+					<p className={clsx(s.edit__text, s.mobHide)}>
 						До какого числа клиент может воспользоваться сертификатом
 					</p>
 				</div>
@@ -303,7 +303,7 @@ function SendsTable() {
 						setSafe(true)
 					}}
 				>
-					Отправить
+					Сохранить изменения
 				</Button>
 			</Modal>
 			<Modal

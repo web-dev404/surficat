@@ -138,7 +138,6 @@ const Profile = () => {
 							hide={false}
 							onChange={checkField}
 							className={s.delete}
-							placeholder={'Удалить аккаунт'}
 							hidden={true}
 						>
 							Введите текст

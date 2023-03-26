@@ -8,6 +8,7 @@ body {
 	scrollbar-width: thin;
 }
 .loaderWrapper {
+	position: fixed;
 	z-index: 9999;
 	width: 100vw;
 	height: 100vh;
@@ -141,6 +142,17 @@ body {
 
 .swiper-control {
 	height: 100%;
+	&:hover {
+		.swiper-control__prev {
+			left: 24px;
+		}
+		.swiper-control__next {
+			right: 24px;
+		}
+		.swiper-control__arrow {
+			opacity: 1;
+		}
+	}
 	.swiper-pagination {
 		padding: 8px 12px;
 		background: rgba($mainText, 0.4);
@@ -164,7 +176,7 @@ body {
 		cursor: pointer;
 		position: absolute;
 		top: 50%;
-		transform: translateY(0%);
+		transform: translateY(-50%);
 		z-index: 10;
 		width: 44px;
 		height: 44px;
@@ -175,10 +187,6 @@ body {
 		justify-content: center;
 		opacity: 0;
 		transition: $transition_fast;
-		&:hover {
-			transform: translateY(-50%);
-			opacity: 1;
-		}
 	}
 	&__prev {
 		left: 24px;

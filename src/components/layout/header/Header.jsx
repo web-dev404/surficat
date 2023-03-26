@@ -11,7 +11,7 @@ const Header = () => {
 		<header className={styles.header}>
 			<div className='container'>
 				<div className={styles.header__inner}>
-					<Link className='logo' href='/'>
+					<Link className='logo' href='/certificate'>
 						<Image
 							src={'/icons/logo.svg'}
 							alt={'logo'}
@@ -30,7 +30,7 @@ const Header = () => {
 									},
 									styles.hideMobile
 								)}
-								href='certificate'
+								href='/certificate'
 							>
 								Мои сертификаты
 							</Link>

@@ -37,12 +37,32 @@
 		line-height: 26px;
 		color: $mainText;
 	}
+	&__error {
+		color: #ff4d50 !important;
+		outline-color: #ff4d50;
+		&::after {
+			color: #ff4d50 !important;
+		}
+	}
+	&__errorBox {
+		padding-top: 4px;
+		font-weight: 500;
+		font-size: 12px;
+		line-height: 20px;
+		color: #ff4d50;
+	}
 	&__fill {
 		span {
 			color: $purple;
 			font-size: 12px;
 			line-height: 20px;
 			top: 5px;
+		}
+	}
+	&__errorInput {
+		border-color: #ff4d50;
+		&:focus {
+			outline: none;
 		}
 	}
 	&__placeholder {

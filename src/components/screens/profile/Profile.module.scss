@@ -92,12 +92,14 @@
 	}
 }
 .delete {
-	input:placeholder-shown + span,
-	input:not(:placeholder-shown) + span {
+	input:placeholder-shown + span {
 		color: #787486;
 		font-size: 12px;
 		line-height: 20px;
 		top: 5px;
+	}
+	input:not(:placeholder-shown) + span {
+		color: #787486;
 	}
 	input {
 		&:focus {

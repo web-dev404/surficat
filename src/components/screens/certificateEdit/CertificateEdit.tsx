@@ -161,6 +161,7 @@ const CertificateEdit = () => {
 				onClick={setEditCompany}
 				className={styles.edit}
 			>
+				<Back />
 				<SmallTitle className={styles.edit__title}>
 					Редактирование компании
 				</SmallTitle>
@@ -175,14 +176,15 @@ const CertificateEdit = () => {
 					</div>
 					<div className={styles.edit__fieldItem}>
 						<Field hide={false} className={styles.edit__fieldItemField}>
-							Чем занимается компания (кратко)
+							Чем занимается компания{' '}
+							<span className={styles.hideOnMob}>(кратко)</span>
 						</Field>
 						<p className={styles.edit__fieldSubField}>
 							Например: «Семейный фотограф / Москва»
 						</p>
 					</div>
 				</div>
-				<div>
+				<div className={styles.edit__contacts}>
 					<h5 className={styles.edit__smallTitle}>Контактные данные</h5>
 					<div>
 						<ContactItem
@@ -194,7 +196,7 @@ const CertificateEdit = () => {
 							placeholder={'Укажите номер'}
 						/>
 					</div>
-					<AddBtn>Добавить</AddBtn>
+					<AddBtn className={styles.edit__add}>Добавить</AddBtn>
 				</div>
 				<div className={styles.edit__logoBox}>
 					<h5 className={clsx(styles.edit__smallTitle, styles.edit__titleLogo)}>
