@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import Image from 'next/image'
 import React, { FC, PropsWithChildren, useState } from 'react'
 
-import s from './Field.module.scss'
+import s from './Input.module.scss'
 
 interface IField {
 	hide: boolean
@@ -15,7 +15,7 @@ interface IField {
 	placeholder?: string
 	hidden?: boolean
 }
-const Field: FC<PropsWithChildren<IField>> = ({
+const Input: FC<PropsWithChildren<IField>> = ({
 	hide,
 	children,
 	className,
@@ -24,7 +24,7 @@ const Field: FC<PropsWithChildren<IField>> = ({
 	placeholder = '',
 	hidden = false,
 	error = false,
-	errorText = 'Аккаунтов с этим email.tsx не найдено.'
+	errorText = 'Аккаунтов с этим email не найдено.'
 }) => {
 	const [visibility, setVisibility] = useState(hide)
 	const [isEmpty, setEmpty] = useState(true)
@@ -32,7 +32,11 @@ const Field: FC<PropsWithChildren<IField>> = ({
 		<label
 			className={cn(
 				s.field,
-				{ [s.field__fill]: !isEmpty, [s.field__hide]: hidden },
+				{
+					[s.field__fill]: !isEmpty,
+					[s.field__hide]: hidden,
+					[s.fieldIcon]: icon
+				},
 				className
 			)}
 		>
@@ -63,16 +67,16 @@ const Field: FC<PropsWithChildren<IField>> = ({
 						<path
 							d='M18.6667 19.5V17.8333C18.6667 16.9493 18.3155 16.1014 17.6904 15.4763C17.0653 14.8512 16.2174 14.5 15.3334 14.5H8.66671C7.78265 14.5 6.93481 14.8512 6.30968 15.4763C5.68456 16.1014 5.33337 16.9493 5.33337 17.8333V19.5'
 							stroke='#232124'
-							stroke-width='1.7'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='1.7'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 						<path
 							d='M12 11.1667C13.8409 11.1667 15.3333 9.67428 15.3333 7.83333C15.3333 5.99238 13.8409 4.5 12 4.5C10.159 4.5 8.66663 5.99238 8.66663 7.83333C8.66663 9.67428 10.159 11.1667 12 11.1667Z'
 							stroke='#232124'
-							stroke-width='1.7'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='1.7'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 					</svg>
 				)}
@@ -104,16 +108,16 @@ const Field: FC<PropsWithChildren<IField>> = ({
 						<path
 							d='M11.1667 17.8333C14.8486 17.8333 17.8333 14.8486 17.8333 11.1667C17.8333 7.48477 14.8486 4.5 11.1667 4.5C7.48477 4.5 4.5 7.48477 4.5 11.1667C4.5 14.8486 7.48477 17.8333 11.1667 17.8333Z'
 							stroke='#787486'
-							stroke-width='1.7'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='1.7'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 						<path
 							d='M19.5 19.5L15.875 15.875'
 							stroke='#787486'
-							stroke-width='1.7'
-							stroke-linecap='round'
-							stroke-linejoin='round'
+							strokeWidth='1.7'
+							strokeLinecap='round'
+							strokeLinejoin='round'
 						/>
 					</svg>
 				)}
@@ -198,13 +202,9 @@ const Field: FC<PropsWithChildren<IField>> = ({
 						</svg>
 					))}
 			</div>
-			{error && (
-				<div className={s.field__errorBox}>
-					Аккаунтов с этим email не найдено.
-				</div>
-			)}
+			{error && <div className={s.field__errorBox}>{errorText}</div>}
 		</label>
 	)
 }
 
-export default Field
+export default Input

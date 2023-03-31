@@ -1,7 +1,10 @@
 @import 'src/styles/reset';
 @import 'src/styles/variables';
 @import 'src/styles/fonts';
-
+.relative {
+	height: 50px;
+	position: relative;
+}
 html,
 body {
 	scrollbar-color: $black $white;
@@ -206,4 +209,12 @@ body {
 }
 .semiBold {
 	font-weight: 600;
+}
+
+.list-container {
+	max-width: 360px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-top: 20px;
 }

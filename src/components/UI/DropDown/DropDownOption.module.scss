@@ -1,0 +1,12 @@
+@import '@/styles/_variables.scss';
+.item {
+	padding: 9px 12px;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 26px;
+	transition: $transition_fast;
+	&:hover {
+		background: #f5f5f6;
+		border-radius: 4px;
+	}
+}

@@ -3,10 +3,8 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-import Button from '@/common/Button/Button'
-import Field from '@/common/Field/Field'
-
 import s from './EnterBlock.module.scss'
+import Input from '@/components/UI/Input/Input'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 function EnterBlock() {
@@ -22,8 +20,12 @@ function EnterBlock() {
 				</Link>
 			</p>
 			<div className={s.registration__fields}>
-				<Field hide={false}>Ваш email</Field>
-				<Field hide={true}>Текущий пароль</Field>
+				<Input hide={false} className={s.registration__field}>
+					Ваш email
+				</Input>
+				<Input hide={true} className={s.registration__field}>
+					Текущий пароль
+				</Input>
 			</div>
 			<div className={s.registration__subfields}>
 				<label className={s.registration__check}>

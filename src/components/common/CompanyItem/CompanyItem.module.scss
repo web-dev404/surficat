@@ -13,6 +13,7 @@
 		border-color: $purple;
 	}
 	&__select {
+		cursor: pointer;
 		position: relative;
 		border-radius: 50%;
 		width: 20px;
@@ -181,8 +182,8 @@
 	}
 }
 .mob {
-	display: none;
+	display: none !important;
 	@media ($media_xs2) {
-		display: flex;
+		display: flex !important;
 	}
 }

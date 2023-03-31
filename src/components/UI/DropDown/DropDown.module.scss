@@ -1,0 +1,70 @@
+@import '@/styles/_variables.scss';
+.dropdownMenu {
+	cursor: pointer;
+	width: 100%;
+	position: relative;
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		right: 20px;
+		transition: $transition_fast;
+		path {
+			transition: $transition_fast;
+		}
+	}
+	&__show {
+		.dropdownMenu__arrow {
+			transform: translateY(-50%) scale(-1);
+		}
+	}
+	&:hover {
+		.dropdownMenu__header {
+			border-color: $dark;
+		}
+	}
+	&__icon {
+		margin-right: 16px;
+	}
+	&__header {
+		display: flex;
+		align-items: center;
+		background: $white;
+		border: 1px solid $border;
+		border-radius: 8px;
+		padding: 14px 20px;
+		color: $gray;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		transition: $transition_fast;
+	}
+	&__list {
+		display: flex;
+		flex-direction: column;
+		padding: 8px;
+		position: absolute;
+		bottom: -8px;
+		left: -1px;
+		width: calc(100% + 2px);
+		transform: translateY(100%);
+		z-index: 5;
+		background: $white;
+		border: 1px solid $border;
+		border-radius: 8px;
+	}
+	&__active {
+		border-color: $purple !important;
+		color: $dark;
+		.dropdownMenu__arrow {
+			path {
+				stroke: $purple;
+			}
+		}
+		.dropdownMenu__icon {
+			path {
+				stroke: $purple;
+			}
+		}
+	}
+}

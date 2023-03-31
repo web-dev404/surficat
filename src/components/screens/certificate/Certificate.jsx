@@ -5,7 +5,6 @@ import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import CertificateItem from '@/common/CertificateItem/CertificateItem'
-import PageButtons from '@/common/PageButtons/PageButtons'
 import PageHeader from '@/common/PageHeader/PageHeader'
 import PageTitle from '@/common/PageTitle/PageTitle'
 
@@ -14,6 +13,7 @@ import Layout from '@/layout/Layout'
 import styles from './Certificate.module.scss'
 import data from './data'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
+import Tabs from '@/components/UI/Tabs/Tabs'
 
 const Certificate = () => {
 	const router = useRouter()
@@ -46,7 +46,7 @@ const Certificate = () => {
 						</svg>
 					</Link>
 				</div>
-				<PageButtons />
+				<Tabs />
 			</PageHeader>
 			<div className={styles.certificate__cards}>
 				{items.length > 0 && (

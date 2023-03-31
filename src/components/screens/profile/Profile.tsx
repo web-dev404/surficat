@@ -2,12 +2,9 @@ import React, { useState } from 'react'
 
 import Alert from '@/common/Alert/Alert'
 import Back from '@/common/Back/Back'
-import Button from '@/common/Button/Button'
 import CancelButton from '@/common/CancelButton/CancelButton'
 import CompanyItem from '@/common/CompanyItem/CompanyItem'
 import DeleteButton from '@/common/DeleteButton/DeleteButton'
-import ExitBtn from '@/common/ExitBtn/ExitBtn'
-import Field from '@/common/Field/Field'
 import Modal from '@/common/Modal/Modal'
 import ModalTitle from '@/common/ModalTitle/ModalTitle'
 import PageHeader from '@/common/PageHeader/PageHeader'
@@ -19,6 +16,7 @@ import SmallTitle from '@/common/SmallTitle/SmallTitle'
 import Layout from '@/layout/Layout'
 
 import s from './Profile.module.scss'
+import Input from '@/components/UI/Input/Input'
 import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 import RedButton from '@/components/UI/RedButton/RedButton'
@@ -96,8 +94,12 @@ const Profile = () => {
 					<SmallSubtitle>Эти данные не будут доступны публично.</SmallSubtitle>
 					<form action='#'>
 						<div className={s.profile__buttons}>
-							<Field hide={false}>Ваше имя</Field>
-							<Field hide={false}>Ваш email</Field>
+							<Input hide={false} className={s.profile__button}>
+								Ваше имя
+							</Input>
+							<Input hide={false} className={s.profile__button}>
+								Ваш email
+							</Input>
 						</div>
 						<PrimaryButton
 							onClick={() => {
@@ -115,8 +117,12 @@ const Profile = () => {
 					</SmallSubtitle>
 					<form action='#'>
 						<div className={s.profile__buttons + ' ' + s.profile__buttonsWrap}>
-							<Field hide={true}>Текущий пароль</Field>
-							<Field hide={true}>Новый пароль</Field>
+							<Input hide={true} className={s.profile__button}>
+								Текущий пароль
+							</Input>
+							<Input hide={true} className={s.profile__button}>
+								Новый пароль
+							</Input>
 						</div>
 						<PrimaryButton
 							onClick={() => {
@@ -166,22 +172,22 @@ const Profile = () => {
 						Для подтверждения удаления введите «Удалить аккаунт».
 					</SmallSubtitle>
 					<div className={s.profile__buttons + ' ' + s.profile__delete}>
-						<Field
+						<Input
 							hide={false}
 							onChange={checkField}
 							className={s.delete}
 							hidden={true}
 						>
 							Введите текст
-						</Field>
-						<Field
+						</Input>
+						<Input
 							hide={false}
 							onChange={checkField}
 							className={s.deleteFieldMob}
 							placeholder={' '}
 						>
 							Введите текст
-						</Field>
+						</Input>
 					</div>
 					<RedButton disabled={!isValid}>
 						<svg
@@ -234,12 +240,51 @@ const Profile = () => {
 					>
 						Отменить
 					</CancelButton>
-					<DeleteButton
+					<RedButton
 						onClick={() => {
 							setDelete(true)
 							setShow(false)
 						}}
-					/>
+					>
+						<svg
+							width='25'
+							height='24'
+							viewBox='0 0 25 24'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+							className='DeleteButton_btn__icon__SojM2'
+						>
+							<path
+								d='M5 7H6.66667H20'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							></path>
+							<path
+								d='M9.16663 6.99984V5.33317C9.16663 4.89114 9.34222 4.46722 9.65478 4.15466C9.96734 3.8421 10.3913 3.6665 10.8333 3.6665H14.1666C14.6087 3.6665 15.0326 3.8421 15.3451 4.15466C15.6577 4.46722 15.8333 4.89114 15.8333 5.33317V6.99984M18.3333 6.99984V18.6665C18.3333 19.1085 18.1577 19.5325 17.8451 19.845C17.5326 20.1576 17.1087 20.3332 16.6666 20.3332H8.33329C7.89127 20.3332 7.46734 20.1576 7.15478 19.845C6.84222 19.5325 6.66663 19.1085 6.66663 18.6665V6.99984H18.3333Z'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							></path>
+							<path
+								d='M14.1666 11.1665V16.1665'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							></path>
+							<path
+								d='M10.8334 11.1665V16.1665'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							></path>
+						</svg>
+						Удалить
+					</RedButton>
 				</div>
 			</Modal>
 			<Alert state={setDelete} active={isDelete} icon={'/icons/success.svg'}>

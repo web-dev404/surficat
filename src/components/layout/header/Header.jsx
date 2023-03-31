@@ -11,9 +11,9 @@ const Header = () => {
 	const router = useRouter()
 	return (
 		<header className={styles.header}>
-			{/*<Notify status={1} active={true} />*/}
-			{/*<Notify status={2} active={true} />*/}
-			{/*<Notify status={3} active={true} />*/}
+			<Notify status={1} active={true} />
+			<Notify status={2} active={true} />
+			<Notify status={3} active={true} />
 			<div className='container'>
 				<div className={styles.header__inner}>
 					<Link className='logo' href='/certificate'>

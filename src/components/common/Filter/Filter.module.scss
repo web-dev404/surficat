@@ -79,14 +79,7 @@
 .search {
 	margin-bottom: 7px;
 	input {
-		outline: none;
 		padding-left: 59px;
-		&:focus {
-			outline: none;
-			& + span {
-				color: #787486;
-			}
-		}
 	}
 	span {
 		left: 60px;

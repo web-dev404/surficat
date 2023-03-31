@@ -6,7 +6,6 @@ import Back from '@/common/Back/Back'
 import CompanyItem from '@/common/CompanyItem/CompanyItem'
 import ContactItem from '@/common/ContactItem/ContactItem'
 import Currency from '@/common/Currency/Currency'
-import Field from '@/common/Field/Field'
 import Modal from '@/common/Modal/Modal'
 import PageHeader from '@/common/PageHeader/PageHeader'
 import PageTitle from '@/common/PageTitle/PageTitle'
@@ -20,6 +19,7 @@ import WarnBlock from '@/common/WarnBlock/WarnBlock'
 import Layout from '@/layout/Layout'
 
 import styles from './CertificateEdit.module.scss'
+import Input from '@/components/UI/Input/Input'
 import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
@@ -66,9 +66,9 @@ const CertificateEdit = () => {
 							Вся указанная информация будет отображаться в сертификате и
 							публично доступна тем, у кого есть ссылка.
 						</SmallSubtitle>
-						<Field hide={false} className={styles.form__input}>
+						<Input hide={false} className={styles.form__input}>
 							Название сертификата
-						</Field>
+						</Input>
 						<p className={styles.form__text}>
 							Можно не писать «Подарочный сертификат» — это будет указано
 							автоматически. Пример названия: «Семейная фотосессия в студии»
@@ -82,9 +82,9 @@ const CertificateEdit = () => {
 							получателя.
 						</p>
 						<div className={styles.form__box}>
-							<Field hide={false} className={styles.form__box__input}>
+							<Input hide={false} className={styles.form__box__input}>
 								Укажите номинал (если нужно)
-							</Field>
+							</Input>
 							<Currency disabled={true} />
 						</div>
 					</form>
@@ -163,7 +163,7 @@ const CertificateEdit = () => {
 							<WarnBlock className={styles.subItem}>
 								Необходимо указать информацию о компании и контакты
 							</WarnBlock>
-							<OutlineButton className={styles.addIcon}>
+							<OutlineButton className={styles.addIcon} size={'medium'}>
 								<svg
 									width='25'
 									height='24'
@@ -206,18 +206,18 @@ const CertificateEdit = () => {
 				</SmallTitle>
 				<div className={styles.edit__fields}>
 					<div className={styles.edit__fieldItem}>
-						<Field hide={false} className={styles.edit__fieldItemField}>
+						<Input hide={false} className={styles.edit__fieldItemField}>
 							Название компании
-						</Field>
+						</Input>
 						<p className={styles.edit__fieldSubField}>
 							Если вы работаете от своего лица, то можно указать имя и фамилию
 						</p>
 					</div>
 					<div className={styles.edit__fieldItem}>
-						<Field hide={false} className={styles.edit__fieldItemField}>
+						<Input hide={false} className={styles.edit__fieldItemField}>
 							Чем занимается компания{' '}
 							<span className={styles.hideOnMob}>(кратко)</span>
-						</Field>
+						</Input>
 						<p className={styles.edit__fieldSubField}>
 							Например: «Семейный фотограф / Москва»
 						</p>

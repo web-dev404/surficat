@@ -3,13 +3,20 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-import styles from './PageButtons.module.scss'
+import styles from './Tabs.module.scss'
 
 interface IPageButtons {
-	mob: boolean
+	mob?: boolean
 	className?: string
+	firstValue?: string
+	secondValue?: string
 }
-const PageButtons = ({ className, mob }: IPageButtons) => {
+const Tabs = ({
+	className,
+	mob,
+	firstValue = 'Сертификаты',
+	secondValue = 'Отправки'
+}: IPageButtons) => {
 	const router = useRouter()
 	return (
 		<div
@@ -25,7 +32,7 @@ const PageButtons = ({ className, mob }: IPageButtons) => {
 					[styles.buttons__btn__active]: router.pathname === '/certificate'
 				})}
 			>
-				Сертификаты
+				{firstValue}
 			</Link>
 			<Link
 				href={'/sends'}
@@ -33,10 +40,10 @@ const PageButtons = ({ className, mob }: IPageButtons) => {
 					[styles.buttons__btn__active]: router.pathname === '/sends'
 				})}
 			>
-				Отправки
+				{secondValue}
 			</Link>
 		</div>
 	)
 }
 
-export default PageButtons
+export default Tabs

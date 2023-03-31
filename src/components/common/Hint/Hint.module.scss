@@ -10,6 +10,9 @@
 	z-index: 3;
 	width: max-content;
 	max-width: 276px;
+	svg {
+		margin-right: 8px;
+	}
 	&::after {
 		content: '';
 		position: absolute;
@@ -33,6 +36,15 @@
 	&__small {
 		text-align: left;
 		max-width: 220px;
+	}
+	&__up {
+		bottom: auto;
+		top: -14px;
+		&::after {
+			bottom: 0;
+			top: auto;
+			transform: rotate(-45deg) translateX(-50%);
+		}
 	}
 	@media ($media_xs2) {
 		display: none;

@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Button from '@/common/Button/Button'
-import PageButtons from '@/common/PageButtons/PageButtons'
 import PageHeader from '@/common/PageHeader/PageHeader'
 import PageTitle from '@/common/PageTitle/PageTitle'
+import PageButtons from '@/common/Tabs/Tabs'
 
 import Layout from '@/layout/Layout'
 

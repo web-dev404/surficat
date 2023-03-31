@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import Alert from '@/common/Alert/Alert'
 import Back from '@/common/Back/Back'
 import Certeficate from '@/common/Certeficate/Certeficate'
-import Field from '@/common/Field/Field'
 import Modal from '@/common/Modal/Modal'
 import ModalSubTitle from '@/common/ModalSubtitle/ModalSubTitle'
 import ModalText from '@/common/ModalText/ModalText'
@@ -17,6 +16,7 @@ import TitleBackButton from '@/common/TitleBackButton/TitleBackButton'
 import CertificateLayout from '@/layout/CertificateLayout'
 
 import s from './CertificateControl.module.scss'
+import Input from '@/components/UI/Input/Input'
 import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 import RedButton from '@/components/UI/RedButton/RedButton'
@@ -145,9 +145,9 @@ const CertificateControl = () => {
 				<ModalSubTitle className={s.control__subText}>
 					Для подтверждения удаления введите «Удалить сертификат»
 				</ModalSubTitle>
-				<Field hide={false} className={s.delete} onChange={checkField}>
+				<Input hide={false} className={s.delete} onChange={checkField}>
 					Введите текст
-				</Field>
+				</Input>
 				<div className={s.control__modalButtons}>
 					<RedButton
 						disabled={!isConfirm}
@@ -209,18 +209,18 @@ const CertificateControl = () => {
 					<span className={s.control__dot}>•</span> 10 000 ₽
 				</ModalSubTitle>
 				<div className={s.edit__item}>
-					<Field hide={false} icon={'person'} className={s.editField}>
+					<Input hide={false} icon={'person'} className={s.editField}>
 						Получатель
-					</Field>
+					</Input>
 					<p className={s.edit__text}>
 						Имя лучше указывать в дательном падеже. Например: «Любимой
 						Александре».
 					</p>
 				</div>
 				<div className={s.edit__item}>
-					<Field hide={false} className={s.editField} icon={'calendar'}>
+					<Input hide={false} className={s.editField} icon={'calendar'}>
 						Срок действия сертификата
-					</Field>
+					</Input>
 					<p className={s.edit__text}>
 						До какого числа клиент может воспользоваться сертификатом
 					</p>

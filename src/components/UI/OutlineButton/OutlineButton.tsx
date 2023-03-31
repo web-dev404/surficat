@@ -10,7 +10,7 @@ interface IOutlineButton {
 	onClick?: () => void
 	fill?: boolean
 	disabled?: boolean
-	size?: 'medium' | 'small'
+	size?: 'medium' | 'small' | 'xs'
 }
 const OutlineButton: FC<PropsWithChildren<IOutlineButton>> = ({
 	children,

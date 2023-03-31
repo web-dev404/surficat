@@ -1,9 +1,9 @@
 import clsx from 'clsx'
 import { FC, PropsWithChildren } from 'react'
 
-import PageButtons from '@/common/PageButtons/PageButtons'
-
 import Header from '@/layout/header/Header'
+
+import Tabs from '../UI/Tabs/Tabs'
 
 import s from './CertificateLayout.module.scss'
 import Meta from './meta/Meta'
@@ -21,7 +21,7 @@ const Layout: FC<PropsWithChildren<ILayout>> = ({ children, ...rest }) => {
 					<div className={'container'}>{children}</div>
 				</section>
 			</main>
-			<PageButtons mob={true} className={s.footer} />
+			<Tabs mob={true} className={s.footer} />
 		</>
 	)
 }

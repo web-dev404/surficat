@@ -13,7 +13,7 @@
 	background: $white;
 	border: 1px solid #eaecf1;
 	border-radius: 12px;
-	padding: 40px;
+	padding: 40px 40px 37px;
 	margin-bottom: 16px;
 
 	&__title {
@@ -89,6 +89,11 @@
 		width: 100%;
 		margin-right: 24px;
 		margin-bottom: 0;
+		span {
+			&::after {
+				content: '';
+			}
+		}
 	}
 
 	&__box__select {
@@ -204,9 +209,12 @@
 	}
 }
 .companyItems {
-	margin-bottom: 16px;
+	margin-bottom: 24px;
 	&__item {
-		margin-bottom: 19px;
+		margin-bottom: 16px;
+	}
+	@media ($media_xs2) {
+		margin-bottom: 16px;
 	}
 }
 .underTitle {
@@ -222,8 +230,8 @@
 		padding: 35px 20px;
 	}
 	span {
-		top: 11px;
-		left: 15px;
+		top: 14px;
+		left: 18px;
 	}
 }
 .info {
@@ -250,7 +258,7 @@
 		background: $white;
 		border: 1px solid #eaecf1;
 		border-radius: 12px;
-		padding: 40px;
+		padding: 40px 40px 41px;
 		margin-bottom: 16px;
 	}
 
@@ -351,7 +359,10 @@
 	}
 }
 .smallTitle {
-	margin-bottom: 16px;
+	margin-bottom: 32px;
+	@media ($media_xs2) {
+		margin-bottom: 16px;
+	}
 }
 .edit {
 	margin: 127px 0;

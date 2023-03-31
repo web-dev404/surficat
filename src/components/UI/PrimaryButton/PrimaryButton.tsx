@@ -6,16 +6,19 @@ import s from './PrimaryButton.module.scss'
 interface IPrimaryButton {
 	className?: string
 	onClick?: () => void
-	size?: 'medium' | 'small'
+	size?: 'medium' | 'small' | 'xs'
+	disabled?: boolean
 }
 const PrimaryButton: FC<PropsWithChildren<IPrimaryButton>> = ({
 	children,
 	className,
 	onClick = () => {},
+	disabled,
 	size = ''
 }) => {
 	return (
 		<button
+			disabled={disabled}
 			onClick={() => {
 				onClick()
 			}}

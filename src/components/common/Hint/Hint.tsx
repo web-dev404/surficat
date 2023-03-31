@@ -1,4 +1,5 @@
 import cn from 'clsx'
+import clsx from 'clsx'
 import React, { FC, PropsWithChildren } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
@@ -7,11 +8,13 @@ import s from './Hint.module.scss'
 interface IHint {
 	visible: boolean
 	className?: string
+	up?: boolean
 }
 const Hint: FC<PropsWithChildren<IHint>> = ({
 	children,
 	visible,
-	className
+	className,
+	up
 }) => {
 	const nodeRef = React.useRef(null)
 	return (
@@ -22,7 +25,7 @@ const Hint: FC<PropsWithChildren<IHint>> = ({
 			unmountOnExit
 			classNames='alert'
 		>
-			<div ref={nodeRef} className={cn(s.hint, s[`hint__${className}`])}>
+			<div ref={nodeRef} className={clsx(s.hint, { [s.hint__up]: up })}>
 				<div className={s.hint__text}>{children}</div>
 			</div>
 		</CSSTransition>

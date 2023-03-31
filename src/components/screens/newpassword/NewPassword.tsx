@@ -1,5 +1,5 @@
+import Field from '@/common/../../UI/Input/Input'
 import Button from '@/common/Button/Button'
-import Field from '@/common/Field/Field'
 import Title from '@/common/Title/Title'
 import Window from '@/common/Window/Window'
 

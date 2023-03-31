@@ -27,6 +27,11 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
 	const [visible, setVisible] = useState(active)
 	useEffect(() => {
 		setVisible(active)
+		if (visible && !onMob) {
+			document.body.style.overflow = 'hidden'
+		} else {
+			document.body.style.overflow = 'auto'
+		}
 	})
 	function hide() {
 		setVisible(false)

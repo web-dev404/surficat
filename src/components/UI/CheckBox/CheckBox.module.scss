@@ -1,0 +1,43 @@
+@import '@/styles/_variables.scss';
+.checkbox {
+	&__check {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		input {
+			opacity: 0;
+			visibility: hidden;
+			width: 1px;
+			height: 1px;
+		}
+		input:checked + .checkbox__checkBox {
+			background: $purple;
+			.checkbox__checkimg {
+				opacity: 1;
+			}
+		}
+	}
+	&__checkBox {
+		position: relative;
+		transition: $transition_fast;
+		border: 1px solid $purple;
+		border-radius: 4px;
+		width: 16px;
+		height: 16px;
+		border: 1px solid $purple;
+		margin-right: 12px;
+	}
+	&__checkText {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+	}
+	&__checkimg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transition: $transition_fast;
+		opacity: 0;
+	}
+}

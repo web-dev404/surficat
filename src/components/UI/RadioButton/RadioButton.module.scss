@@ -1,0 +1,28 @@
+@import '@/styles/_variables.scss';
+.radioBtn {
+	&__select {
+		cursor: pointer;
+		position: relative;
+		border-radius: 50%;
+		width: 20px;
+		height: 20px;
+		margin-left: 4px;
+		margin-right: 22px;
+		border: 1px solid $purple;
+		transition: $transition_fast;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 6px;
+			height: 6px;
+			background: $white;
+			border-radius: 50%;
+		}
+	}
+	&__selectActive {
+		background: $purple;
+	}
+}

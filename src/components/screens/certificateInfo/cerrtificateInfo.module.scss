@@ -140,7 +140,7 @@
 	background: $white;
 	border: 1px solid #eaecf1;
 	border-radius: 12px;
-	padding: 40px;
+	padding: 40px 40px 35px;
 	margin-bottom: 16px;
 
 	&__title {
@@ -187,6 +187,11 @@
 		width: 100%;
 		margin-right: 24px;
 		margin-bottom: 0;
+		span {
+			&::after {
+				content: '';
+			}
+		}
 	}
 	&__star {
 		color: $purple;
@@ -330,7 +335,7 @@
 		margin-bottom: 32px;
 	}
 	&__field {
-		margin-bottom: 4px;
+		margin-bottom: 6px;
 	}
 	&__smallTitle {
 		font-weight: 600;

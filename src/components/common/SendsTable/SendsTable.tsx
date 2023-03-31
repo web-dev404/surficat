@@ -6,7 +6,6 @@ import Alert from '@/common/Alert/Alert'
 import Back from '@/common/Back/Back'
 import CancelButton from '@/common/CancelButton/CancelButton'
 import DeleteButton from '@/common/DeleteButton/DeleteButton'
-import Field from '@/common/Field/Field'
 import Modal from '@/common/Modal/Modal'
 import ModalSubTitle from '@/common/ModalSubtitle/ModalSubTitle'
 import ModalText from '@/common/ModalText/ModalText'
@@ -19,6 +18,7 @@ import TextArea from '@/common/TextArea/TextArea'
 
 import s from './SendsTable.module.scss'
 import data from './data'
+import Input from '@/components/UI/Input/Input'
 import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 import RedButton from '@/components/UI/RedButton/RedButton'
@@ -314,23 +314,18 @@ function SendsTable() {
 					<span className={s.edit__dot}>•</span> 10 000 ₽
 				</ModalSubTitle>
 				<div className={s.edit__item}>
-					<Field hide={false} icon={'person'} className={s.editField}>
+					<Input hide={false} icon={'person'} className={s.editField}>
 						Получатель
-					</Field>
+					</Input>
 					<p className={clsx(s.edit__text)}>
 						Имя лучше указывать в дательном падеже. Например: «Любимой
 						Александре».
 					</p>
 				</div>
 				<div className={s.edit__item}>
-					<Field
-						hide={false}
-						hidden={true}
-						className={s.editField}
-						icon={'calendar'}
-					>
+					<Input hide={false} className={s.editField} icon={'calendar'}>
 						Срок действия сертификата
-					</Field>
+					</Input>
 					<p className={clsx(s.edit__text, s.mobHide)}>
 						До какого числа клиент может воспользоваться сертификатом
 					</p>
@@ -360,7 +355,7 @@ function SendsTable() {
 				<ModalSubTitle className={s.table__subText}>
 					Для подтверждения удаления введите «Удалить сертификат»
 				</ModalSubTitle>
-				<Field
+				<Input
 					hide={false}
 					hidden={true}
 					className={s.delete}
@@ -368,7 +363,7 @@ function SendsTable() {
 					onChange={checkField}
 				>
 					Введите текст
-				</Field>
+				</Input>
 				<div className={s.table__modalButtons + ' ' + s.table__hide}>
 					<RedButton
 						disabled={!isConfirm}

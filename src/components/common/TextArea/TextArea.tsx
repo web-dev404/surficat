@@ -1,21 +1,28 @@
 import clsx from 'clsx'
 import React, { FC, PropsWithChildren, useState } from 'react'
 
-import s from './ModalArea.module.scss'
+import s from './TextArea.module.scss'
 
 interface IModalArea {
 	className?: string
+	disabled?: boolean
+	error?: boolean
+	errorText?: string
 }
 const TextArea: FC<PropsWithChildren<IModalArea>> = ({
 	className,
-	children
+	children,
+	disabled,
+	error,
+	errorText
 }) => {
 	const [focus, setFocus] = useState(false)
 	return (
 		<div className={clsx(s.area, className)}>
 			<textarea
+				disabled={disabled}
 				name='comment'
-				className={s.area__inner}
+				className={clsx(s.area__inner, { [s.area__error]: error })}
 				onFocus={() => {
 					setFocus(true)
 				}}
@@ -30,6 +37,7 @@ const TextArea: FC<PropsWithChildren<IModalArea>> = ({
 			>
 				{children}
 			</span>
+			{error && <div className={s.area__errorBox}>{errorText}</div>}
 		</div>
 	)
 }

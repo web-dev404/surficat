@@ -1,7 +1,5 @@
 import Link from 'next/link'
 
-import Button from '@/common/Button/Button'
-import Field from '@/common/Field/Field'
 import SubTitle from '@/common/SubTitle/SubTitle'
 import Title from '@/common/Title/Title'
 import Window from '@/common/Window/Window'
@@ -9,6 +7,7 @@ import Window from '@/common/Window/Window'
 import Empty from '@/layout/Empty'
 
 import s from './Password.module.scss'
+import Input from '@/components/UI/Input/Input'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 const Password = () => {
@@ -26,7 +25,7 @@ const Password = () => {
 					</SubTitle>
 				</div>
 				<div className={s.password__field}>
-					<Field hide={false}>Ваш email</Field>
+					<Input hide={false}>Ваш email</Input>
 				</div>
 				<Link href={'/congratulation'} className={s.password__button}>
 					<PrimaryButton>Отправить письмо</PrimaryButton>

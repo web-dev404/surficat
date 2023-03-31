@@ -1,33 +1,32 @@
 import clsx from 'clsx'
 import React, { FC, PropsWithChildren } from 'react'
 
-import button from '@/common/Button/Button'
+import s from './ButtonBlack.module.scss'
 
-import s from './RedButton.module.scss'
-
-interface IRedButton {
+interface IBlackButton {
 	className?: string
-	disabled?: boolean
 	onClick?: () => void
 	size?: 'medium' | 'small' | 'xs'
+	disabled?: boolean
 }
-const RedButton: FC<PropsWithChildren<IRedButton>> = ({
+const BlackButton: FC<PropsWithChildren<IBlackButton>> = ({
 	children,
+	className,
 	onClick = () => {},
-	size = '',
-	disabled
+	disabled,
+	size = ''
 }) => {
 	return (
 		<button
-			className={clsx(s.button, s[size])}
+			disabled={disabled}
 			onClick={() => {
 				onClick()
 			}}
-			disabled={disabled}
+			className={clsx(s.button, s[size], className)}
 		>
 			{children}
 		</button>
 	)
 }
 
-export default RedButton
+export default BlackButton

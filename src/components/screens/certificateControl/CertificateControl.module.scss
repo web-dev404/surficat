@@ -94,23 +94,7 @@
 	}
 }
 .delete {
-	input:placeholder-shown + span {
-		color: #787486;
-		font-size: 12px;
-		line-height: 20px;
-		top: 5px;
-	}
-	input:not(:placeholder-shown) + span {
-		color: #787486;
-	}
-	input {
-		&:focus {
-			outline: none;
-			& + span {
-				color: #787486;
-			}
-		}
-	}
+	margin-bottom: 24px;
 	span {
 		&::after {
 			content: '';
@@ -162,13 +146,7 @@
 .editField {
 	margin-bottom: 7px;
 	input {
-		padding-left: 60px;
-		&:focus {
-			outline: none;
-			& + span {
-				color: #787486;
-			}
-		}
+		padding-left: 59px;
 	}
 	span {
 		color: #787486;

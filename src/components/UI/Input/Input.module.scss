@@ -2,7 +2,6 @@
 .field {
 	display: block;
 	position: relative;
-	margin-bottom: 24px;
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -68,9 +67,22 @@
 		}
 	}
 	&__errorInput {
-		border-color: #ff4d50;
+		border-color: $red;
+		&:hover {
+			border-color: $red;
+		}
 		&:focus {
-			outline: none;
+			border-color: $red;
+			& + span + .field__icon {
+				path {
+					stroke: $red;
+				}
+			}
+		}
+		& + span + .field__icon {
+			path {
+				stroke: $red;
+			}
 		}
 	}
 	&__placeholder {
@@ -106,6 +118,7 @@
 		}
 	}
 	&__icon {
+		flex-shrink: 0;
 		cursor: pointer;
 		top: 16px;
 		left: 20px;
@@ -123,22 +136,15 @@
 		}
 		margin-bottom: 20px;
 		&__icon {
-			width: 16px;
-			height: 16px;
+			left: 16px;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 		&__edit {
 			margin-bottom: 9px;
 		}
 		&__eye {
 			right: 15px;
-		}
-		&__edit {
-			.field__input {
-				padding-left: 52px;
-			}
-			.field__placeholder {
-				left: 52px;
-			}
 		}
 
 		&__input {
@@ -151,6 +157,22 @@
 			left: 15px;
 			font-size: 14px;
 			line-height: 24px;
+		}
+	}
+}
+.fieldIcon {
+	input {
+		padding-left: 59px;
+	}
+	span {
+		left: 60px;
+	}
+	@media ($media_xs2) {
+		input {
+			padding-left: 51px;
+		}
+		span {
+			left: 52px;
 		}
 	}
 }

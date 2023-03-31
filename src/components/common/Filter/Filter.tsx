@@ -3,11 +3,11 @@ import React from 'react'
 import 'swiper/css'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import Field from '@/common/Field/Field'
 import Select from '@/common/Select/Select'
 import Status from '@/common/Status/Status'
 
 import s from './Filter.module.scss'
+import Input from '@/components/UI/Input/Input'
 
 function Filter() {
 	const certificates = [
@@ -59,14 +59,14 @@ function Filter() {
 	return (
 		<div className={s.filter}>
 			<div className={s.filter__search}>
-				<Field
+				<Input
 					hide={false}
 					className={s.search}
 					placeholder={' '}
 					icon={'search'}
 				>
 					Поиск по номеру сертификата
-				</Field>
+				</Input>
 			</div>
 			<Select options={certificates}></Select>
 			<Select options={status} className={s.select__hide}></Select>

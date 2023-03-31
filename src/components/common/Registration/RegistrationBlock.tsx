@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Button from '@/common/Button/Button'
-
-import Field from '../Field/Field'
+import Input from '../../UI/Input/Input'
 
 import s from './RegistrationBlock.module.scss'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
@@ -20,9 +18,15 @@ const RegistrationBlock = () => {
 			</p>
 			<form action='#'>
 				<div className={s.registration__fields}>
-					<Field hide={false}>Ваше имя</Field>
-					<Field hide={false}>Ваш email</Field>
-					<Field hide={true}>Создайте пароль</Field>
+					<Input hide={false} className={s.registration__field}>
+						Ваше имя
+					</Input>
+					<Input hide={false} className={s.registration__field}>
+						Ваш email
+					</Input>
+					<Input hide={true} className={s.registration__field}>
+						Создайте пароль
+					</Input>
 				</div>
 				<div className={s.registration__send}>
 					<PrimaryButton>Зарегистрироваться</PrimaryButton>
