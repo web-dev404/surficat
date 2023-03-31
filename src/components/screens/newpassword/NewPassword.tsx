@@ -1,11 +1,10 @@
-import Field from '@/common/../../UI/Input/Input'
-import Button from '@/common/Button/Button'
 import Title from '@/common/Title/Title'
 import Window from '@/common/Window/Window'
 
 import Empty from '@/layout/Empty'
 
 import s from './NewPassword.module.scss'
+import Input from '@/components/UI/Input/Input'
 import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 const NewPassword = () => {
@@ -16,8 +15,12 @@ const NewPassword = () => {
 					<Title>Новый пароль</Title>
 				</div>
 				<div className={s.newpassword__fields}>
-					<Field hide={true}>Введите новый пароль</Field>
-					<Field hide={true}>Повторите пароль</Field>
+					<Input hide={true} className={s.newpassword__field}>
+						Введите новый пароль
+					</Input>
+					<Input hide={true} className={s.newpassword__field}>
+						Повторите пароль
+					</Input>
 				</div>
 				<PrimaryButton>Сохранить пароль</PrimaryButton>
 			</Window>
