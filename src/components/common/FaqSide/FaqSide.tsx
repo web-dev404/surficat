@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 
 import s from './FaqSide.module.scss'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 const FaqSide = () => {
 	return (
@@ -9,7 +10,7 @@ const FaqSide = () => {
 			<div className={s.side__wrapper}>
 				<h4 className={s.side__title}>Остались вопросы или есть пожелания?</h4>
 				<p className={s.side__subtitle}>С нами можно связаться в Telegram.</p>
-				<button className={s.side__button}>
+				<PrimaryButton>
 					<Image
 						src={'/icons/telegram.svg'}
 						alt={'telegram'}
@@ -18,7 +19,7 @@ const FaqSide = () => {
 						className={s.side__telegram}
 					/>
 					Написать в Telegram
-				</button>
+				</PrimaryButton>
 			</div>
 			<div className={s.side__wrapper + ' ' + s.side__support}>
 				<Image

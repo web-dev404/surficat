@@ -6,6 +6,7 @@ import Button from '@/common/Button/Button'
 import Field from '../Field/Field'
 
 import s from './RegistrationBlock.module.scss'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 const RegistrationBlock = () => {
 	return (
@@ -24,7 +25,7 @@ const RegistrationBlock = () => {
 					<Field hide={true}>Создайте пароль</Field>
 				</div>
 				<div className={s.registration__send}>
-					<Button>Зарегистрироваться</Button>
+					<PrimaryButton>Зарегистрироваться</PrimaryButton>
 				</div>
 			</form>
 			<p className={s.registration__text}>

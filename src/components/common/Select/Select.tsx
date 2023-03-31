@@ -15,6 +15,7 @@ import Option from '@/common/Option/Option'
 import OptionsList from '@/common/OptionsList/OptionsList'
 
 import s from './Select.module.scss'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 interface ISelect {
 	options: Array<IOption>
@@ -57,7 +58,7 @@ const Select: FC<PropsWithChildren<ISelect>> = ({
 		>
 			<div
 				onClick={() => {
-					setOpen(!open)
+					setOpen(true)
 				}}
 				className={s.select__wrapper}
 			>
@@ -130,13 +131,13 @@ const Select: FC<PropsWithChildren<ISelect>> = ({
 						</li>
 					))}
 				</ul>
-				<Button
+				<PrimaryButton
 					onClick={() => {
 						changeOption(options[activeIndex].value)
 					}}
 				>
 					Выбрать
-				</Button>
+				</PrimaryButton>
 			</Modal>
 			<CSSTransition
 				nodeRef={nodeRef}

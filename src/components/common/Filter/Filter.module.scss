@@ -36,7 +36,7 @@
 	}
 	@media ($media_xs2) {
 		flex-wrap: wrap;
-		row-gap: 17px;
+		row-gap: 16px;
 	}
 }
 .swiper {
@@ -80,7 +80,7 @@
 	margin-bottom: 7px;
 	input {
 		outline: none;
-		padding-left: 60px;
+		padding-left: 59px;
 		&:focus {
 			outline: none;
 			& + span {

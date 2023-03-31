@@ -1,7 +1,6 @@
 @import '@/styles/_variables.scss';
 
 .buttons {
-	display: none;
 	border: 1px solid #eaecf1;
 	border-radius: 8px;
 	background-color: $white;
@@ -11,7 +10,6 @@
 	max-width: 366px;
 	width: 100%;
 	gap: 1px;
-
 	&__btn {
 		display: flex;
 		justify-content: center;
@@ -27,10 +25,8 @@
 		cursor: pointer;
 		background: $white;
 		transition: $transition_fast;
-
 		&:hover {
-			color: rgba($white, 0.8);
-			background: rgba($purple, 0.8);
+			color: $dark;
 		}
 	}
 

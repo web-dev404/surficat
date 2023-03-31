@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import Loader from '@/common/Loader/Loader'
-import Notify from '@/common/Notify/Notify'
 
 import '../src/styles/globals.scss'
 
@@ -36,7 +35,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 					<Loader />
 				</div>
 			</CSSTransition>
-			{/*<Notify status={1} active={true} />*/}
 			<Component {...pageProps} />
 		</>
 	)

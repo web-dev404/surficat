@@ -1,14 +1,9 @@
-import clsx from 'clsx'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
 import Alert from '@/common/Alert/Alert'
 import Back from '@/common/Back/Back'
-import Button from '@/common/Button/Button'
-import button from '@/common/Button/Button'
-import CancelButton from '@/common/CancelButton/CancelButton'
 import Certeficate from '@/common/Certeficate/Certeficate'
-import DeleteButton from '@/common/DeleteButton/DeleteButton'
 import Field from '@/common/Field/Field'
 import Modal from '@/common/Modal/Modal'
 import ModalSubTitle from '@/common/ModalSubtitle/ModalSubTitle'
@@ -17,10 +12,14 @@ import ModalTitle from '@/common/ModalTitle/ModalTitle'
 import PageHeader from '@/common/PageHeader/PageHeader'
 import PageTitle from '@/common/PageTitle/PageTitle'
 import TextArea from '@/common/TextArea/TextArea'
+import TitleBackButton from '@/common/TitleBackButton/TitleBackButton'
 
 import CertificateLayout from '@/layout/CertificateLayout'
 
 import s from './CertificateControl.module.scss'
+import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
+import RedButton from '@/components/UI/RedButton/RedButton'
 
 const CertificateControl = () => {
 	const router = useRouter()
@@ -38,12 +37,14 @@ const CertificateControl = () => {
 		<CertificateLayout title={'Управление сертификатом'}>
 			<PageHeader className={s.control__pageHeader}>
 				<Back />
-				<PageTitle back={true} className={s.control__pageTitle}>
-					Управление сертификатом
-				</PageTitle>
+				<div className={'flex-center'}>
+					<TitleBackButton />
+					<PageTitle className={s.control__pageTitle}>
+						Управление сертификатом
+					</PageTitle>
+				</div>
 				<div className={s.control__buttons}>
-					<button
-						className={clsx(s.control__button, s.control__delete)}
+					<OutlineButton
 						onClick={() => {
 							setDeleteCertificate(true)
 						}}
@@ -84,9 +85,8 @@ const CertificateControl = () => {
 								strokeLinejoin='round'
 							/>
 						</svg>
-					</button>
-					<button
-						className={s.control__button}
+					</OutlineButton>
+					<OutlineButton
 						onClick={() => {
 							router.push('/certificate-edit')
 						}}
@@ -118,15 +118,19 @@ const CertificateControl = () => {
 								</clipPath>
 							</defs>
 						</svg>
-					</button>
-					<Button
+					</OutlineButton>
+					{/*<button*/}
+					{/*	className={clsx(s.control__button, s.control__delete)}*/}
+					{/*></button>*/}
+					{/*<button className={s.control__button}></button>*/}
+					<PrimaryButton
 						className={s.control__submit}
 						onClick={() => {
 							setSend(true)
 						}}
 					>
 						Отправить
-					</Button>
+					</PrimaryButton>
 				</div>
 			</PageHeader>
 			<Certeficate subSlider={false} />
@@ -147,13 +151,51 @@ const CertificateControl = () => {
 					Введите текст
 				</Field>
 				<div className={s.control__modalButtons}>
-					<DeleteButton
+					<RedButton
 						disabled={!isConfirm}
 						onClick={() => {
 							setDeleteCertificate(false)
 							setDelete(true)
 						}}
-					/>
+					>
+						<svg
+							width='25'
+							height='24'
+							viewBox='0 0 25 24'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<path
+								d='M5 7H6.66667H20'
+								stroke='#787486'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M9.1665 6.99984V5.33317C9.1665 4.89114 9.3421 4.46722 9.65466 4.15466C9.96722 3.8421 10.3911 3.6665 10.8332 3.6665H14.1665C14.6085 3.6665 15.0325 3.8421 15.345 4.15466C15.6576 4.46722 15.8332 4.89114 15.8332 5.33317V6.99984M18.3332 6.99984V18.6665C18.3332 19.1085 18.1576 19.5325 17.845 19.845C17.5325 20.1576 17.1085 20.3332 16.6665 20.3332H8.33317C7.89114 20.3332 7.46722 20.1576 7.15466 19.845C6.8421 19.5325 6.6665 19.1085 6.6665 18.6665V6.99984H18.3332Z'
+								stroke='#787486'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M14.1665 11.1665V16.1665'
+								stroke='#787486'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M10.8335 11.1665V16.1665'
+								stroke='#787486'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+						</svg>
+						Удалить
+					</RedButton>
 				</div>
 			</Modal>
 			<Modal onClick={setSend} active={isSend} className={s.full}>
@@ -169,7 +211,7 @@ const CertificateControl = () => {
 					<span className={s.control__dot}>•</span> 10 000 ₽
 				</ModalSubTitle>
 				<div className={s.edit__item}>
-					<Field hide={false} icon={'/icons/user.svg'} className={s.editField}>
+					<Field hide={false} icon={'person'} className={s.editField}>
 						Получатель
 					</Field>
 					<p className={s.edit__text}>
@@ -178,11 +220,7 @@ const CertificateControl = () => {
 					</p>
 				</div>
 				<div className={s.edit__item}>
-					<Field
-						hide={false}
-						className={s.editField}
-						icon={'/icons/calendar.svg'}
-					>
+					<Field hide={false} className={s.editField} icon={'calendar'}>
 						Срок действия сертификата
 					</Field>
 					<p className={s.edit__text}>
@@ -192,7 +230,7 @@ const CertificateControl = () => {
 				<TextArea className={s.edit__area}>
 					Укажите от кого сертификат или пожелание
 				</TextArea>
-				<Button
+				<PrimaryButton
 					onClick={() => {
 						setSend(false)
 						setSafe(true)
@@ -200,7 +238,7 @@ const CertificateControl = () => {
 					}}
 				>
 					Отправить
-				</Button>
+				</PrimaryButton>
 			</Modal>
 			<Modal
 				active={isSendSuccess}
@@ -214,13 +252,13 @@ const CertificateControl = () => {
 					Теперь откройте предпросмотр и поделитесь с клиентом ссылкой на
 					сертификат.
 				</ModalSubTitle>
-				<Button
+				<PrimaryButton
 					onClick={() => {
 						router.push('/certificate-preview')
 					}}
 				>
 					Открыть предпросмотр
-				</Button>
+				</PrimaryButton>
 			</Modal>
 			<Alert state={setDelete} active={isDelete} icon={'/icons/delete.svg'}>
 				Сертификат удален!

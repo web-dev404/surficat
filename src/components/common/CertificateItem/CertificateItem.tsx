@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import s from './CertificateItem.module.scss'
+import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
 
 interface ICertificateItem {
 	id: string
@@ -27,8 +28,11 @@ const CertificateItem = ({
 			<div className={s.item__item__box}>
 				<h5 className={s.item__text}>{title}</h5>
 				<div className={s.item__buttons}>
-					<button className={s.item__send}>Отправить</button>
-					<Link href={'/certificate-control'} className={s.item__settings}>
+					<OutlineButton size={'small'} className={s.item__send}>
+						Отправить
+					</OutlineButton>
+					{/*<button className={s.item__send}></button>*/}
+					<OutlineButton size={'small'} className={s.item__settings}>
 						<svg
 							width='16'
 							height='16'
@@ -58,7 +62,11 @@ const CertificateItem = ({
 								</clipPath>
 							</defs>
 						</svg>
-					</Link>
+					</OutlineButton>
+					<Link
+						href={'/certificate-control'}
+						className={s.item__settings}
+					></Link>
 				</div>
 			</div>
 		</div>

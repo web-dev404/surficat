@@ -1,0 +1,74 @@
+@import '@/styles/_variables.scss';
+.button {
+	position: relative;
+	font-family: 'Gilroy';
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	height: 56px;
+	padding: 0 15px;
+	border: 1.5px solid #eaecf1;
+	border-radius: 8px;
+	background: $white;
+	transition: $transition_fast;
+	width: 100%;
+	svg {
+		display: block;
+		margin-right: 13px;
+		path {
+			transition: $transition_fast;
+		}
+	}
+	&:hover {
+		color: $white;
+		background: #6d54fe;
+		svg {
+			path {
+				stroke: $white;
+			}
+		}
+	}
+	&:active {
+		color: $white;
+		background: #6954e4;
+		svg {
+			path {
+				stroke: $white;
+			}
+		}
+	}
+	& {
+		svg:last-child {
+			margin-right: 0;
+		}
+	}
+	&:disabled {
+		cursor: auto;
+		pointer-events: none;
+		color: #787486;
+		svg {
+			path {
+				stroke: #787486;
+			}
+		}
+	}
+}
+.medium {
+	height: 48px;
+	@media ($media_xs2) {
+		font-size: 14px;
+		line-height: 24px;
+		height: 40px;
+	}
+}
+.small {
+	border-radius: 4px;
+	height: 40px;
+	padding: 0 5px;
+	@media ($media_xs2) {
+		height: 32px;
+	}
+}

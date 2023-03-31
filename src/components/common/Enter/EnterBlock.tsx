@@ -7,6 +7,7 @@ import Button from '@/common/Button/Button'
 import Field from '@/common/Field/Field'
 
 import s from './EnterBlock.module.scss'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 function EnterBlock() {
 	const router = useRouter()
@@ -43,13 +44,13 @@ function EnterBlock() {
 				</Link>
 			</div>
 			<div className={s.registration__send}>
-				<Button
+				<PrimaryButton
 					onClick={() => {
 						router.push('/certificate')
 					}}
 				>
 					Войти
-				</Button>
+				</PrimaryButton>
 			</div>
 			<p className={s.registration__text}>
 				Регистрируясь, вы принимаете условия{' '}

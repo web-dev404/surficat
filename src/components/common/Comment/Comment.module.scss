@@ -32,6 +32,12 @@
 	}
 	&__icon {
 		cursor: pointer;
+		transition: $transition_fast;
+		&:hover {
+			path {
+				stroke: $dark;
+			}
+		}
 	}
 	&__show {
 		display: none;

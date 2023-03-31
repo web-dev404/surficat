@@ -32,7 +32,10 @@
 		cursor: pointer;
 		transition: $transition_fast;
 		&:hover {
-			background: $mainText;
+			background: #765fff;
+		}
+		&:active {
+			background: #6954e4;
 		}
 	}
 
@@ -70,7 +73,7 @@
 	&__cards {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
-		gap: 29px 33px;
+		gap: 31px 33px;
 	}
 
 	&__item {
@@ -202,7 +205,7 @@
 			grid-template-columns: 1fr;
 		}
 		&__item__box {
-			padding: 0 9px;
+			padding: 0 8px;
 		}
 		&__img span {
 			top: 8px;
@@ -332,9 +335,11 @@
 		margin-bottom: 24px;
 		text-align: center;
 	}
-
 	&__create__btn {
 		max-width: 204px;
+	}
+	&__word {
+		margin-left: 7px;
 	}
 	@media ($media_xs2) {
 		&__create {

@@ -14,6 +14,8 @@ import Hint from '@/common/Hint/Hint'
 import Modal from '@/common/Modal/Modal'
 
 import s from './Certeficate.module.scss'
+import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 interface ICerteficate {
 	subSlider?: boolean
@@ -264,7 +266,9 @@ const Certeficate = ({
 						})}
 					>
 						<span className={clsx({ [s.purple]: isPreview })}>№</span>{' '}
-						{data.number > 0 ? data.number : '0000000000'}
+						<span className={'semiBold'}>
+							{data.number > 0 ? data.number : '0000000000'}
+						</span>
 					</span>
 					<span
 						className={clsx(
@@ -285,37 +289,45 @@ const Certeficate = ({
 							До
 						</span>{' '}
 						<span className={s.certificate__dateMob}>Срок действия до</span>
-						{data.date ? <span>{data.date}</span> : '00.00.0000'}
+						<span className={'semiBold'}>
+							{data.date ? data.date : '00.00.0000'}
+						</span>
 					</span>
-					<button
+					<OutlineButton
+						disabled={!isPreview}
 						onClick={() => {
 							data?.link && Copy()
 						}}
-						className={clsx(s.certificate__shareBtn, {
-							[s.certificate__shareBtnActive]: data.link
-						})}
+						className={s.certificate__shareBtn + ' ButtonM'}
 					>
 						Поделиться
-						<Hint visible={isCopied}>
-							<svg
-								width='24'
-								height='24'
-								viewBox='0 0 24 24'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-								className={s.certificate__shareIcon}
-							>
-								<path
-									d='M18.6666 7L9.49992 16.1667L5.33325 12'
-									stroke='white'
-									strokeWidth='1.7'
-									strokeLinecap='round'
-									strokeLinejoin='round'
-								/>
-							</svg>
-							Ссылка скопирована
-						</Hint>
-					</button>
+					</OutlineButton>
+					{/*<button*/}
+					{/*	className={clsx(s.certificate__shareBtn, {*/}
+					{/*		[s.certificate__shareBtnActive]: data.link*/}
+					{/*	})}*/}
+					{/*>*/}
+					{/*	Поделиться*/}
+					{/*	<Hint visible={isCopied}>*/}
+					{/*		<svg*/}
+					{/*			width='24'*/}
+					{/*			height='24'*/}
+					{/*			viewBox='0 0 24 24'*/}
+					{/*			fill='none'*/}
+					{/*			xmlns='http://www.w3.org/2000/svg'*/}
+					{/*			className={s.certificate__shareIcon}*/}
+					{/*		>*/}
+					{/*			<path*/}
+					{/*				d='M18.6666 7L9.49992 16.1667L5.33325 12'*/}
+					{/*				stroke='white'*/}
+					{/*				strokeWidth='1.7'*/}
+					{/*				strokeLinecap='round'*/}
+					{/*				strokeLinejoin='round'*/}
+					{/*			/>*/}
+					{/*		</svg>*/}
+					{/*		Ссылка скопирована*/}
+					{/*	</Hint>*/}
+					{/*</button>*/}
 				</div>
 				<div
 					className={clsx(s.certificate__bottom, {
@@ -340,14 +352,14 @@ const Certeficate = ({
 							</span>
 						</div>
 					</div>
-					<Button
+					<PrimaryButton
 						className={s.certificate__userBtn}
 						onClick={() => {
 							setIsModalOpen(true)
 						}}
 					>
 						Связаться
-					</Button>
+					</PrimaryButton>
 				</div>
 			</div>
 			<Modal active={isModalOpen} onClick={setIsModalOpen} className={s.modal}>
@@ -428,7 +440,7 @@ const Certeficate = ({
 						</svg>
 					</a>
 				</div>
-				<Button>
+				<PrimaryButton>
 					<svg
 						width='24'
 						height='24'
@@ -445,7 +457,7 @@ const Certeficate = ({
 						/>
 					</svg>
 					+7 900 898 00 00
-				</Button>
+				</PrimaryButton>
 			</Modal>
 		</>
 	)

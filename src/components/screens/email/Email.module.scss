@@ -1,0 +1,28 @@
+@import '@/styles/_variables.scss';
+.email {
+	&__title {
+		font-weight: 600;
+		font-size: 32px;
+		line-height: 42px;
+		margin-bottom: 16px;
+	}
+	&__text {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+	}
+	@media ($media_xs2) {
+		background: transparent;
+		&__title {
+			text-align: center;
+			font-size: 24px;
+			line-height: 34px;
+			margin-bottom: 13px;
+		}
+		&__text {
+			text-align: center;
+			font-size: 14px;
+			line-height: 24px;
+		}
+	}
+}

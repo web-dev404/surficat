@@ -9,7 +9,7 @@ const FaqList = () => {
 		<ul className={s.list}>
 			<FaqItem
 				title={
-					'Aenean congue consectetur nisl. Integer aliquet dolor nulla, sed molestie enim convallis sed?'
+					'Ullam id metus ac ligula pretium blandit. Donec dapibus porta magna, eget feugiat velit imperdiet?'
 				}
 			>
 				Vestibulum imperdiet sit amet orci sed euismod. Nulla in porta elit, et

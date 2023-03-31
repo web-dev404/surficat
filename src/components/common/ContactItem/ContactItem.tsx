@@ -5,6 +5,7 @@ import { CSSTransition } from 'react-transition-group'
 import ContactOption from '@/common/ContactOption/ContactOption'
 
 import s from './ContatctItem.module.scss'
+import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
 
 interface IContactItem {
 	className?: string
@@ -19,7 +20,8 @@ const ContactItem = ({ className, placeholder }: IContactItem) => {
 		{ value: 'vk', icon: '/icons/contact/vk.svg' },
 		{ value: 'facebook', icon: '/icons/contact/facebook.svg' },
 		{ value: 'telegram', icon: '/icons/contact/telegram.svg' },
-		{ value: 'whatsapp', icon: '/icons/contact/whatsapp.svg' }
+		{ value: 'whatsapp', icon: '/icons/contact/whatsapp.svg' },
+		{ value: 'telephone', icon: '/icons/contact/phone.svg' }
 	]
 	const [isOpened, setOpened] = useState(false)
 	const [value, setValue] = useState<IOption>(options[0])
@@ -90,7 +92,7 @@ const ContactItem = ({ className, placeholder }: IContactItem) => {
 					placeholder={placeholder}
 				/>
 			</div>
-			<div className={clsx(s.item__box, s.item__delete)}>
+			<OutlineButton className={s.item__delete}>
 				<svg
 					width='24'
 					height='24'
@@ -127,7 +129,7 @@ const ContactItem = ({ className, placeholder }: IContactItem) => {
 						strokeLinejoin='round'
 					/>
 				</svg>
-			</div>
+			</OutlineButton>
 		</div>
 	)
 }

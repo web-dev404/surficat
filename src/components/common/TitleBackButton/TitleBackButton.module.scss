@@ -1,0 +1,15 @@
+@import '@/styles/_variables.scss';
+.icon {
+	width: 32px;
+	height: 32px;
+	margin-right: 24px;
+	svg path {
+		transition: $transition_fast;
+	}
+	&:hover svg path {
+		stroke: $purple;
+	}
+	@media ($media_xs2) {
+		display: none;
+	}
+}

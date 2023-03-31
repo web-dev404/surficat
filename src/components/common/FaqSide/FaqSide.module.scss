@@ -59,10 +59,14 @@
 		font-weight: 600;
 		font-size: 18px;
 		line-height: 28px;
+		transition: $transition_fast;
+		&:hover {
+			color: $dark;
+		}
 	}
 	@media ($media_xs2) {
 		&__wrapper {
-			padding: 16px 15px;
+			padding: 16px 16px;
 			margin-bottom: 11px;
 		}
 		&__title {
@@ -74,7 +78,7 @@
 		&__subtitle {
 			font-size: 14px;
 			line-height: 24px;
-			margin-bottom: 15px;
+			margin-bottom: 16px;
 		}
 		&__button {
 			border-radius: 6px;

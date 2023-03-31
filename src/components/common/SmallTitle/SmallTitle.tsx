@@ -10,7 +10,7 @@ const SmallTitle: FC<PropsWithChildren<ISmallTitle>> = ({
 	children,
 	className
 }) => {
-	return <h3 className={clsx(s.title, className)}>{children}</h3>
+	return <h3 className={clsx(className, s.title)}>{children}</h3>
 }
 
 export default SmallTitle

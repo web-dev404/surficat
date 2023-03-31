@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 
 import Alert from '@/common/Alert/Alert'
 import Back from '@/common/Back/Back'
-import Button from '@/common/Button/Button'
 import CancelButton from '@/common/CancelButton/CancelButton'
 import DeleteButton from '@/common/DeleteButton/DeleteButton'
 import Field from '@/common/Field/Field'
@@ -20,6 +19,9 @@ import TextArea from '@/common/TextArea/TextArea'
 
 import s from './SendsTable.module.scss'
 import data from './data'
+import OutlineButton from '@/components/UI/OutlineButton/OutlineButton'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
+import RedButton from '@/components/UI/RedButton/RedButton'
 
 function SendsTable() {
 	const [limit, setLimit] = useState(10)
@@ -89,17 +91,13 @@ function SendsTable() {
 						})}
 				</tbody>
 			</table>
-			{/*<SendsInformation dashed={false}>*/}
-			{/*	<h3 className={s.empty}>*/}
-			{/*		К сожалению, подходящих сертификатов не найдено*/}
-			{/*	</h3>*/}
-			{/*</SendsInformation>*/}
 			<div className={s.table__pagination}>
 				<div className={s.table__buttons}>
 					<button
 						onClick={() => {
 							toPage(currentPage - 2)
 						}}
+						className={s.table__paginationButton}
 					>
 						<Image
 							className={s.table__arrIcon}
@@ -113,6 +111,7 @@ function SendsTable() {
 						onClick={() => {
 							toPage(currentPage - 1)
 						}}
+						className={s.table__paginationButton}
 					>
 						<Image
 							className={s.table__arrIcon}
@@ -153,6 +152,7 @@ function SendsTable() {
 						onClick={() => {
 							toPage(currentPage + 1)
 						}}
+						className={s.table__paginationButton}
 					>
 						<Image
 							className={s.table__arrIcon}
@@ -166,6 +166,7 @@ function SendsTable() {
 						onClick={() => {
 							toPage(currentPage + 2)
 						}}
+						className={s.table__paginationButton}
 					>
 						<Image
 							className={s.table__arrIcon}
@@ -204,14 +205,14 @@ function SendsTable() {
 				<Back />
 				<ModalTitle className={s.big}>Добавление комментария</ModalTitle>
 				<TextArea>Введите комментарий</TextArea>
-				<Button
+				<PrimaryButton
 					onClick={() => {
 						setAddComment(false)
 						setSafe(true)
 					}}
 				>
 					Сохранить
-				</Button>
+				</PrimaryButton>
 			</Modal>
 
 			<Modal onClick={setComment} active={isComment} className={s.full}>
@@ -225,35 +226,74 @@ function SendsTable() {
 							setComment(false)
 							setDelComment(true)
 						}}
+						className={s.cancelButton}
 					>
 						Удалить
 					</CancelButton>
-					<Button
+					<PrimaryButton
 						onClick={() => {
 							setComment(false)
 							setSafe(true)
 						}}
 					>
 						Сохранить
-					</Button>
+					</PrimaryButton>
 				</div>
 			</Modal>
 			<Modal onClick={setDelComment} active={delComment} className={s.center}>
 				<ModalTitle>Удалить комментарий?</ModalTitle>
 				<div className={s.table__modalButtons}>
-					<CancelButton
+					<OutlineButton
 						onClick={() => {
 							setDelComment(false)
 						}}
 					>
 						Отмена
-					</CancelButton>
-					<DeleteButton
+					</OutlineButton>
+					<RedButton
 						onClick={() => {
 							setDelComment(false)
 							setAlert(true)
 						}}
-					/>
+					>
+						<svg
+							width='25'
+							height='24'
+							viewBox='0 0 25 24'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<path
+								d='M5 7H6.66667H20'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M9.16675 6.99984V5.33317C9.16675 4.89114 9.34234 4.46722 9.6549 4.15466C9.96746 3.8421 10.3914 3.6665 10.8334 3.6665H14.1667C14.6088 3.6665 15.0327 3.8421 15.3453 4.15466C15.6578 4.46722 15.8334 4.89114 15.8334 5.33317V6.99984M18.3334 6.99984V18.6665C18.3334 19.1085 18.1578 19.5325 17.8453 19.845C17.5327 20.1576 17.1088 20.3332 16.6667 20.3332H8.33341C7.89139 20.3332 7.46746 20.1576 7.1549 19.845C6.84234 19.5325 6.66675 19.1085 6.66675 18.6665V6.99984H18.3334Z'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M14.1667 11.1665V16.1665'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M10.8333 11.1665V16.1665'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+						</svg>
+						Удалить
+					</RedButton>
 				</div>
 			</Modal>
 			<Modal
@@ -274,7 +314,7 @@ function SendsTable() {
 					<span className={s.edit__dot}>•</span> 10 000 ₽
 				</ModalSubTitle>
 				<div className={s.edit__item}>
-					<Field hide={false} icon={'/icons/user.svg'} className={s.editField}>
+					<Field hide={false} icon={'person'} className={s.editField}>
 						Получатель
 					</Field>
 					<p className={clsx(s.edit__text)}>
@@ -285,8 +325,9 @@ function SendsTable() {
 				<div className={s.edit__item}>
 					<Field
 						hide={false}
+						hidden={true}
 						className={s.editField}
-						icon={'/icons/calendar.svg'}
+						icon={'calendar'}
 					>
 						Срок действия сертификата
 					</Field>
@@ -297,14 +338,14 @@ function SendsTable() {
 				<TextArea className={s.edit__area}>
 					Укажите от кого сертификат или пожелание
 				</TextArea>
-				<Button
+				<PrimaryButton
 					onClick={() => {
 						setEditCertificateM(false)
 						setSafe(true)
 					}}
 				>
 					Сохранить изменения
-				</Button>
+				</PrimaryButton>
 			</Modal>
 			<Modal
 				onClick={setDeleteCertificateM}
@@ -323,19 +364,57 @@ function SendsTable() {
 					hide={false}
 					hidden={true}
 					className={s.delete}
-					placeholder={'Удалить сертификат'}
+					placeholder={' '}
 					onChange={checkField}
 				>
 					Введите текст
 				</Field>
 				<div className={s.table__modalButtons + ' ' + s.table__hide}>
-					<DeleteButton
+					<RedButton
 						disabled={!isConfirm}
 						onClick={() => {
 							setDeleteCertificateM(false)
 							setDeleteCertificate(true)
 						}}
-					/>
+					>
+						<svg
+							width='25'
+							height='24'
+							viewBox='0 0 25 24'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<path
+								d='M5 7H6.66667H20'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M9.16675 6.99984V5.33317C9.16675 4.89114 9.34234 4.46722 9.6549 4.15466C9.96746 3.8421 10.3914 3.6665 10.8334 3.6665H14.1667C14.6088 3.6665 15.0327 3.8421 15.3453 4.15466C15.6578 4.46722 15.8334 4.89114 15.8334 5.33317V6.99984M18.3334 6.99984V18.6665C18.3334 19.1085 18.1578 19.5325 17.8453 19.845C17.5327 20.1576 17.1088 20.3332 16.6667 20.3332H8.33341C7.89139 20.3332 7.46746 20.1576 7.1549 19.845C6.84234 19.5325 6.66675 19.1085 6.66675 18.6665V6.99984H18.3334Z'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M14.1667 11.1665V16.1665'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M10.8333 11.1665V16.1665'
+								stroke='white'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+						</svg>
+						Удалить
+					</RedButton>
 				</div>
 				<div className={s.table__mobButtons}>
 					<DeleteButton
@@ -366,6 +445,11 @@ function SendsTable() {
 			<Alert state={setSafe} active={isSafe} icon={'/icons/success.svg'}>
 				Сохранено!
 			</Alert>
+			<SendsInformation dashed={false}>
+				<h3 className={s.empty}>
+					К сожалению, подходящих сертификатов не найдено
+				</h3>
+			</SendsInformation>
 		</>
 	)
 }

@@ -20,7 +20,7 @@ const PageNum: FC<PropsWithChildren<IPageNum>> = ({
 				onClick(to)
 			}}
 		>
-			{children}
+			<span className={s.button__text}>{children}</span>
 		</button>
 	)
 }

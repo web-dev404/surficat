@@ -9,6 +9,7 @@ import Window from '@/common/Window/Window'
 import Empty from '@/layout/Empty'
 
 import s from './Password.module.scss'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 const Password = () => {
 	return (
@@ -28,7 +29,7 @@ const Password = () => {
 					<Field hide={false}>Ваш email</Field>
 				</div>
 				<Link href={'/congratulation'} className={s.password__button}>
-					<Button>Отправить письмо</Button>
+					<PrimaryButton>Отправить письмо</PrimaryButton>
 				</Link>
 				<p className={s.password__subButton}>
 					Вспомнили пароль?{' '}

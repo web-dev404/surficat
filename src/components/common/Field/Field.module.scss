@@ -2,7 +2,7 @@
 .field {
 	display: block;
 	position: relative;
-	margin-bottom: 25px;
+	margin-bottom: 24px;
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -21,13 +21,22 @@
 		line-height: 26px;
 		color: $mainText;
 		vertical-align: bottom;
+		transition: $transition_fast;
+		&:hover {
+			border-color: #232124;
+		}
 		&:focus {
-			outline: 1px solid $purple;
+			border-color: $purple;
 			& + span {
 				color: $purple;
 				font-size: 12px;
 				line-height: 20px;
 				top: 5px;
+			}
+			& + span + .field__icon {
+				path {
+					stroke: $purple;
+				}
 			}
 		}
 	}
@@ -53,7 +62,6 @@
 	}
 	&__fill {
 		span {
-			color: $purple;
 			font-size: 12px;
 			line-height: 20px;
 			top: 5px;
@@ -69,7 +77,7 @@
 		pointer-events: none;
 		transition: $transition_fast;
 		position: absolute;
-		top: 13px;
+		top: 16px;
 		left: 20px;
 		color: $gray;
 		letter-spacing: 0px;
@@ -102,6 +110,9 @@
 		top: 16px;
 		left: 20px;
 		position: absolute;
+		path {
+			transition: $transition_fast;
+		}
 	}
 	@media ($media_xs2) {
 		&__profile {

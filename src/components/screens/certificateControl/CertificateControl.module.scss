@@ -2,6 +2,7 @@
 .control {
 	&__buttons {
 		display: flex;
+		column-gap: 20px;
 	}
 	&__button {
 		border: 1.5px solid $border;
@@ -66,7 +67,7 @@
 			margin-bottom: 32px;
 		}
 		&__subText {
-			display: none;
+			margin-bottom: 20px;
 		}
 		&__hide {
 			display: none;
@@ -76,6 +77,9 @@
 			flex-direction: column;
 			gap: 16px;
 		}
+		&__delText {
+			margin-bottom: 12px;
+		}
 	}
 }
 .small {
@@ -84,7 +88,10 @@
 }
 .red {
 	color: #ff4d50;
-	margin-bottom: 19px;
+	margin-bottom: 16px;
+	@media ($media_xs2) {
+		margin-bottom: 12px;
+	}
 }
 .delete {
 	input:placeholder-shown + span {
@@ -136,7 +143,7 @@
 	}
 	@media ($media_xs2) {
 		&__item {
-			margin-bottom: 22px;
+			margin-bottom: 24px;
 			&__text:nth-child(2) {
 				display: none;
 			}
@@ -145,6 +152,10 @@
 			font-size: 24px;
 			line-height: 34px;
 			margin-bottom: 16px;
+		}
+		&__area {
+			height: 150px;
+			margin-bottom: 24px;
 		}
 	}
 }

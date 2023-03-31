@@ -11,6 +11,13 @@
 	&__header {
 		cursor: pointer;
 		position: relative;
+		&:hover {
+			.item__icon {
+				path {
+					stroke: $purple;
+				}
+			}
+		}
 	}
 	&__title {
 		padding-right: 48px;
@@ -26,9 +33,12 @@
 	}
 	&__icon {
 		position: absolute;
-		right: 1px;
-		top: 2px;
-		transition: 0.3s;
+		right: 0px;
+		top: 1px;
+		transition: $transition_fast;
+		path {
+			transition: $transition_fast;
+		}
 		&_active {
 			transform: scale(-1);
 		}

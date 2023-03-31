@@ -1,8 +1,9 @@
 import type { NextPage } from 'next'
-import Sends from "@/screens/sends/Sends";
+
+import Sends from '@/screens/sends/Sends'
 
 const SendsPage: NextPage = () => {
-    return <Sends></Sends>
+	return <Sends />
 }
 
 export default SendsPage

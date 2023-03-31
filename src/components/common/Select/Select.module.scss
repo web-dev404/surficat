@@ -8,6 +8,10 @@
 	border: 1px solid #eaecf1;
 	border-radius: 8px;
 	cursor: pointer;
+	transition: $transition_fast;
+	&:hover {
+		border-color: $mainText;
+	}
 	&__wrapper {
 		position: relative;
 		padding: 15px 20px;

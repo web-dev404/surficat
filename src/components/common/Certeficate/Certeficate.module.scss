@@ -39,10 +39,7 @@
 	}
 
 	&__inner {
-		margin: 65px 16px 48px 64px;
-		padding-right: 40px;
-		overflow-y: auto;
-		max-height: 468px;
+		padding: 65px 64px 48px 64px;
 
 		&:after {
 			content: '';
@@ -98,6 +95,34 @@
 			max-height: none;
 			margin: 0;
 		}
+	}
+
+	&__price {
+		display: block;
+		font-weight: 600;
+		font-size: 22px;
+		line-height: 32px;
+		color: $purple;
+		margin-bottom: 14px;
+	}
+
+	&__dot {
+		margin: 0 5px;
+	}
+
+	&__title {
+		font-weight: 600;
+		font-size: 40px;
+		line-height: 52px;
+		margin-bottom: 28px;
+	}
+
+	&__text {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 26px;
+		max-height: 230px;
+		overflow-y: auto;
 
 		&::-webkit-scrollbar {
 			width: 8px;
@@ -117,32 +142,6 @@
 		&::-webkit-scrollbar-thumb:hover {
 			background: #eaecf1;
 		}
-	}
-
-	&__price {
-		display: block;
-		font-weight: 600;
-		font-size: 22px;
-		line-height: 32px;
-		color: $purple;
-		margin-bottom: 17px;
-	}
-
-	&__dot {
-		margin: 0 5px;
-	}
-
-	&__title {
-		font-weight: 600;
-		font-size: 40px;
-		line-height: 52px;
-		margin-bottom: 28px;
-	}
-
-	&__text {
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 26px;
 	}
 
 	&__bottom {
@@ -200,6 +199,7 @@
 	}
 
 	&__disable {
+		opacity: 0.6;
 		color: #787486;
 		font-weight: 500;
 		font-size: 18px;
@@ -207,16 +207,7 @@
 	}
 
 	&__shareBtn {
-		cursor: auto;
-		position: relative;
-		font-family: 'Gilroy';
-		color: #787486;
-		border: 1px solid #eaecf1;
-		border-radius: 6px;
-		font-weight: 600;
-		font-size: 16px;
-		line-height: 24px;
-		padding: 12px 32px;
+		max-width: 152px;
 	}
 
 	&__shareIcon {
@@ -234,6 +225,7 @@
 	}
 
 	&__has {
+		opacity: 1;
 		font-weight: 600;
 		color: $mainText;
 	}
@@ -273,6 +265,7 @@
 	}
 
 	&__dateMob {
+		opacity: 0.6;
 		display: none;
 	}
 
@@ -318,8 +311,7 @@
 			margin-bottom: 16px;
 		}
 		&__shareBtn {
-			width: 100%;
-			background: $white;
+			max-width: none;
 		}
 		&__date {
 			border-top: 1px solid $border;
@@ -333,7 +325,7 @@
 			grid-template-columns: 100%;
 		}
 		&__inner {
-			padding: 23px 0 30px;
+			padding: 24px 0 32px;
 		}
 		&__slider {
 			border-radius: 8px;
@@ -341,7 +333,7 @@
 		&__price {
 			font-size: 16px;
 			line-height: 24px;
-			margin-bottom: 10px;
+			margin-bottom: 8px;
 		}
 		&__sliderPreview {
 			border-radius: 0;
@@ -381,7 +373,7 @@
 			flex-wrap: wrap;
 			flex-direction: column;
 			align-items: center;
-			padding: 32px 28px 17px;
+			padding: 32px 28px 16px;
 		}
 		&__userAvatar {
 			width: 64px;
@@ -392,7 +384,7 @@
 		&__userName {
 			font-size: 16px;
 			line-height: 26px;
-			margin-bottom: 3px;
+			margin-bottom: 2px;
 		}
 		&__userBtn {
 			max-width: none;
@@ -429,7 +421,9 @@
 	}
 
 	&__photo {
-		margin-bottom: 20px;
+		width: 104px;
+		height: 104px;
+		margin-bottom: 24px;
 	}
 
 	&__title {
@@ -453,12 +447,12 @@
 		&__photo {
 			width: 64px;
 			height: 64px;
-			margin-bottom: 15px;
+			margin-bottom: 16px;
 		}
 		&__title {
 			font-size: 16px;
 			line-height: 26px;
-			margin-bottom: 3px;
+			margin-bottom: 2px;
 		}
 		&__inner {
 			margin-bottom: 20px;

@@ -1,13 +1,13 @@
 @import '@/styles/_variables.scss';
 .table {
 	width: 100%;
-	padding: 0 16px 0 22px;
 	background: $white;
 	border-width: 1px 1px 1px 1px;
 	border-style: solid;
 	border-color: #eaecf1;
 	border-radius: 8px;
 	margin-bottom: 32px;
+	border-spacing: 0;
 	&__mob {
 		display: none;
 	}
@@ -60,39 +60,39 @@
 	&__pagination {
 		width: max-content;
 		display: flex;
-		padding: 8px 14px;
+		padding: 7px 7px;
 		background: $white;
 		border: 1px solid $border;
 		border-radius: 8px;
-		column-gap: 9px;
+		column-gap: 8px;
 		align-items: center;
 	}
 	&__buttons {
 		display: flex;
-		column-gap: 20px;
+		column-gap: 8px;
 	}
 	&__arrIcon {
 		display: block;
 	}
 	thead {
 		td {
-			padding: 13px 16px;
+			padding: 12px 13px 14px;
 			&:first-child {
-				padding-left: 0;
+				padding-left: 22px;
 			}
 			&:last-child {
-				padding-right: 0;
+				padding-right: 19px;
 			}
 		}
 	}
 	tbody {
 		td {
-			padding: 10px 16px;
+			padding: 10px 14px 12px;
 			&:first-child {
-				padding-left: 0;
+				padding-left: 22px;
 			}
 			&:last-child {
-				padding-right: 0;
+				padding-right: 19px;
 			}
 		}
 	}
@@ -105,6 +105,22 @@
 	}
 	&__more {
 		display: none;
+	}
+	&__paginationButton {
+		border-radius: 8px;
+		width: 32px;
+		height: 32px;
+		position: relative;
+		transition: $transition_fast;
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		&:hover {
+			background: #f5f5f6;
+		}
 	}
 	@media ($media_xs2) {
 		display: none;
@@ -138,6 +154,7 @@
 			font-weight: 500;
 			font-size: 14px;
 			line-height: 24px;
+			margin-bottom: 20px;
 		}
 		&__modalButtons {
 			flex-direction: column-reverse;
@@ -178,7 +195,7 @@
 	}
 	@media ($media_xs2) {
 		&__item {
-			margin-bottom: 22px;
+			margin-bottom: 20px;
 			&__text:nth-child(2) {
 				display: none;
 			}
@@ -201,11 +218,15 @@
 .red {
 	color: #ff4d50;
 	margin-bottom: 16px;
+	@media ($media_xs2) {
+		margin-bottom: 12px;
+	}
 }
 .big {
 	@media ($media_xs2) {
 		font-size: 24px;
 		line-height: 34px;
+		margin-bottom: 32px;
 	}
 }
 .edit {
@@ -216,18 +237,14 @@
 	}
 }
 .editField {
-	margin-bottom: 7px;
+	margin-bottom: 6px;
+	&:last-child {
+		margin-bottom: 0;
+	}
 	input {
 		padding-left: 60px;
-		&:focus {
-			outline: none;
-			& + span {
-				color: #787486;
-			}
-		}
 	}
 	span {
-		color: #787486;
 		left: 60px;
 	}
 }
@@ -239,7 +256,6 @@
 	text-align: center;
 }
 .delete {
-	input:placeholder-shown + span,
 	input:not(:placeholder-shown) + span {
 		color: #787486;
 		font-size: 12px;
@@ -284,5 +300,22 @@
 .mobHide {
 	@media ($media_xs2) {
 		display: none;
+	}
+}
+.cancelButton {
+	transition: $transition_fast;
+	svg {
+		path {
+			transition: $transition_fast;
+		}
+	}
+	&:hover {
+		color: $white;
+		background-color: $red;
+		svg {
+			path {
+				stroke: $white;
+			}
+		}
 	}
 }

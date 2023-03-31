@@ -6,6 +6,7 @@ import Window from '@/common/Window/Window'
 import Empty from '@/layout/Empty'
 
 import s from './NewPassword.module.scss'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 const NewPassword = () => {
 	return (
@@ -18,7 +19,7 @@ const NewPassword = () => {
 					<Field hide={true}>Введите новый пароль</Field>
 					<Field hide={true}>Повторите пароль</Field>
 				</div>
-				<Button>Сохранить пароль</Button>
+				<PrimaryButton>Сохранить пароль</PrimaryButton>
 			</Window>
 		</Empty>
 	)

@@ -24,12 +24,12 @@ function Sends() {
 				{items.length > 0 && (
 					<>
 						<div className={s.sends__filter}>
-							<Filter></Filter>
+							<Filter />
 						</div>
-						<SendsTable></SendsTable>
+						<SendsTable />
 					</>
 				)}
-				{!(items.length > 0) && (
+				{items.length > 0 && (
 					<SendsInformation dashed={true}>
 						<h2 className={s.sends__filter__info}>
 							Здесь будут отображаться ваши отправленные сертификаты. Их можно

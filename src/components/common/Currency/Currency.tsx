@@ -8,7 +8,10 @@ import styles from '@/screens/certificateInfo/cerrtificateInfo.module.scss'
 
 import s from './Currency.module.scss'
 
-const Currency = () => {
+interface ICurrency {
+	disabled?: boolean
+}
+const Currency = ({ disabled }: ICurrency) => {
 	const options = ['Рубли, ₽', 'Dollars', 'Euro']
 	const [value, setValue] = useState(options[0])
 	const [show, setShow] = useState(false)
@@ -33,7 +36,7 @@ const Currency = () => {
 			<div
 				className={s.valute__header}
 				onClick={() => {
-					setShow(!show)
+					!disabled && setShow(true)
 				}}
 			>
 				<span>{value}</span>

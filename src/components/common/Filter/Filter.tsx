@@ -63,7 +63,7 @@ function Filter() {
 					hide={false}
 					className={s.search}
 					placeholder={' '}
-					icon={'/icons/search.svg'}
+					icon={'search'}
 				>
 					Поиск по номеру сертификата
 				</Field>

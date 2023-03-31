@@ -1,11 +1,20 @@
-.congratulation{
-  &__title{
-    margin-bottom: 16px;
-  }
-  &__text{
-    margin-bottom: 32px;
-  }
-  &__button{
-    display: block;
-  }
+@import '@/styles/_variables.scss';
+.congratulation {
+	&__title {
+		margin-bottom: 16px;
+	}
+	&__text {
+		margin-bottom: 32px;
+	}
+	&__button {
+		display: block;
+	}
+	@media ($media_xs2) {
+		&__title {
+			margin-bottom: 12px;
+		}
+		&__text {
+			margin-bottom: 24px;
+		}
+	}
 }

@@ -6,11 +6,11 @@
 	left: 0;
 	width: 100%;
 	display: block;
-	padding: 16px 0 10px 0;
 	background: $white;
 	border-bottom: 1px solid #eaecf1;
 	z-index: 999;
 	&__inner {
+		padding: 16px 0 12px 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-start;
@@ -23,7 +23,9 @@
 			width: 85px;
 			height: 25px;
 		}
-		padding: 11px 0 7px;
+		&__inner {
+			padding: 11px 0 7px;
+		}
 	}
 }
 

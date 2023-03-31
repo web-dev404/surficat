@@ -1,6 +1,6 @@
 @import '@/styles/_variables.scss';
 .sends__filter {
-	margin-bottom: 28px;
+	margin-bottom: 32px;
 	&__info {
 		font-weight: 500;
 		font-size: 18px;
@@ -13,7 +13,7 @@
 		color: #6d54fe;
 	}
 	@media ($media_xs2) {
-		margin-bottom: 22px;
+		margin-bottom: 24px;
 		&__info {
 			max-width: 255px;
 			font-size: 14px;

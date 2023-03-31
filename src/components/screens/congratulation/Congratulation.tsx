@@ -8,6 +8,7 @@ import Window from '@/common/Window/Window'
 import Empty from '@/layout/Empty'
 
 import s from './Congratulation.module.scss'
+import PrimaryButton from '@/components/UI/PrimaryButton/PrimaryButton'
 
 const Congratulation = () => {
 	return (
@@ -23,7 +24,7 @@ const Congratulation = () => {
 					</SubTitle>
 				</div>
 				<Link href={'/enter'} className={s.password__button}>
-					<Button>Войти</Button>
+					<PrimaryButton>Войти</PrimaryButton>
 				</Link>
 			</Window>
 		</Empty>

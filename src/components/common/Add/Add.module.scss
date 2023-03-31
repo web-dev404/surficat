@@ -8,6 +8,20 @@
 		font-size: 16px;
 		line-height: 26px;
 		color: $purple;
+		transition: $transition_fast;
+		&:hover {
+			color: $dark;
+		}
+		svg {
+			path {
+				transition: $transition_fast;
+			}
+		}
+		&:hover svg {
+			path {
+				stroke: $dark;
+			}
+		}
 	}
 	&__plus {
 		margin-right: 8px;
@@ -16,8 +30,8 @@
 		&__add {
 			font-weight: 600;
 			padding: 4px;
-			background: #ffffff;
-			border: 1.5px solid #eaecf1;
+			background: $white;
+			border: 1.5px solid $border;
 			border-radius: 4px;
 			color: $mainText;
 			font-size: 14px;

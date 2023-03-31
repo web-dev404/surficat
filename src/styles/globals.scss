@@ -14,6 +14,10 @@ body {
 	height: 100vh;
 	background: $white;
 }
+.flex-center {
+	display: flex;
+	align-items: center;
+}
 body {
 	font-family: Gilroy, sans-serif;
 	overflow-x: hidden;
@@ -117,8 +121,10 @@ body {
 	transform: translate(-50%, 100%);
 	transition: opacity 300ms, transform 300ms;
 }
+.ButtonM {
+	height: 48px !important;
+}
 .container {
-	overflow: hidden;
 	max-width: 1200px;
 	width: 100%;
 	padding: 0 20px;
@@ -130,7 +136,7 @@ body {
 	margin: 0 auto;
 }
 .container-esm {
-	max-width: 961px;
+	max-width: 962px;
 	width: 100%;
 	margin: 0 auto;
 }
@@ -160,7 +166,7 @@ body {
 		left: 50% !important;
 		transform: translateX(-50%);
 		border-radius: 48px;
-		bottom: 22px !important;
+		bottom: 24px !important;
 		display: flex;
 	}
 	.swiper-pagination-bullet {
@@ -187,6 +193,9 @@ body {
 		justify-content: center;
 		opacity: 0;
 		transition: $transition_fast;
+		&:hover {
+			background: $dark;
+		}
 	}
 	&__prev {
 		left: 24px;
@@ -194,4 +203,7 @@ body {
 	&__next {
 		right: 24px;
 	}
+}
+.semiBold {
+	font-weight: 600;
 }

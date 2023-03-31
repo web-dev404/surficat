@@ -19,13 +19,22 @@ const FaqItem: FC<PropsWithChildren<IFaqItem>> = ({ children, title }) => {
 				}}
 			>
 				<h2 className={s.item__title}>{title}</h2>
-				<Image
-					src={'/icons/select.svg'}
-					alt={'arrow'}
-					width={20}
-					height={20}
+				<svg
+					width='24'
+					height='24'
+					viewBox='0 0 24 24'
+					fill='none'
+					xmlns='http://www.w3.org/2000/svg'
 					className={s.item__icon + ' ' + (isVisible && s.item__icon_active)}
-				/>
+				>
+					<path
+						d='M7 9.5L12 14.5L17 9.5'
+						stroke='#232124'
+						stroke-width='1.7'
+						stroke-linecap='round'
+						stroke-linejoin='round'
+					/>
+				</svg>
 			</div>
 			<CSSTransition in={isVisible} timeout={0} unmountOnExit>
 				<p className={s.item__text}>{children}</p>

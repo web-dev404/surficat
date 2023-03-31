@@ -31,7 +31,7 @@ const TableRow: FC<PropsWithChildren<ITableRow>> = ({
 }) => {
 	return (
 		<>
-			<tr>
+			<tr className={s.row}>
 				<td className={s.row__cell}>
 					<a href={'#'} className={s.row__number}>
 						{element.num}

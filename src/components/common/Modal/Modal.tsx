@@ -1,11 +1,12 @@
-import cn from 'clsx'
 import clsx from 'clsx'
-import Image from 'next/image'
-import React, { FC, PropsWithChildren, useEffect, useState } from 'react'
+import React, {
+	FC,
+	MouseEvent,
+	PropsWithChildren,
+	useEffect,
+	useState
+} from 'react'
 import { CSSTransition } from 'react-transition-group'
-
-import CloseModal from '@/common/CloseModal/CloseModal'
-import ModalTitle from '@/common/ModalTitle/ModalTitle'
 
 import s from './Modal.module.scss'
 
@@ -39,7 +40,14 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
 			timeout={300}
 			unmountOnExit
 		>
-			<div className={clsx(s.modal, { [s.modal__hide]: onMob })} ref={nodeRef}>
+			<div
+				className={clsx(s.modal, { [s.modal__hide]: onMob })}
+				ref={nodeRef}
+				onClick={(event: MouseEvent<HTMLDivElement>) => {
+					const target = event.target as HTMLDivElement
+					target.contains(nodeRef.current) && hide()
+				}}
+			>
 				<div className={clsx(s.modal__wrapper, className)}>
 					<div
 						className={s.close}
@@ -47,13 +55,29 @@ const Modal: FC<PropsWithChildren<IModal>> = ({
 							hide()
 						}}
 					>
-						<Image
-							src={'/icons/close.svg'}
-							alt={'close'}
-							width={20}
-							height={20}
+						<svg
+							width='20'
+							height='20'
+							viewBox='0 0 20 20'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
 							className={s.close__icon}
-						/>
+						>
+							<path
+								d='M16 4L4 16'
+								stroke='#787486'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+							<path
+								d='M4 4L16 16'
+								stroke='#787486'
+								strokeWidth='1.7'
+								strokeLinecap='round'
+								strokeLinejoin='round'
+							/>
+						</svg>
 					</div>
 					<div
 						className={s.modal__back}

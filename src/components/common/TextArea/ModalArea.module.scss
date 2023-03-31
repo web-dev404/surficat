@@ -1,12 +1,13 @@
 @import '@/styles/_variables.scss';
 .area {
 	position: relative;
+	width: 100%;
+	margin-bottom: 32px;
+	height: 170px;
 	border: 1px solid $border;
 	border-radius: 8px;
-	width: 100%;
-	margin-bottom: 28px;
-	height: 170px;
 	&__inner {
+		border-radius: 8px;
 		padding: 35px 20px;
 		font-weight: 500;
 		font-size: 16px;
@@ -38,6 +39,7 @@
 		line-height: 20px;
 	}
 	@media ($media_xs2) {
+		margin-bottom: 20px;
 		&__placeholder {
 			font-size: 14px;
 			line-height: 24px;

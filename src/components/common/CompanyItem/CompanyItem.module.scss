@@ -6,7 +6,7 @@
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 16px;
-	padding: 15px 20px 16px;
+	padding: 16px 20px 17px;
 	transition: $transition_fast;
 	&Select {
 		background: rgba(109, 84, 254, 0.03);
@@ -79,17 +79,14 @@
 			margin-right: 9px;
 		}
 	}
+	&__buttons {
+		display: flex;
+		column-gap: 12px;
+	}
 	&__button {
 		position: relative;
-		padding: 10px 11px;
-		border: 1.5px solid #eaecf1;
-		border-radius: 4px;
-		margin-right: 12px;
-		&:last-child {
-			margin-right: 0;
-		}
-	}
-	&__buttons {
+		min-width: 40px;
+		max-width: 40px;
 	}
 	&__disable {
 		cursor: auto;
@@ -117,7 +114,7 @@
 		border-radius: 8px;
 		flex-wrap: wrap;
 		padding: 12px 11px;
-		margin-bottom: 11px;
+		margin-bottom: 12px;
 		&__selectBtn {
 			font-family: 'Gilroy';
 			display: flex;
@@ -131,6 +128,7 @@
 			flex-grow: 1;
 			margin-right: 10px;
 			transition: $transition_fast;
+			margin-right: 0;
 		}
 		&__info {
 			display: flex;
@@ -163,6 +161,7 @@
 			margin-bottom: 8px;
 		}
 		&__button {
+			max-width: none;
 			padding: 7px 11px 3px;
 			width: 100%;
 			background: $white;
@@ -174,5 +173,16 @@
 			padding: 7px 8px 3px;
 			width: auto;
 		}
+	}
+}
+.hide {
+	@media ($media_xs2) {
+		display: none;
+	}
+}
+.mob {
+	display: none;
+	@media ($media_xs2) {
+		display: flex;
 	}
 }

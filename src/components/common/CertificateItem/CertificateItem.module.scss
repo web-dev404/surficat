@@ -11,7 +11,7 @@
 	position: relative;
 	&__img {
 		width: 100%;
-		margin-bottom: 16px;
+		margin-bottom: 14px;
 		position: relative;
 		background: #eaecf1;
 		border-radius: 8px;
@@ -46,22 +46,15 @@
 		align-items: center;
 	}
 	&__send {
-		font-family: 'Gilroy';
-		font-weight: 600;
-		border: 1.5px solid #eaecf1;
-		border-radius: 4px;
-		color: $black;
-		font-size: 14px;
-		line-height: 24px;
-		padding: 8px 45px 6px;
-		cursor: pointer;
-		background-color: $white;
 		margin-right: 16px;
-		transition: $transition_fast;
 	}
 	&__send:hover {
 		background: $purple;
 		color: $white;
+	}
+	&__send:active {
+		color: $white;
+		background: #6954e4;
 	}
 	&__img img {
 		display: block;
@@ -82,28 +75,7 @@
 		font-weight: 600;
 	}
 	&__settings {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 40px;
-		height: 40px;
-		cursor: pointer;
-		border: 1.5px solid $border;
-		border-radius: 4px;
-		background-color: $white;
-		transition: $transition_fast;
-		svg {
-			path {
-				transition: $transition_fast;
-			}
-		}
-		&:hover {
-			background: $purple;
-			svg {
-				path {
-					stroke: $white;
-				}
-			}
-		}
+		max-width: 40px;
+		flex-shrink: 0;
 	}
 }

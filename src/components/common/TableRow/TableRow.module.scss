@@ -1,13 +1,10 @@
 @import '@/styles/_variables.scss';
 .row {
-	width: 100%;
-	padding: 0 16px 0 22px;
-	background: $white;
-	border-width: 1px 1px 1px 1px;
-	border-style: solid;
-	border-color: #eaecf1;
-	border-radius: 8px;
-	margin-bottom: 32px;
+	border-top: 1px solid $border;
+	transition: $transition_fast;
+	&:hover {
+		background: rgba(#f5f5f6, 0.4);
+	}
 	&__name {
 		padding: 14px 0;
 		font-weight: 500;
@@ -38,11 +35,10 @@
 		line-height: 26px;
 		border-top: 1px solid $border;
 		&:first-child {
-			width: 104px;
+			width: 132px;
 		}
 		&:nth-child(3) {
-			width: 130px;
-			max-width: 130px;
+			width: 136px;
 		}
 		&:nth-child(6) {
 			width: 137px;
@@ -52,7 +48,7 @@
 		}
 	}
 	&__date {
-		letter-spacing: -1px;
+		font-size: 14px;
 	}
 	&__pagination {
 		width: max-content;
@@ -71,26 +67,26 @@
 	&__arrIcon {
 		display: block;
 	}
-	thead {
-		td {
-			padding: 13px 16px;
-			&:first-child {
-				padding-left: 0;
-			}
-			&:last-child {
-				padding-right: 0;
-			}
-		}
-	}
-	tbody {
-		td {
-			padding: 10px 16px;
-			&:first-child {
-				padding-left: 0;
-			}
-			&:last-child {
-				padding-right: 0;
-			}
-		}
-	}
+	//thead {
+	//	td {
+	//		padding: 13px 16px;
+	//		&:first-child {
+	//			padding-left: 22px;
+	//		}
+	//		&:last-child {
+	//			padding-right: 18px;
+	//		}
+	//	}
+	//}
+	//tbody {
+	//	td {
+	//		padding: 10px 16px;
+	//		&:first-child {
+	//			padding-left: 22px;
+	//		}
+	//		&:last-child {
+	//			padding-right: 18px;
+	//		}
+	//	}
+	//}
 }
