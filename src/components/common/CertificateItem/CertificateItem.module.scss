@@ -78,4 +78,12 @@
 		max-width: 40px;
 		flex-shrink: 0;
 	}
+	@media ($media_xs2) {
+		& &__settings {
+			height: 40px;
+		}
+		& &__send {
+			height: 40px;
+		}
+	}
 }

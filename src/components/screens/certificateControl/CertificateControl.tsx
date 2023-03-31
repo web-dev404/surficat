@@ -45,6 +45,7 @@ const CertificateControl = () => {
 				</div>
 				<div className={s.control__buttons}>
 					<OutlineButton
+						className={s.mobBtn}
 						onClick={() => {
 							setDeleteCertificate(true)
 						}}
@@ -87,6 +88,7 @@ const CertificateControl = () => {
 						</svg>
 					</OutlineButton>
 					<OutlineButton
+						className={s.mobBtn}
 						onClick={() => {
 							router.push('/certificate-edit')
 						}}
@@ -119,10 +121,6 @@ const CertificateControl = () => {
 							</defs>
 						</svg>
 					</OutlineButton>
-					{/*<button*/}
-					{/*	className={clsx(s.control__button, s.control__delete)}*/}
-					{/*></button>*/}
-					{/*<button className={s.control__button}></button>*/}
 					<PrimaryButton
 						className={s.control__submit}
 						onClick={() => {

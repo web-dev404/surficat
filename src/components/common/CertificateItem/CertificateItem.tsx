@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React from 'react'
 
 import s from './CertificateItem.module.scss'
@@ -19,6 +20,7 @@ const CertificateItem = ({
 	price,
 	link
 }: ICertificateItem) => {
+	const router = useRouter()
 	return (
 		<div className={s.item}>
 			<div className={s.item__img}>
@@ -31,8 +33,13 @@ const CertificateItem = ({
 					<OutlineButton size={'small'} className={s.item__send}>
 						Отправить
 					</OutlineButton>
-					{/*<button className={s.item__send}></button>*/}
-					<OutlineButton size={'small'} className={s.item__settings}>
+					<OutlineButton
+						size={'small'}
+						className={s.item__settings}
+						onClick={() => {
+							router.push('/certificate-control')
+						}}
+					>
 						<svg
 							width='16'
 							height='16'
