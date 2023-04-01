@@ -1,11 +1,12 @@
-import clsx from 'clsx'
 import React, { useState } from 'react'
 
-import s from '@/common/CompanyItem/CompanyItem.module.scss'
 import Hint from '@/common/Hint/Hint'
 import TextArea from '@/common/TextArea/TextArea'
 
 import Layout from '@/layout/Layout'
+
+import RefreshIcon from '../public/icons/white-refresh.svg'
+import Settings from '../public/icons/white-settings.svg'
 
 import ButtonBlack from '@/components/UI/ButtonBlack/ButtonBlack'
 import CheckBox from '@/components/UI/CheckBox/CheckBox'
@@ -23,26 +24,186 @@ const ListPage = () => {
 			<h1>Ui-kit List</h1>
 
 			<div className={'list-container'}>
-				<PrimaryButton>Выбрать</PrimaryButton>
-				<PrimaryButton size={'medium'}>s</PrimaryButton>
-				<PrimaryButton size={'small'}>l</PrimaryButton>
-				<PrimaryButton size={'xs'}>xs</PrimaryButton>
-				<PrimaryButton disabled={true}>disabled</PrimaryButton>
-				<OutlineButton>Выбрать</OutlineButton>
-				<OutlineButton size={'medium'}>s</OutlineButton>
-				<OutlineButton size={'small'}>l</OutlineButton>
-				<OutlineButton size={'xs'}>l</OutlineButton>
-				<OutlineButton disabled={true}>disabled</OutlineButton>
-				<RedButton>Выбрать</RedButton>
-				<RedButton size={'medium'}>s</RedButton>
-				<RedButton size={'small'}>l</RedButton>
-				<RedButton size={'xs'}>xs</RedButton>
-				<RedButton disabled={true}>disabled</RedButton>
-				<ButtonBlack>Выбрать</ButtonBlack>
-				<ButtonBlack size={'medium'}>s</ButtonBlack>
-				<ButtonBlack size={'small'}>l</ButtonBlack>
-				<ButtonBlack size={'xs'}>xs</ButtonBlack>
-				<ButtonBlack disabled={true}>disabled</ButtonBlack>
+				<PrimaryButton>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</PrimaryButton>
+				<PrimaryButton size={'medium'}>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</PrimaryButton>
+				<PrimaryButton size={'small'}>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+				</PrimaryButton>
+				<PrimaryButton size={'xs'}>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+				</PrimaryButton>
+				<PrimaryButton disabled={true}>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</PrimaryButton>
+				<OutlineButton>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</OutlineButton>
+				<OutlineButton size={'medium'}>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</OutlineButton>
+				<OutlineButton size={'small'}>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+				</OutlineButton>
+				<OutlineButton size={'xs'}>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+				</OutlineButton>
+				<OutlineButton disabled={true}>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</OutlineButton>
+				<RedButton>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</RedButton>
+				<RedButton size={'medium'}>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</RedButton>
+				<RedButton size={'small'}>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+				</RedButton>
+				<RedButton size={'xs'}>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+				</RedButton>
+				<RedButton disabled={true}>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</RedButton>
+				<ButtonBlack>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</ButtonBlack>
+				<ButtonBlack size={'medium'}>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</ButtonBlack>
+				<ButtonBlack size={'small'}>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+				</ButtonBlack>
+				<ButtonBlack size={'xs'}>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'list-svg-icon-sm'}>
+						<RefreshIcon />
+					</div>
+				</ButtonBlack>
+				<ButtonBlack disabled={true}>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+					<p className={'btn-list-text'}>Button text</p>
+					<div className={'icon'}>
+						<Settings />
+					</div>
+				</ButtonBlack>
 				<Input hide={false} icon={'person'}>
 					Пример
 				</Input>

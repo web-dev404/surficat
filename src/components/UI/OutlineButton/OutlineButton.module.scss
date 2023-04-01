@@ -8,6 +8,7 @@
 	font-weight: 600;
 	font-size: 16px;
 	line-height: 24px;
+	color: #232124;
 	height: 56px;
 	padding: 0 15px;
 	border: 1.5px solid #eaecf1;
@@ -19,6 +20,7 @@
 		display: block;
 		margin-right: 13px;
 		path {
+			stroke: $dark;
 			transition: $transition_fast;
 		}
 	}
@@ -51,13 +53,14 @@
 		color: #787486;
 		svg {
 			path {
-				stroke: #787486;
+				stroke: $gray;
 			}
 		}
 	}
 }
 .medium {
 	height: 48px;
+	border-radius: 6px;
 	@media ($media_xs2) {
 		font-size: 14px;
 		line-height: 24px;
@@ -68,6 +71,7 @@
 	border-radius: 4px;
 	height: 40px;
 	padding: 0 5px;
+	font-size: 14px;
 	@media ($media_xs2) {
 		height: 32px;
 	}
@@ -76,4 +80,5 @@
 	height: 32px;
 	border-radius: 4px;
 	padding: 0 5px;
+	font-size: 14px;
 }

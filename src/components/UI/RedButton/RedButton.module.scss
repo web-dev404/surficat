@@ -14,7 +14,7 @@
 	width: 100%;
 	height: 56px;
 	svg {
-		margin-right: 12px;
+		display: block;
 		path {
 			stroke: $white;
 			transition: $transition_fast;
@@ -44,6 +44,7 @@
 }
 .medium {
 	height: 48px;
+	border-radius: 6px;
 	@media ($media_xs2) {
 		font-size: 14px;
 		line-height: 24px;
@@ -54,9 +55,11 @@
 	border-radius: 4px;
 	height: 40px;
 	padding: 0 5px;
+	font-size: 14px;
 }
 .xs {
 	height: 32px;
 	border-radius: 4px;
 	padding: 0 5px;
+	font-size: 14px;
 }

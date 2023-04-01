@@ -15,6 +15,9 @@
 	border-radius: 8px;
 	transition: $transition_fast;
 	cursor: pointer;
+	svg {
+		display: block;
+	}
 	&:hover {
 		background: #6d54fe;
 	}
@@ -26,6 +29,11 @@
 		border: 1px solid $border;
 		color: $gray;
 		background: #f5f5f6;
+		svg {
+			path {
+				stroke: $gray;
+			}
+		}
 	}
 	@media ($media_xs2) {
 		padding: 12px 0;
@@ -33,6 +41,7 @@
 }
 .medium {
 	height: 48px;
+	border-radius: 6px;
 	@media ($media_xs2) {
 		font-size: 14px;
 		line-height: 24px;
@@ -43,9 +52,11 @@
 	border-radius: 4px;
 	height: 40px;
 	padding: 0 5px;
+	font-size: 14px;
 }
 .xs {
 	height: 32px;
 	border-radius: 4px;
 	padding: 0 5px;
+	font-size: 14px;
 }
